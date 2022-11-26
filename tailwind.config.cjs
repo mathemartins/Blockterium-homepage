@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         primary: "#2B3589",
         primaryFontColor: "#E2E5FF",
+        secondaryColor: "#000",
         secondaryFontColor: "#c1c3d1",
         grey: "rgba(255, 255, 255, 0.5)",
         Lightgrey: "rgba(255, 255, 255, 0.8)",
@@ -15,7 +16,7 @@ module.exports = {
         dimBlue: "rgba(9, 151, 124, 0.1)",
       },
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
+        assistant: ["Assistant"],
       },
     },
     screens: {

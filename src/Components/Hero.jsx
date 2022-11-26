@@ -1,6 +1,5 @@
 import React from "react";
-import Logo from "../assets/Logo.svg";
-import HeroImg from "../assets/HeroImg.svg";
+import { HeroImg, Logo } from "../assets/index";
 
 const Hero = () => {
   return (

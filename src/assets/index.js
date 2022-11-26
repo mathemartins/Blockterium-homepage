@@ -1,0 +1,12 @@
+export { default as BlockchainList } from "./BlockchainList.svg";
+export { default as creatorsCode } from "./creatorsCode.svg";
+export { default as firstValues } from "./firstValues.svg";
+export { default as HeroImg } from "./HeroImg.svg";
+export { default as integratedValues } from "./integratedValues.svg";
+export { default as Interaction } from "./Interaction.svg";
+export { default as Logo } from "./Logo.svg";
+export { default as Motion } from "./Motion Background.svg";
+export { default as practiceIcon } from "./practiceIcon.svg";
+export { default as designSystemIcon } from "./designSystemIcon.svg";
+export { default as taskIcon } from "./taskIcon.svg";
+export { default as registerSliderImg } from "./registerSliderImg.svg";

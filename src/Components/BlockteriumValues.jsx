@@ -22,20 +22,30 @@ const BlockteriumValues = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row justify-between ">
+        <img
+          src={creators}
+          alt=""
+          className="sm:w-[40%] w-full hidden md:block"
+        />
         <article className="md:w-[38%] w-full mt-[10rem]">
           <h2 className="tracking-[0.4rem] sm:text-[13px] text-[18px] title">
-            CREATORS AND BUSINESSES
+            DEVELOPERS
           </h2>
           <h2 className="text-[24px] font-bold my-4 w-[70%]">
-            Seamless integration with massive value.
+            Time and Cost effective
           </h2>
           <p className="text-grey sm:text-[18px] text-[20px]">
-            Our platform readily connects with any ecosystem. We offer infinite
-            scalability and limitless usage for businesses and enterprises.
+            Blockterium offers a framework that reduces the complexity of
+            blockchain development. This, in turn, reduces the cost and time
+            spent on writing codes.
           </p>
           <div className="bg-primary h-[0.157rem] w-[6rem] mt-3"></div>
         </article>
-        <img src={creators} alt="" className="sm:w-[40%] w-full" />
+        <img
+          src={creators}
+          alt=""
+          className="sm:w-[40%] w-full block md:hidden"
+        />
       </div>
     </section>
   );
