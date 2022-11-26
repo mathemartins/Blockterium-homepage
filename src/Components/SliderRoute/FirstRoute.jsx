@@ -1,11 +1,15 @@
 import React from "react";
 import registerSlider from "../../assets/registerSliderImg.svg";
 
-const FirstSlideRoute = () => {
+const FirstRoute = () => {
   return (
     <>
       <div className="motionBackground h-[22rem] w-full md:w-[70%] m-auto rounded-3xl flex text-white items-center gap-12">
-        <img src={registerSlider} alt="" className="max-h-[22rem] md:hidden" />
+        <img
+          src={registerSlider}
+          alt=""
+          className="max-h-[22rem] hidden sm:flex"
+        />
         <article className="">
           <h1 className="text-[28px] font-bold w-[65%] max-w-[70%]">
             Seamless integration with massive value
@@ -24,4 +28,8 @@ const FirstSlideRoute = () => {
   );
 };
 
-export default FirstSlideRoute;
+export default FirstRoute;
+
+// <div className=" h-[22rem] w-full md:w-[70%] m-auto rounded-3xl flex text-white items-center gap-12">
+//   firsttttt slider
+// </div>

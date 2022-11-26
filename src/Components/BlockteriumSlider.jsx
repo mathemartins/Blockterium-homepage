@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Link, Outlet } from "react-router-dom";
-import FirstSlideRoute from "./SliderRoute/firstSlideRoute";
+import FirstRoute from "./SliderRoute/FirstRoute";
 import SecondSlide from "./SliderRoute/SecondSlide";
 
 const BlockteriumSlider = () => {
@@ -13,8 +13,8 @@ const BlockteriumSlider = () => {
         <li>Earn More</li>
       </ul>
       <Routes>
-        <Route path="/" element={<FirstSlideRoute />}></Route>
-        <Route path="set-up" element={<SecondSlide />}></Route>
+        <Route path="/" element={<FirstRoute />} />
+        <Route path="set-up" element={<SecondSlide />} />
       </Routes>
       <Outlet />
     </section>
