@@ -18,6 +18,10 @@
   scroll-behavior: smooth;
 }
 
+/* body {
+  overflow-x: hidden;
+} */
+
 .bg-blue-gradient {
   background: linear-gradient(
     157.81deg,
@@ -123,19 +127,21 @@
   filter: blur(750px);
 }
 
-.signup {
+.BlueGradient {
   background: linear-gradient(248.71deg, #4a59e6 35.98%, #1c2dc7 91.71%);
-  border-radius: 40px;
 }
 
-.login {
+.greyGradient {
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.1) 0%,
     rgba(255, 255, 255, 0.014) 100%
   );
   background-blend-mode: lighten;
-  border-radius: 40px;
+}
+
+.blackGradient {
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.95) 94.8%);
 }
 
 .paraInfo {
@@ -209,4 +215,204 @@
       rgba(74, 89, 230, 0.3) 59.25%,
       rgba(74, 89, 230, 0.1) 91.84%
     );
+}
+
+.slick-center .sliderImg {
+  width: 5rem;
+  height: 5rem;
+}
+
+.slick-center .sliderP {
+  font-size: 18px;
+}
+
+.slider {
+  width: 600px;
+  height: 150px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* .sliderP {
+  padding: 10% 5%;
+} */
+
+.slider div {
+  margin-right: 5px;
+}
+
+.slick-slide {
+  opacity: 0.4;
+  width: 10px;
+}
+
+.slick-center {
+  display: block;
+  max-width: 10% !important;
+  max-height: 20% !important;
+  opacity: 1;
+}
+
+.purpleBlackGradient {
+  background: url("./assets/purpleBlackGradient.svg") center/cover no-repeat;
+}
+
+.lightBg {
+  position: absolute;
+  left: 41.68%;
+  right: -5%;
+  top: 0;
+  bottom: 25%;
+  animation: changeSS 15s ease-in-out infinite;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #2134e1 0deg,
+    #4a59e6 70.5deg,
+    #95b3ff 162.37deg,
+
+    #9a2cab 233.62deg,
+    #e9abf3 310.5deg,
+    #2134e1 360deg
+  );
+  filter: blur(160px);
+  background-size: 400% 400%;
+}
+
+@keyframes changeSS {
+  0% {
+    background-position: 0 50%;
+    transform: translateX(12rem);
+    opacity: 0.5;
+  }
+
+  50% {
+    background-position: 100% 50%;
+    transform: translateX(-10rem);
+    opacity: 0.5;
+  }
+
+  100% {
+    background-position: 0 50%;
+    transform: translateX(12rem);
+    opacity: 0.4;
+  }
+}
+
+/* ********************************************************************* */
+.neww {
+  position: absolute;
+  left: 41.68%;
+  right: -5%;
+  top: 0;
+  bottom: 25%;
+
+  animation: change 15s ease-in-out infinite;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #2134e1 0deg,
+    #4a59e6 70.5deg,
+    #95b3ff 162.37deg,
+
+    #9a2cab 233.62deg,
+    #e9abf3 310.5deg,
+    #2134e1 360deg
+  );
+  filter: blur(120px);
+  background-size: 400% 400%;
+  border-radius: 20%;
+  border-bottom-left-radius: 100%;
+}
+
+@keyframes change {
+  0% {
+    background-position: 0 50%;
+    transform: translateX(18rem);
+  }
+
+  25% {
+    background-position: 50% 100%;
+    transform: matrix(0.88, 0.14, -0.6, 0.98, 0, 0);
+  }
+
+  50% {
+    background-position: 100% 50%;
+    transform: matrix(2, 0.3, 0, 1, 1, 0);
+  }
+  75% {
+    background-position: 0% 50%;
+    transform: matrix(0.68, 0.24, -0.26, 0.98, 0, 0);
+  }
+  100% {
+    background-position: 50 50%;
+    transform: translateX(18rem);
+  }
+}
+
+.footerBg {
+  background: url("./assets//FooterBg.svg") center/cover no-repeat;
+}
+
+.scroll {
+  direction: rtl;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #1c2dc7;
+  border-radius: 20px;
+}
+
+.lightBall {
+  position: absolute;
+  left: 41.68%;
+  right: -5%;
+  top: 0;
+  bottom: 25%;
+  animation: expand 15s ease-in-out infinite;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #2134e1 0deg,
+    #4a59e6 70.5deg,
+    #95b3ff 162.37deg,
+
+    #9a2cab 233.62deg,
+    #e9abf3 310.5deg,
+    #2134e1 360deg
+  );
+  filter: blur(160px);
+  background-size: 400% 400%;
+}
+
+@keyframes expand {
+  0% {
+    background-position: 0 50%;
+    transform: translateX(25rem);
+    opacity: 0.7;
+  }
+
+  50% {
+    background-position: 100% 50%;
+    transform: translateX(25rem);
+    opacity: 0.4;
+  }
+
+  75% {
+    background-position: 50% 100%;
+    transform: translateX(25rem);
+    opacity: 0.7;
+  }
+
+  100% {
+    background-position: 0 50%;
+    transform: translateX(25rem);
+    opacity: 0.7;
+  }
 }

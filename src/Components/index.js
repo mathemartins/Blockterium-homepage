@@ -1,50 +1,95 @@
-import { practiceIcon, designSystemIcon, taskIcon } from "../assets/index";
+import {
+  practiceIcon,
+  designSystemIcon,
+  taskIcon,
+  profilePicture,
+  Star,
+  Database,
+  Clapperboard,
+} from "../assets/index";
 
 export const massiveValues = [
   {
     id: 1,
     img: practiceIcon,
-    title: "Task Management",
-    info: "The process of managing a task through its life cycle. It involves planning, testing, tracking.",
+    title: "Digital Assets",
+    info: "Make seamless transactions in various digital assets supported by Blockterium’s infrastructure.",
   },
 
   {
     id: 2,
     img: designSystemIcon,
-    title: "Design System",
-    info: "The technology by which a process or procedure is performed with minimal human assistance.",
+    title: "Blockchains",
+    info: "Run, deploy, test, and scale your product on about 30+ supported blockchains.",
   },
 
   {
     id: 3,
     img: taskIcon,
-    title: "Best Practices",
-    info: "Creating plan to spend your money, This spending planer is called a budgeting tool for business.",
+    title: "Market data",
+    info: "Access cryptocurrency market data such as price with99% accuracy.",
   },
 
   {
     id: 4,
     img: practiceIcon,
-    title: "Task Management",
-    info: "The process of managing a task through its life cycle. It involves planning, testing, tracking.",
+    title: "DeFi",
+    info: "Access Decentralized Finance services such as staking, borrowing, lending,and lots more.",
   },
 
   {
     id: 5,
     img: practiceIcon,
-    title: "Task Management",
-    info: "The process of managing a task through its life cycle. It involves planning, testing, tracking.",
+    title: "BLT Token",
+    info: "Get discounts when you make payments for our utilities and services with Blockterium’s native token, $BLT.",
   },
 ];
 
-// {
-//     img: ,
-//     title: "Design System",
-//     info: "The technology by which a process or procedure is performed with minimal human assistance.",
-// },
+export const customersReviews = [
+  {
+    img: profilePicture,
+    userName: "James",
+    review:
+      "“– We are a blockchain infrastructure provider enabling businesses and enterprises to seamlessly utilize secure blockchain node protocols to set up, manage, and scale their digital assets-related operations.”",
+  },
 
-// {
-//     img: ,
-//     title: "Best Practices" ,
-//     info: "Creating plan to spend your money, This spending planer is called a budgeting tool for business.",
-// }
+  {
+    img: profilePicture,
+    userName: "James",
+    review:
+      "“– We are a blockchain infrastructure provider enabling businesses and enterprises to seamlessly utilize secure blockchain node protocols to set up, manage, and scale their digital assets-related operations.”",
+  },
+
+  {
+    img: profilePicture,
+    userName: "James",
+    review:
+      "“– We are a blockchain infrastructure provider enabling businesses and enterprises to seamlessly utilize secure blockchain node protocols to set up, manage, and scale their digital assets-related operations.”",
+  },
+
+  {
+    img: profilePicture,
+    userName: "James",
+    review:
+      "“– We are a blockchain infrastructure provider enabling businesses and enterprises to seamlessly utilize secure blockchain node protocols to set up, manage, and scale their digital assets-related operations.”",
+  },
+];
+
+export const coreValues = [
+  {
+    img: Database,
+    info: "Provision of market data as part of our WaaS solution",
+  },
+  {
+    img: Clapperboard,
+    info: "Decentralized peer to peer solution for buying and selling cryptoassets",
+  },
+  {
+    img: Star,
+    info: "Demystified blockchain infrastructure as a service using restful api",
+  },
+  {
+    img: Database,
+    info: "Integrated Defi staking solution that allows us to provide options to businesses on staking their customers assets seamlessly for the best returns",
+  },
+];

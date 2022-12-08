@@ -2,11 +2,18 @@ import React from "react";
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
 import BlockteriumDescrpt from "./Components/BlockteriumDescrpt.section";
-import BlockteriumValues from "./Components/BlockteriumValues";
+import IntegrateWallet from "./Components/IntegrateWallet";
 import BlockteriumUse from "./Components/BlockteriumUse";
-import BlockteriumSlider from "./Components/BlockteriumSlider";
+import BlockteriumAim from "./Components/BlockteriumAim";
+import BlockteriumProducts from "./Components/BlockteriumProducts";
+import BlockteriumAdvantages from "./Components/BlockteriumAdvantanges";
 import BlockteriumIntCards from "./Components/BlockteriumIntCards";
-import Slick from "./Components/Slider";
+import PopularUseCase from "./Components/PopularUseCase";
+import SubscriptionPlan from "./Components/SubscriptionPlan";
+import ReviewQuestions from "./Components/ReviewQuestions";
+import Reviews from "./Components/Reviews";
+import BlockChainEmpowering from "./Components/BlockChainEmpowering";
+import Footer from "./Components/Footer";
 
 export default function App(props) {
   return (
@@ -14,11 +21,28 @@ export default function App(props) {
       <Navbar />
       <Hero />
       <BlockteriumDescrpt />
-      <BlockteriumValues />
+      <IntegrateWallet />
       <BlockteriumUse />
-      <BlockteriumSlider />
+      <BlockteriumAim />
+      <BlockteriumProducts />
+      <BlockteriumAdvantages />
       <BlockteriumIntCards />
-      <Slick />
+      <PopularUseCase />
+      <SubscriptionPlan />
+      <ReviewQuestions />
+      <BlockChainEmpowering />
+      <Footer />
     </div>
   );
 }
+
+/*<BlockteriumSlider />
+      <BlockteriumIntCards />
+      <Slick />
+      <SubscriptionPlan /> */
+
+/* <Reviews /> */
+
+/* <BlockChainEmpowering /> */
+
+/* <Footer /> */
