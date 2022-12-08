@@ -8,7 +8,7 @@ export { default as Decentralised } from "./Decentralised.svg";
 export { default as firstValues } from "./firstValues.svg";
 export { default as FooterBg } from "./FooterBg.svg";
 export { default as HeroImg } from "./HeroImg.svg";
-export { default as integrated } from "./integrated.svg";
+export { default as integrated } from "./Integrated.svg";
 export { default as integratedValues } from "./integratedValues.svg";
 export { default as Interaction } from "./Interaction.svg";
 export { default as Logo } from "./Logo.svg";
