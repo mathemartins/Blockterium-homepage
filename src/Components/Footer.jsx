@@ -3,8 +3,8 @@ import { Logo } from "../assets/index";
 
 const Footer = () => {
   return (
-    <section className="w-full footerBg sm:h-[400px] text-Lightgrey pt-[6rem]  px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem] py-[2rem] lg:[12rem]">
-      <div className="flex flex-col sm:flex-rol gap-24 mb-[4rem] justify-center text-[16px] sm:text-[13px] ">
+    <section className="w-full footerBg sm:h-[400px] text-Lightgrey pt-[6rem] px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
+      <div className="flex flex-col sm:flex-row gap-24 xl:gap-x-32 mb-[4rem] justify-center text-[16px] sm:text-[14px] lg:text-[16px] ">
         <ul>
           <li className="font-semibold sm:text-[18px] text-[20px] mb-3">
             Company
@@ -35,7 +35,7 @@ const Footer = () => {
       </div>
       <div className="text-center flex flex-col justify-center items-center gap-6">
         <img src={Logo} alt="" className="w-[10rem]" />
-        <p className="text-[10.5px] md:w-[50%] text-grey">
+        <p className="text-[11px] md:text-[10.5px]  md:w-[50%] text-grey">
           Capital Software & Services Inc. is a financial technology company and
           is not a bank. Banking services provided by Blue Ridge Bank, N.A.;
           Member FDIC. The Capital Software & Services Inc. Visa® Debit Card is
