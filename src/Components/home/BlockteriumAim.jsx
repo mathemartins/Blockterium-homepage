@@ -1,7 +1,7 @@
 import React from "react";
 
 import { HiOutlineArrowRight } from "react-icons/hi";
-import { creatorsCode } from "../assets/index";
+import { creatorsCode } from "../../assets/index";
 import { AiOutlinePlus } from "react-icons/ai";
 
 const BlockteriumAim = () => {
@@ -21,7 +21,7 @@ const BlockteriumAim = () => {
             blockchain development. This, in turn, reduces the cost and time
             spent on writing codes.
           </p>
-          <button className="BlueGradient w-[12rem] justify-center hover:bg-white px-4 mt-12 text-white flex items-center gap-1 py-1 mb-6">
+          <button className="BlueGradient w-[12rem] justify-center hover:bg-white px-4 mt-12 text-white flex items-center gap-1 py-1 mb-6 rounded-2xl">
             Start for free
             <HiOutlineArrowRight />
           </button>

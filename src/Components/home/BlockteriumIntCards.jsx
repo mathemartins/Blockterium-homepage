@@ -1,5 +1,5 @@
 import React from "react";
-import { massiveValues } from "./index.js";
+import { massiveValues } from "./data.js";
 
 const BlockteriumIntCards = () => {
   return (
@@ -18,7 +18,7 @@ const BlockteriumIntCards = () => {
           return (
             <div key={id} className="">
               <div className="bg-darkestBlue rounded-[20px] w-[100%] h-[20rem] text-white flex flex-col items-center p-8 text-center md:hidden">
-                <img src={img} alt="" />
+                <img src={img} alt="" className="w-12 h-12" />
                 <h2 className="mt-10 mb-4 font-bold text-[20px] md:text-[16px]">
                   {title}
                 </h2>
@@ -27,7 +27,7 @@ const BlockteriumIntCards = () => {
 
               {id <= 3 && (
                 <div className="bg-darkestBlue rounded-[20px] w-[100%] hidden  text-white md:flex flex-col items-center p-8 text-center h-[17rem]">
-                  <img src={img} alt="" />
+                  <img src={img} alt="" className="w-12 h-12" />
                   <h2 className="mt-10 mb-4 font-bold text-[22px]  sm:text-[24px] md:text-[16px] lg:text-[20px] xl:text-[24px]">
                     {title}
                   </h2>
@@ -40,7 +40,7 @@ const BlockteriumIntCards = () => {
               <div className="">
                 {id > 3 && (
                   <div className="bg-darkestBlue rounded-[20px] w-[100%] hidden  text-white md:flex flex-col items-center p-8 text-center h-[17rem] justify-center mx-[50%]">
-                    <img src={img} alt="" />
+                    <img src={img} alt="" className="w-12 h-12" />
                     <h2 className="mt-10 mb-4 font-bold text-[22px]  sm:text-[24px] md:text-[16px] lg:text-[20px] xl:text-[24px]">
                       {title}
                     </h2>

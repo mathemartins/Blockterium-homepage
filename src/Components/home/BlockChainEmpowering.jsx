@@ -1,5 +1,5 @@
 import React from "react";
-import { dashboarb } from "../assets/index";
+import { dashboarb } from "../../assets/index";
 
 const BlockChainEmpowering = () => {
   return (

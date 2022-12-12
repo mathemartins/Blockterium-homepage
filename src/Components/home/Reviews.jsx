@@ -1,6 +1,6 @@
 import React from "react";
 import { videoIcon } from "../assets/index";
-import { customersReviews } from "./index";
+import { customersReviews } from "./data";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

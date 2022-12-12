@@ -6,40 +6,47 @@ import {
   Star,
   Database,
   Clapperboard,
-} from "../assets/index";
+  slide,
+  slides,
+  defi,
+  token,
+  blockchainIcon,
+  digitalAsset,
+  marketDataIcon,
+} from "../../assets/index";
 
 export const massiveValues = [
   {
     id: 1,
-    img: practiceIcon,
+    img: blockchainIcon,
     title: "Digital Assets",
     info: "Make seamless transactions in various digital assets supported by Blockterium’s infrastructure.",
   },
 
   {
     id: 2,
-    img: designSystemIcon,
+    img: digitalAsset,
     title: "Blockchains",
     info: "Run, deploy, test, and scale your product on about 30+ supported blockchains.",
   },
 
   {
     id: 3,
-    img: taskIcon,
+    img: marketDataIcon,
     title: "Market data",
     info: "Access cryptocurrency market data such as price with99% accuracy.",
   },
 
   {
     id: 4,
-    img: practiceIcon,
+    img: defi,
     title: "DeFi",
     info: "Access Decentralized Finance services such as staking, borrowing, lending,and lots more.",
   },
 
   {
     id: 5,
-    img: practiceIcon,
+    img: token,
     title: "BLT Token",
     info: "Get discounts when you make payments for our utilities and services with Blockterium’s native token, $BLT.",
   },
@@ -93,3 +100,5 @@ export const coreValues = [
     info: "Integrated Defi staking solution that allows us to provide options to businesses on staking their customers assets seamlessly for the best returns",
   },
 ];
+
+export const slick = [{ img: slide }, { img: slides }];

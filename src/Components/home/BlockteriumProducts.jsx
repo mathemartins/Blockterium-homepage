@@ -1,11 +1,11 @@
 import React from "react";
-import { Decentralised } from "../assets/index";
-import BlockchainList from "../assets/BlockchainList.svg";
+import { Decentralised } from "../../assets/index";
+// import BlockchainList from "../assets/BlockchainList.svg";
 
 const BlockteriumProducts = () => {
   return (
-    <section className="BlueGradient py-[6rem] lg:py-[12rem] flex flex-col md:flex-row justify-between items-center px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
-      <article className=" text-white ">
+    <section className="BlueGradient py-[6rem] lg:py-[12rem] flex flex-col md:flex-row justify-between items-center px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem] relative overflow-x-hidden">
+      <article className=" text-white z-[2]">
         <p className="tracking-[0.3em] text-[14px] lg:text-[16px]">
           PRODUCTS YOU CAN BUILD ON
         </p>
@@ -18,8 +18,9 @@ const BlockteriumProducts = () => {
           any blockchain of your choice.
         </p>
       </article>
-      <div className="">
-        <img src={Decentralised} className="" alt="" />
+      <div className="pinkBg"></div>
+      <div className="z-[2]">
+        <img src={Decentralised} className="z-[2]" alt="" />
       </div>
     </section>
   );

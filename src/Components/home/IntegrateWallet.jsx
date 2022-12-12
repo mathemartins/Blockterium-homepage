@@ -1,14 +1,13 @@
 import React from "react";
-import creators from "../assets/creatorsCode.svg";
 import { HiOutlineArrowRight } from "react-icons/hi";
 import { AiOutlinePlus } from "react-icons/ai";
-import { integrated } from "../assets/index";
+import { integrated } from "../../assets/index";
 
 const IntegrateWallet = () => {
   return (
-    <section className="bg-black w-full text-white flex flex-col gap-[6rem] pb-[10rem] md:pb-[12rem] px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
+    <section className="bg-black w-full text-white flex flex-col gap-[6rem] pb-[10rem] md:pb-[12rem] px-3 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
       <div className="flex flex-col md:flex-row justify-between items-center relative overflow-x-hidden">
-        <article className="md:w-[38%] w-[80%] ">
+        <article className="md:w-[38%] w-[100%] ">
           <AiOutlinePlus className="h-10 w-10 text-Lightgrey" />
           <h2 className="tracking-[0.4rem] sm:text-[13px] text-[18px] title">
             FOR BUSINESSES
@@ -22,9 +21,9 @@ const IntegrateWallet = () => {
             infinite scalability and limitless usage for businesses and
             enterprises.
           </p>
-          <button className="BlueGradient w-[12rem] justify-center hover:bg-white px-4 mt-12 text-white flex items-center gap-1 py-1 mb-6">
+          <button className="BlueGradient w-[12rem] justify-center hover:bg-white px-4 mt-6 rounded-2xl text-white flex items-center gap-1 py-1 mb-6">
             Get Started
-            <HiOutlineArrowRight />
+            <HiOutlineArrowRight className="animatedIcon" />
           </button>
         </article>
 

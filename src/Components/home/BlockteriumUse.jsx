@@ -1,11 +1,13 @@
 import React from "react";
-import { timesbetter, BetterCoins, timesIcon } from "../assets/index";
-import BlockchainList from "../assets/BlockchainList.svg";
+import { timesbetter, BetterCoins, timesIcon } from "../../assets/index";
+// import BlockchainList from "../../assets/BlockchainList.svg";
 
 const BlockteriumUse = () => {
   return (
-    <section className="BlueGradient py-[6rem] lg:py-[12rem] flex flex-col md:flex-row justify-between items-center px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
-      <article className=" text-white ">
+    <section className="BlueGradient py-[6rem] lg:py-[12rem] flex flex-col md:flex-row justify-between items-center px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem] relative overflow-x-hidden">
+      <div className="purpleBg hidden md:flex"></div>
+      <div className="lightBg md:hidden"></div>
+      <article className=" text-white z-[2] ">
         <p className="tracking-[0.3em] text-[14px]">
           BLOCKTERIUM FOR YOUR PRODUCTS
         </p>

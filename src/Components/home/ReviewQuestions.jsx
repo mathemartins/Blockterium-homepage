@@ -4,13 +4,13 @@ const ReviewQuestions = () => {
   const [showInfo, setShowInfo] = useState(false);
   const [showInfoTwo, setShowInfoTwo] = useState(false);
   const info = (
-    <p className="text-Lightgrey w-[33%] m-auto text-[14px]">
+    <p className="text-Lightgrey w-[80%] sm:w-[45%] md:w-[33%] m-auto  text-[14px]">
       I am extra information that the user would like to see
     </p>
   );
 
   return (
-    <section className="bg-black text-white w-full  py-12">
+    <section className="bg-darkestBlue text-white w-full  py-[6rem]">
       <div className="w-[80%] sm:w-[45%] md:w-[33%] m-auto">
         <h2 className="font-bold text-[36px] text-center tracking-tighter ">
           Frequently asked questions
@@ -22,19 +22,18 @@ const ReviewQuestions = () => {
         </p>
       </div>
 
-      <div className="h-12">
+      <div className="h-14 md:h-12">
         <div className="flex justify-between m-auto items-center w-[80%] sm:w-[45%] md:w-[33%]">
           <p>Where can i watch?</p>
-          <button
-            className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center "
-            onClick={() => setShowInfo(!showInfo)}
-          >
-            {showInfo ? (
-              <p className="font-bold p-1">+</p>
-            ) : (
-              <p className="font-bold pb-1">-</p>
-            )}
-          </button>
+          <div className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center ">
+            <button onClick={() => setShowInfo(!showInfo)}>
+              {showInfo ? (
+                <p className="font-bold">+</p>
+              ) : (
+                <p className="font-bold ">-</p>
+              )}
+            </button>
+          </div>
         </div>
 
         {showInfo && info}

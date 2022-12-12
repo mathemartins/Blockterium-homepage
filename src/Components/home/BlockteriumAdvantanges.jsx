@@ -1,7 +1,7 @@
 import React from "react";
-import { Advantage } from "../assets/index";
+import { Advantage } from "../../assets/index";
 import { HiOutlineArrowRight } from "react-icons/hi";
-import { coreValues } from "./index";
+import { coreValues } from "./data";
 
 const BlockteriumAdvantages = () => {
   return (
@@ -17,14 +17,14 @@ const BlockteriumAdvantages = () => {
           infrastructure.
         </p>
 
-        <button className="BlueGradient w-[12rem] justify-center hover:bg-white px-4 my-12 text-white flex items-center gap-1 py-1">
+        <button className="BlueGradient w-[12rem] justify-center hover:bg-white px-4 my-12 text-white flex items-center gap-1 py-1 rounded-2xl">
           Start for free
           <HiOutlineArrowRight />
         </button>
       </article>
       <div className="relative">
         <img src={Advantage} className="hidden md:flex" alt="" />
-        <div className="md:absolute md:top-7 top-20 grid sm:grid-rows-2 sm:grid-cols-2 gap-x-8 gap-y-16 md:gap-y-2">
+        <div className="md:absolute md:top-7 top-20 grid sm:grid-rows-2 sm:grid-cols-2 gap-x-10 gap-y-16 md:gap-y-2">
           {coreValues.map(({ img, info }) => {
             return (
               <div>
