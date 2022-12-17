@@ -39,3 +39,8 @@ export { default as SubPlanBg } from "./SubPlanBg.svg";
 export { default as sponsors } from "./sponsors.svg";
 export { default as SubPackages } from "./SubPackages.svg";
 export { default as smallScreen } from "./smallScreen.svg";
+
+// ******************** Login Assets **********************
+export { default as LoginImg } from "./LoginImg.svg";
+export { default as Bg } from "./authBg.svg";
+export { default as iphone } from "./iphone.svg";

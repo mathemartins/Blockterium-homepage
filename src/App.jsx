@@ -1,7 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./Components/routes/navigation/Navbar";
-import { HomePage, SignUp, Login, Pricing } from "./Components/routes/index";
+import Navbar from "./routes/navigation/Navbar";
+import { HomePage, SignUp, Login, Pricing } from "./routes/index";
+import DashboardHome from "./Components/Dashboard/dashboardHome";
+// import { RequireAuth } from "./components/";
+// import PersistLogin from "./Components/PersistLogin.jsx";
 // import BlockteriumDescrpt from "./Components/BlockteriumDescrpt.section";
 // import IntegrateWallet from "./Components/IntegrateWallet";
 // import BlockteriumUse from "./Components/BlockteriumUse";
@@ -22,10 +25,12 @@ export default function App(props) {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<HomePage />} />
-          <Route path="sign-up" element={<SignUp />} />
-          <Route path="login" element={<Login />} />
           <Route path="pricing" element={<Pricing />} />
         </Route>
+
+        <Route path="login" element={<Login />} />
+        <Route path="sign-up" element={<SignUp />} />
+        <Route path="/Home" element={<DashboardHome />} />
       </Routes>
 
       {/* <Hero /> */}

@@ -278,6 +278,7 @@
     #4a59e6 70.5deg,
     #95b3ff 162.37deg,
     #9a2cab 233.62deg,
+
     #e9abf3 310.5deg,
     #2134e1 360deg
   );
@@ -318,7 +319,7 @@
   right: -5%;
   top: 0;
   bottom: 35%;
-  background: #e26df4;
+  background: #ea8df8;
   filter: blur(150px);
   background-size: 400% 400%;
   border-radius: 20%;
@@ -418,4 +419,8 @@
   100% {
     transform: translateX(20px);
   }
+}
+
+.authpage {
+  background: url("./assets/authBg.svg") center/cover no-repeat;
 }

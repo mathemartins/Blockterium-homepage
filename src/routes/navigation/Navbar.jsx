@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { Logo } from "../../../assets/index";
+import { Logo } from "../../assets/index";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Button from "../../Button";
+import Button from "../../Components/Button";
 import { HiOutlineArrowLeft } from "react-icons/hi";
 import { Product, Resources } from "../navigation/NavLinks/index";
 
@@ -12,7 +12,7 @@ const Navbar = () => {
   const closeMobileMenu = () => setOpen(false);
   return (
     <>
-      <nav className="bg-black w-full z-10 text-white fixed top-0 py-2 left-0 right-0 px-3 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
+      <nav className="bg-black w-full z-10 text-white fixed top-0 py-1 left-0 right-0 px-3 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
         <div className="flex items-center justify-between text-center text-[13px] lg:text-[16px]">
           <div className="z-50 py-2 md:w-auto w-full flex justify-between">
             <Link to={"./"} onClick={closeMobileMenu}>
@@ -67,7 +67,11 @@ const Navbar = () => {
           >
             <Product />
             <li>
-              <Link to="/" className="py-7 px-3 inline-block">
+              <Link
+                to="/"
+                onClick={closeMobileMenu}
+                className="py-7 px-3 inline-block"
+              >
                 How it Works
               </Link>
             </li>
@@ -82,9 +86,9 @@ const Navbar = () => {
                 Contact Us
               </Link>
             </li>
-            <div className="py-5">
+            <Link to="/login" onClick={closeMobileMenu} className="py-5">
               <Button />
-            </div>
+            </Link>
           </ul>
         </div>
       </nav>

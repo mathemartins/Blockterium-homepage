@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SubPackages } from "../../../assets/index";
+import { SubPackages } from "../../assets/index";
 // import Toggle from "./Toggle";
 
 const Pricing = () => {

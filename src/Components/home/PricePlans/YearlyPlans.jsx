@@ -3,7 +3,7 @@ import {
   timesIcon,
   greyCheckedIcon,
   GreenCheckedIcon,
-} from "../../assets/index";
+} from "../../../assets/index";
 
 const YearlyPlans = () => {
   return (

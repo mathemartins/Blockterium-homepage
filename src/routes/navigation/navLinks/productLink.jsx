@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Product } from "../Mylinks";
+import { Product } from "../MyLinks";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,

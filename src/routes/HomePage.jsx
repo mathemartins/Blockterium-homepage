@@ -12,7 +12,7 @@ import {
   BlockChainEmpowering,
   BlockteriumProducts,
   Footer,
-} from "../home/index";
+} from "../Components/home/index";
 
 const HomePage = () => {
   return (
