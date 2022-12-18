@@ -4,7 +4,7 @@ import { Logo } from "../../assets/index";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Button from "../../Components/Button";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { Product, Resources } from "../navigation/NavLinks/index";
+import { Product, Resources } from "../navigation/navLinks/index";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -86,7 +86,7 @@ const Navbar = () => {
                 Contact Us
               </Link>
             </li>
-            <Link to="/login" onClick={closeMobileMenu} className="py-5">
+            <Link to="/login" className="py-5">
               <Button />
             </Link>
           </ul>
