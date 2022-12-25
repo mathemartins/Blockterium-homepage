@@ -235,6 +235,8 @@
   animation: changeSS 5s ease-in-out infinite;
   background: conic-gradient(
     from 45deg at 50% 50%,
+    180deg at 50% 50%,
+
     #2134e1 0deg,
     #4a59e6 70.5deg,
     #6683cc 162.37deg,
@@ -264,6 +266,22 @@
 }
 
 /* ********************************************************************* */
+.miniLappy {
+  position: absolute;
+  left: 41.68%;
+  right: -5%;
+  top: 0;
+  bottom: 25%;
+  background: #2134e1;
+
+  filter: blur(180px);
+  background-size: 400% 400%;
+  border-radius: 20%;
+  border-bottom-left-radius: 100%;
+  transform: translateX(18rem);
+  transform: translateY(-16rem);
+}
+
 .neww {
   position: absolute;
   left: 41.68%;
@@ -315,15 +333,13 @@
 
 .pinkBg {
   position: absolute;
-  left: 41.68%;
-  right: -5%;
+  left: 60%;
+  right: -2%;
   top: 0;
-  bottom: 35%;
+  bottom: 85%;
   background: #ea8df8;
-  filter: blur(150px);
+  filter: blur(100px);
   background-size: 400% 400%;
-  border-radius: 20%;
-  border-bottom-left-radius: 100%;
 }
 
 .purpleBg {
@@ -423,4 +439,75 @@
 
 .authpage {
   background: url("./assets/authBg.svg") center/cover no-repeat;
+}
+
+.contact {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.56) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-blend-mode: lighten;
+}
+
+.parent:hover .child {
+  border-bottom: 1px solid grey;
+}
+
+.secondchild {
+  visibility: hidden;
+}
+.parent:hover .secondchild {
+  visibility: visible;
+}
+
+.sponsorDiv {
+  position: absolute;
+  left: 0%;
+  right: 61.68%;
+  top: 65%;
+  bottom: 0;
+
+  animation: change 15s ease-in-out infinite;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #2134e1 0deg,
+    #4a59e6 70.5deg,
+    #95b3ff 162.37deg,
+    #9a2cab 233.62deg,
+
+    #e9abf3 310.5deg,
+    #2134e1 360deg
+  );
+  filter: blur(120px);
+  background-size: 400% 400%;
+  border-radius: 20%;
+  border-bottom-left-radius: 100%;
+}
+
+@keyframes change {
+  0% {
+    background-position: 0 50%;
+  }
+
+  25% {
+    background-position: 50% 100%;
+    transform: matrix(0.88, 0.14, -0.6, 0.98, 0, 0);
+  }
+
+  50% {
+    background-position: 100% 50%;
+    transform: matrix(2, 0.3, 0, 1, 1, 0);
+  }
+  75% {
+    background-position: 0% 50%;
+    transform: matrix(0.68, 0.24, -0.26, 0.98, 0, 0);
+  }
+  100% {
+    background-position: 50 50%;
+  }
 }

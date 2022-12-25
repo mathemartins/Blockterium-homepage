@@ -39,8 +39,29 @@ export { default as SubPlanBg } from "./SubPlanBg.svg";
 export { default as sponsors } from "./sponsors.svg";
 export { default as SubPackages } from "./SubPackages.svg";
 export { default as smallScreen } from "./smallScreen.svg";
+export { default as productGradient } from "./productGradientBg.svg";
+
+// ******************** Contact Us Page Assets **********************
+export { default as helpDesk } from "./helpDesk.svg";
+export { default as contactSales } from "./contactSales.svg";
+export { default as discord } from "./discord.svg";
 
 // ******************** Login Assets **********************
 export { default as LoginImg } from "./LoginImg.svg";
 export { default as Bg } from "./authBg.svg";
 export { default as iphone } from "./iphone.svg";
+
+// ******************** Dahboard Assets **********************
+export { default as ColouredLogo } from "./colored-logo.svg";
+export { default as dbIcon } from "./inactive-dashboard.svg";
+export { default as dbActive } from "./dashaboard-colored.svg";
+export { default as profilePicture2 } from "./profilePicture2.svg";
+export { default as testnetIcon } from "./testnet.svg";
+export { default as testnet2Icon } from "./testnet2.svg";
+export { default as Guide1 } from "./guide1.svg";
+export { default as Guide2 } from "./guide2.svg";
+export { default as LimitKey } from "./limitkey.svg";
+export { default as Menuburger } from "./menuburger.svg";
+export { default as ActiveExplore } from "./active-expolore.svg";
+export { default as InactiveExplore } from "./inactive-explore.svg";
+export { default as InactiveDoc } from "./inactive-doc.svg";

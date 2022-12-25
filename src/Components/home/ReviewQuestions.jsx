@@ -3,8 +3,10 @@ import React, { useState } from "react";
 const ReviewQuestions = () => {
   const [showInfo, setShowInfo] = useState(false);
   const [showInfoTwo, setShowInfoTwo] = useState(false);
+  const [showInfoThree, setShowInfoThree] = useState(false);
+  const [showInfoFour, setShowInfoFour] = useState(false);
   const info = (
-    <p className="text-Lightgrey w-[80%] sm:w-[45%] md:w-[33%] m-auto  text-[14px]">
+    <p className="text-Lightgrey  m-auto  text-[14px]">
       I am extra information that the user would like to see
     </p>
   );
@@ -22,9 +24,13 @@ const ReviewQuestions = () => {
         </p>
       </div>
 
-      <div className="h-14 md:h-12">
-        <div className="flex justify-between m-auto items-center w-[80%] sm:w-[45%] md:w-[33%]">
-          <p>Where can i watch?</p>
+      <div
+        className={`mt-3 ${
+          showInfo ? "border border-blue px-3 py-2 h-16" : ""
+        } w-[80%] sm:w-[45%] md:w-[33%] m-auto  `}
+      >
+        <div className="flex justify-between m-auto items-center">
+          <p>What is Blockterium?</p>
           <div className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center ">
             <button onClick={() => setShowInfo(!showInfo)}>
               {showInfo ? (
@@ -39,9 +45,13 @@ const ReviewQuestions = () => {
         {showInfo && info}
       </div>
 
-      <div className="h-12">
-        <div className="flex justify-between m-auto items-center w-[80%] sm:w-[45%] md:w-[33%] mt-3">
-          <p>Where can i watch?</p>
+      <div
+        className={`  mt-3 ${
+          showInfoTwo ? "border border-blue px-3 py-2 h-16" : ""
+        } w-[80%] sm:w-[45%] md:w-[33%] m-auto  `}
+      >
+        <div className={`flex justify-between `}>
+          <p>Our target audience?</p>
           <button
             className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center "
             onClick={() => setShowInfoTwo(!showInfoTwo)}
@@ -55,6 +65,50 @@ const ReviewQuestions = () => {
         </div>
 
         {showInfoTwo && info}
+      </div>
+
+      <div
+        className={`mt-3 ${
+          showInfoThree ? "border border-blue px-3 py-2 h-16" : ""
+        } w-[80%] sm:w-[45%] md:w-[33%] m-auto  `}
+      >
+        <div className="flex justify-between m-auto items-center  ">
+          <p>How to Integrate our API?</p>
+          <button
+            className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center "
+            onClick={() => setShowInfoThree(!showInfoThree)}
+          >
+            {showInfoThree ? (
+              <p className="font-bold p-1">+</p>
+            ) : (
+              <p className="font-bold pb-1">-</p>
+            )}
+          </button>
+        </div>
+
+        {showInfoThree && info}
+      </div>
+
+      <div
+        className={`mt-3 ${
+          showInfoFour ? "border border-blue px-3 py-2 h-16" : ""
+        } w-[80%] sm:w-[45%] md:w-[33%] mx-auto  `}
+      >
+        <div className="flex justify-between m-auto items-center ">
+          <p>Payment Plans</p>
+          <button
+            className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center "
+            onClick={() => setShowInfoFour(!showInfoFour)}
+          >
+            {showInfoFour ? (
+              <p className="font-bold p-1">+</p>
+            ) : (
+              <p className="font-bold pb-1">-</p>
+            )}
+          </button>
+        </div>
+
+        {showInfoFour && info}
       </div>
     </section>
   );

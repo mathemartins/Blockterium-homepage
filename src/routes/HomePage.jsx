@@ -6,17 +6,17 @@ import {
   IntegrateWallet,
   BlockteriumAdvantanges,
   BlockteriumAim,
-  BlockteriumIntCards,
   PopularUseCase,
   BlockteriumUse,
   BlockChainEmpowering,
   BlockteriumProducts,
+  Pricing,
   Footer,
 } from "../Components/home/index";
 
 const HomePage = () => {
   return (
-    <>
+    <div>
       <Hero />
       <Sponsors />
       <IntegrateWallet />
@@ -24,12 +24,12 @@ const HomePage = () => {
       <BlockteriumAim />
       <BlockteriumProducts />
       <BlockteriumAdvantanges />
-      <BlockteriumIntCards />
       <PopularUseCase />
+      <Pricing />
       <ReviewQuestions />
       <BlockChainEmpowering />
       <Footer />
-    </>
+    </div>
   );
 };
 

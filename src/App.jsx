@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./routes/navigation/Navbar";
-import { HomePage, SignUp, Login, Pricing } from "./routes/index";
+import ContactUs from "./Components/home/contactUs";
+import { HomePage, SignUp, Login } from "./routes/index";
 import DashboardHome from "./Components/Dashboard/dashboardHome";
 // import { RequireAuth } from "./components/";
 // import PersistLogin from "./Components/PersistLogin.jsx";
@@ -25,8 +26,9 @@ export default function App(props) {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<HomePage />} />
-          <Route path="pricing" element={<Pricing />} />
         </Route>
+
+        <Route path="contact-us" element={<ContactUs />} />
 
         <Route path="login" element={<Login />} />
         <Route path="sign-up" element={<SignUp />} />

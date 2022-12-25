@@ -4,7 +4,13 @@ import { Logo } from "../../assets/index";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Button from "../../Components/Button";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { Product, Resources } from "../navigation/navLinks/index";
+import {
+  Product,
+  Resources,
+  HowItWorks,
+  Price,
+} from "../navigation/navLinks/index";
+// import Products from "../../Components/home/Products";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -12,9 +18,9 @@ const Navbar = () => {
   const closeMobileMenu = () => setOpen(false);
   return (
     <>
-      <nav className="bg-black w-full z-10 text-white fixed top-0 py-1 left-0 right-0 px-3 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
+      <nav className="bg-black w-full z-10 text-white fixed top-0 py-1 left-0 right-0 px-3 ss:px-6  sm:px-12 lg:px-[6rem] xl:px-[10rem]">
         <div className="flex items-center justify-between text-center text-[13px] lg:text-[16px]">
-          <div className="z-50 py-2 md:w-auto w-full flex justify-between">
+          <div className="z-50 py-2 xsm:w-auto w-full flex justify-between">
             <Link to={"./"} onClick={closeMobileMenu}>
               <img
                 src={Logo}
@@ -23,29 +29,24 @@ const Navbar = () => {
               />
             </Link>
 
-            <div onClick={() => setOpen(!open)} className="md:hidden text-3xl">
+            <div onClick={() => setOpen(!open)} className="xsm:hidden text-3xl">
               {open ? <FaTimes /> : <FaBars />}
             </div>
           </div>
 
-          <ul className="md:flex items-center w-[45%] lg:w-[40%] justify-between  hidden ">
+          <ul className="xsm:flex items-center w-[45%] lg:w-[40%] justify-between  hidden ">
             <Product />
-
-            <li className="hover:cursor-pointer hover:text-Lightgrey">
-              How it Works
-            </li>
-
+            <HowItWorks />
             <Resources />
+            <Price />
 
-            <li className="hover:cursor-pointer hover:text-Lightgrey">
-              <Link to={"./pricing"}>Pricing</Link>
-            </li>
-
-            <li className="hover:cursor-pointer hover:text-Lightgrey">
-              Contact Us
-            </li>
+            <Link to={"./contact-us"}>
+              <li className="hover:cursor-pointer hover:text-Lightgrey">
+                Contact Us
+              </li>
+            </Link>
           </ul>
-          <div className="hidden md:flex  gap-2">
+          <div className="hidden xsm:flex  gap-2">
             <Link to={"./login"} className="greyGradient px-7 rounded-xl py-1">
               Login
             </Link>
@@ -61,28 +62,22 @@ const Navbar = () => {
           {/* Mobile nav */}
           <ul
             className={`
-        md:hidden BlueGradient fixed flex flex-col justify-between items-center w-full top-0 overflow-y-auto bottom-0 pt-[7rem]  pl-4 text-[20px] font-semibold
+        xsm:hidden bg-black fixed flex flex-col justify-between items-center w-full xxs:w-[50%] sm:w-[30%] top-0 overflow-y-auto bottom-0 pt-[7rem]  pl-4 text-[20px] font-semibold
         duration-500 ${open ? "left-0 " : "left-[-100%] "}
        `}
           >
             <Product />
+
+            <HowItWorks />
+
+            <Resources />
+            <Price />
             <li>
               <Link
-                to="/"
+                to={"/contact-us"}
+                className="py-7 px-3 "
                 onClick={closeMobileMenu}
-                className="py-7 px-3 inline-block"
               >
-                How it Works
-              </Link>
-            </li>
-            <Resources />
-            <li>
-              <Link to={"./pricing"} className="py-7 px-3 ">
-                Pricing
-              </Link>
-            </li>
-            <li>
-              <Link to={"./"} className="py-7 px-3 ">
                 Contact Us
               </Link>
             </li>

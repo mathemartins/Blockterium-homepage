@@ -8,149 +8,122 @@ import {
 const YearlyPlans = () => {
   return (
     <div>
-      <article className="flex gap-10  justify-center">
-        <div className="border-r-4 border-b-4 border border-black hover:border-LightBlue  subscription w-[30%] text-[14px] p-3 ">
-          <div>
-            <h2 className="font-semibold text-[16px]">Enterprise</h2>
-            <h2 className="font-bold mt-2 mb-4 text-[16px]">
-              $120 <span className="font-normal text-[14px]">/ Year</span>
-            </h2>
-            <p className="mb-4">
-              Flexible pricing without monthly fees and a 5% fee per
-              transaction.
-            </p>
-          </div>
-
-          <ul className="flex flex-col gap-2">
-            <li className="flex gap-3">
-              <img src={timesIcon} alt="" />
-              <p className="font-bold">5% fee per transaction*</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Unlimited pages</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Unlimited payments</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Email notifications</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Weekly reports</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Customisation options</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>No whitelabel branding</p>
-            </li>
-          </ul>
-
-          <button className="BlueGradient text-white py-1 px-2 my-5">
-            Choose Plan
-          </button>
+      <article className="flex xsm:flex-row flex-col justify-between gap-5 px-12">
+        <div className="xsm:w-[15%] w-full">
+          <h2 className="font-bold text-GreyTwo text-[22px] xsm:mt-8">
+            Choose the best plan for your pocket.
+          </h2>
         </div>
+        <div className="grid xsm:grid-cols-5 xsm:grid-rows-1 sm:grid-cols-2 grid-cols-1 w-full">
+          <div className=" border-4 border-greySix hover:border-LightBlue bg-white  subscription w-full  text-[14px] p-3 ">
+            <div className="pt-4">
+              <h2 className="font-semibold text-[18px]">Free</h2>
+              <h2 className="font-bold mt-1 mb-6 text-[16px]">
+                $0 <span className="font-normal text-[14px]">/ month</span>
+              </h2>
+            </div>
 
-        <div className="border-r-4 border-b-4 border border-black hover:border-LightBlue w-[30%] text-[14px] p-3 ">
-          <div>
-            <h2 className="font-semibold text-[16px]">Enterprise</h2>
-            <h2 className="font-bold mt-2 mb-4 text-[16px]">
-              $360 <span className="font-normal text-[14px]">/ Year</span>
-            </h2>
-            <p className="mb-4">
-              Monthly pricing that automatically adjusts based on your
-              transaction volume.
-            </p>
+            <ul className="flex flex-col gap-3">
+              <li className="">Unlimited API calls</li>
+              <li className="">5rq/s</li>
+              <li className="">Community support</li>
+              <li className="">API Testnets</li>
+              <li className="">Market Data</li>
+            </ul>
+
+            <button className="BlueGradient text-white py-1 px-2 my-5">
+              Choose Plan
+            </button>
           </div>
 
-          <ul className="flex flex-col gap-2">
-            <li className="flex gap-3">
-              <img src={GreenCheckedIcon} alt="" />
-              <p className="font-bold">No transaction fees</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Unlimited pages</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Unlimited payments</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Email notifications</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Weekly reports</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Customisation options</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>No whitelabel branding</p>
-            </li>
-          </ul>
+          <div className="border-4 border-greySix hover:border-LightBlue w-full text-[14px] p-3 ">
+            <div className="pt-4">
+              <h2 className="font-semibold text-[16px]">Starter</h2>
+              <h2 className="font-bold mt-1 mb-6 text-[16px]">
+                $120 <span className="font-normal text-[14px]">/ month</span>
+              </h2>
+            </div>
 
-          <button className="BlueGradient text-white py-1 px-2 my-5">
-            Choose Plan
-          </button>
-        </div>
-
-        <div className="border-r-4 border-b-4 border border-black hover:border-LightBlue w-[30%] text-[14px] p-3 ">
-          <div>
-            <h2 className="font-semibold text-[16px]">Enterprise</h2>
-            <h2 className="font-bold mt-2 mb-4 text-[16px]">
-              $90 <span className="font-normal text-[14px]">/ Year</span>
-            </h2>
-            <p className="mb-4">
-              Flexible pricing without monthly fees and a 5% fee per
-              transaction.
-            </p>
+            <ul className="flex flex-col gap-3">
+              <li className="">1,000,000 API Calls</li>
+              <li className="">200 rq/s</li>
+              <li className="">Community support</li>
+              <li className="">All Main & Testnets</li>
+              <li className="">Market Data</li>
+            </ul>
+            <button className="BlueGradient text-white py-1 px-2 my-5">
+              Choose Plan
+            </button>
           </div>
 
-          <ul className="flex flex-col gap-2">
-            <li className="flex gap-3">
-              <img src={timesIcon} alt="" />
-              <p className="font-bold">5% fee per transaction*</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Unlimited pages</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Unlimited payments</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Email notifications</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Weekly reports</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>Customisation options</p>
-            </li>
-            <li className="flex gap-3">
-              <img src={greyCheckedIcon} alt="" />
-              <p>No whitelabel branding</p>
-            </li>
-          </ul>
+          <div className="border-4 border-greySix hover:border-LightBlue w-full  text-[14px] p-3 ">
+            <div className="pt-4">
+              <h2 className="font-semibold text-[16px]">Basic</h2>
+              <h2 className="font-bold mt-1 mb-6 text-[16px]">
+                $260 <span className="font-normal text-[14px]">/ month</span>
+              </h2>
+            </div>
+            <ul className="flex flex-col gap-3">
+              <li className="">5,000,000 API Calls</li>
+              <li className="">200 rq/s</li>
+              <li className="">Community support</li>
+              <li className="">API Testnets</li>
+              <li className="">Market Data</li>
+            </ul>
 
-          <button className="BlueGradient text-white py-1 px-2 my-5">
-            Choose Plan
-          </button>
+            <button className="BlueGradient text-white py-1 px-2 my-5">
+              Choose Plan
+            </button>
+          </div>
+
+          <div className="border-4 border-greySix hover:border-LightBlue w-full  text-[14px]  ">
+            <div className="bg-veryLightBlue text-LightBlue w-[80%]">
+              <p>Recommended</p>
+            </div>
+            <div className="px-3 py-1">
+              <h2 className="font-semibold text-[16px]">Enterprise</h2>
+              <h2 className="font-bold mt-1 mb-6 text-[16px]">
+                $400 <span className="font-normal text-[14px]">/ month</span>
+              </h2>
+            </div>
+
+            <div className="pb-3">
+              <ul className="flex flex-col gap-3 px-3 ">
+                <li className="">Unlimited API calls</li>
+                <li className="">500 rq/s</li>
+                <li className="">Community support</li>
+                <li className="">API Testnets</li>
+                <li className="">Market Data</li>
+              </ul>
+
+              <div className="px-3">
+                <button className="BlueGradient text-white py-1 px-2 my-5 ">
+                  Choose Plan
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-4 border-greySix hover:border-LightBlue hover:border-2 w-full text-[14px] p-3 ">
+            <div className="pt-4">
+              <h2 className="font-semibold text-[16px]">Custom</h2>
+              <h2 className="font-bold mt-1 mb-6 text-[16px]">
+                $700 <span className="font-normal text-[14px]">/ month</span>
+              </h2>
+            </div>
+
+            <ul className="flex flex-col gap-3">
+              <li className="">Unlimited API calls</li>
+              <li className="">5rq/s</li>
+              <li className="">Community support</li>
+              <li className="">API Testnets</li>
+              <li className="">Market Data</li>
+            </ul>
+
+            <button className="BlueGradient text-white py-1 px-2 my-5">
+              Choose Plan
+            </button>
+          </div>
         </div>
       </article>
     </div>

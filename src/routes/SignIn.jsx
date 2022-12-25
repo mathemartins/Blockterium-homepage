@@ -77,7 +77,7 @@ export default function SignIn(props) {
   }
 
   return (
-    <div className="flex flex-row h-screen w-full bg-black overflow-y-hidden">
+    <div className="flex flex-col sm:flex-row h-screen w-full bg-black overflow-y-hidden">
       <div className="hidden sm:block authpage relative w-[50%] py-6 px-6">
         <Link to="/">
           <img src={Logo} alt="" className="w-[8rem]" />
@@ -92,6 +92,11 @@ export default function SignIn(props) {
           infrastructure.
         </p>
         <img src={iphone} alt="" className="absolute bottom-0 left-[20px]" />
+      </div>
+      <div className="sm:hidden py-16 px-3 ss:px-6">
+        <Link to="/">
+          <img src={Logo} alt="" className="w-[8rem]" />
+        </Link>
       </div>
       <div className="flex flex-col justify-center w-full">
         <div className="bg-darkestGrey mx-auto max-w-[400px] w-full  rounded-lg ">

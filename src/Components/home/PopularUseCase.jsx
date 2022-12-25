@@ -7,11 +7,10 @@ import "slick-carousel/slick/slick-theme.css";
 
 const PopularUseCase = () => {
   const setting = {
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3500,
     speed: 1000,
     infinite: true,
-
     slidesToShow: 1,
     focusOnSelect: false,
     slidesToScroll: 1,

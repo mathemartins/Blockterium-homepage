@@ -1,26 +1,46 @@
 import React from "react";
-import { Decentralised } from "../../assets/index";
+import { Decentralised, productGradient } from "../../assets/index";
+import { products } from "./data";
+import { AiOutlinePlus } from "react-icons/ai";
+
 // import BlockchainList from "../assets/BlockchainList.svg";
 
 const BlockteriumProducts = () => {
   return (
-    <section className="BlueGradient py-[6rem] lg:py-[12rem] flex flex-col md:flex-row justify-between items-center px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem] relative overflow-x-hidden">
-      <article className=" text-white z-[2]">
+    <section
+      className="BlueGradient pt-[6rem] sm:pt-[12rem] pb-[6rem] lg:pb-[8rem] lg:py-[12rem] flex flex-col  px-3 ss:px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem] relative overflow-x-hidden w-full"
+      id="productSection"
+    >
+      <article className=" text-white z-[2] xsm:w-[60%] w-[100%] xsm:mb-12 ">
         <p className="tracking-[0.3em] text-[14px] lg:text-[16px]">
           PRODUCTS YOU CAN BUILD ON
         </p>
-        <h1 className="text-[44px] ss:text-[48px] sm:text-[58px] md:text-[46px] lg:text-[56px] xl:text-[72px] font-bold my-4 md:w-[70%] mb-8 tracking-tighter">
-          Build decentralised applications with unlimited API calls.
+        <h1 className="text-[44px] ss:text-[48px] sm:text-[58px] md:text-[48px] lg:text-[56px] xl:text-[72px] font-bold my-4 xsm:w-[90%] md:w-[80%] mb-8 tracking-tighter">
+          Build decentralised <br /> applications with <br /> unlimited API
+          calls.
         </h1>
-        <p className="text-[22px] ss:text-[24px] sm:text-[28px] md:text-[20px] lg:text-[22px] xl:text-[24px] text-Lightgrey md:w-[70%]">
+        <p className="text-[22px] ss:text-[24px] sm:text-[18px] md:text-[16px] lg:text-[22px] xl:text-[24px] text-Lightgrey xsm:w-[80%] md:w-[60%] w-[100%]">
           Build seamlessly on any supported blockchain without any prior
           blockchain knowledge with Blockterium’s API. Deploy your code once to
           any blockchain of your choice.
         </p>
       </article>
-      <div className="pinkBg"></div>
-      <div className="z-[2]">
+      <img src={productGradient} alt="" className="absolute top-0 right-0 " />
+
+      <div className="z-[2] xsm:hidden">
         <img src={Decentralised} className="z-[2]" alt="" />
+      </div>
+
+      <div className=" grid-cols-3 grid-rows-3 gap-6 z-[5] hidden xsm:grid w-full">
+        {products.map(({ info, title }) => {
+          return (
+            <div className=" text-white border border-dimWhite text-[16px] ss:text-[24px] sm:text-[16px]  lg:text-[22px] xl:text-[24px] px-4 py-3 rounded-xl flex flex-col gap-6">
+              <AiOutlinePlus className="h-5 w-5 " />
+              <h2 className="font-bold ">{title}</h2>
+              <p className="text-Lightgrey">{info}</p>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

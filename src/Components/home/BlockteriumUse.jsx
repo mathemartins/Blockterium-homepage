@@ -4,18 +4,18 @@ import { timesbetter, BetterCoins, timesIcon } from "../../assets/index";
 
 const BlockteriumUse = () => {
   return (
-    <section className="BlueGradient py-[6rem] lg:py-[12rem] flex flex-col md:flex-row justify-between items-center px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem] relative overflow-x-hidden">
-      <div className="purpleBg hidden md:flex"></div>
-      <div className="lightBg md:hidden"></div>
+    <section className="BlueGradient py-[6rem] lg:py-[12rem] flex flex-col xsm:flex-row justify-between items-center px-3 ss:px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem] relative overflow-x-hidden">
+      <div className="purpleBg hidden xsm:flex"></div>
+      <div className="lightBg xsm:hidden"></div>
       <article className=" text-white z-[2] ">
         <p className="tracking-[0.3em] text-[14px]">
           BLOCKTERIUM FOR YOUR PRODUCTS
         </p>
-        <h1 className="text-[44px] ss:text-[48px] sm:text-[58px] md:text-[46px] lg:text-[56px] xl:text-[72px] font-bold my-4 md:w-[70%] mb-8">
+        <h1 className="text-[44px] ss:text-[48px] sm:text-[58px] xsm:text-[46px] lg:text-[56px] xl:text-[72px] font-bold my-4 xsm:w-[70%] mb-8">
           Simplified plug-and-play and built-in payment options for your
           customers.
         </h1>
-        <p className="text-[22px] ss:text-[24px] sm:text-[28px] md:text-[20px] lg:text-[22px] xl:text-[24px] text-Lightgrey md:w-[70%]">
+        <p className="text-[22px] ss:text-[24px] sm:text-[28px] xsm:text-[20px] lg:text-[22px] xl:text-[24px] text-Lightgrey xsm:w-[70%]">
           Even without prior/core knowledge of any web3 resource. you can
           integrate web3 based infrastructure to your crypto payment pages
           effortlessly.
@@ -25,7 +25,7 @@ const BlockteriumUse = () => {
         <img src={BetterCoins} className="" alt="" />
         <img
           src={timesbetter}
-          className="absolute h-[15rem] md:h-[12rem] top-48 md:top-64 lg:top-[18rem] xl:top-[20rem] "
+          className="absolute h-[15rem] xsm:h-[12rem] top-48 md:top-64 lg:top-[18rem] xl:top-[20rem] "
           alt=""
         />
       </div>
