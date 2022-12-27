@@ -175,6 +175,29 @@ export const contactUsPageCards = [
     info: "Creating plan to spend your money, This spending planer is called a budgeting tool for business.",
   },
 ];
+
+export const FrequentQuestions = [
+  {
+    question: "What is Blockterium?",
+    answer:
+      "Blockterium is a blockchain company that facilitates the creation of blockchain and crypto-related applications by supplying all required blockchain APIs. We offer efficient, trustworthy, and consistent solutions that save the stress of blockchain development from start to finish",
+  },
+  {
+    question: "Our target audience?",
+    answer:
+      "We offer many use cases. Our solution targets businesses, enterprises, startups and individual blockchain developer. We have a list of products on our website, and you can contact our support if there be any questions.",
+  },
+  {
+    question: "How to Integrate our API?",
+    answer:
+      "Sign up on our page, and the sales team will walk you through the process step-by-step.",
+  },
+  {
+    question: "Payment Plan",
+    answer:
+      "Our different payment packages are available on the website with no hidden fees; contact the sales team to get started.",
+  },
+];
 // export const massiveValues = [
 //   {
 //     id: 1,

@@ -4,6 +4,12 @@ import Navbar from "./routes/navigation/Navbar";
 import ContactUs from "./Components/home/contactUs";
 import { HomePage, SignUp, Login } from "./routes/index";
 import DashboardHome from "./Components/Dashboard/dashboardHome";
+import DebugIndex from "./Components/Explore/Debug/DebugIndex";
+import SettingsIndex from "./Components/Settings/SettingsIndex";
+import PricingIndex from "./Components/Explore/Pricing/PricingIndex";
+import SubscriptionIndex from "./Components/Explore/Subscription/SubscriptionIndex";
+
+// ************************************************************************************
 // import { RequireAuth } from "./components/";
 // import PersistLogin from "./Components/PersistLogin.jsx";
 // import BlockteriumDescrpt from "./Components/BlockteriumDescrpt.section";
@@ -28,11 +34,16 @@ export default function App(props) {
           <Route index element={<HomePage />} />
         </Route>
 
-        <Route path="contact-us" element={<ContactUs />} />
-
         <Route path="login" element={<Login />} />
         <Route path="sign-up" element={<SignUp />} />
-        <Route path="/Home" element={<DashboardHome />} />
+
+        <Route path="/contact-us" element={<ContactUs />} />
+
+        <Route path="/dashboard" element={<DashboardHome />} />
+        <Route path="/explore/debug" element={<DebugIndex />} />
+        <Route path="/explore/pricing" element={<PricingIndex />} />
+        <Route path="/explore/subscription" element={<SubscriptionIndex />} />
+        <Route path="/settings" element={<SettingsIndex />} />
       </Routes>
 
       {/* <Hero /> */}

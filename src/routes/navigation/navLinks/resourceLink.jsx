@@ -136,7 +136,7 @@ const ResourceLink = () => {
                         ? setSubHeading(slinks.Head)
                         : setSubHeading("")
                     }
-                    className="py-4 pl-7 font-semibold xsm:pr-0 pr-5 flex justify-between items-center"
+                    className="py-3 pl-7 font-semibold xsm:pr-0 pr-5 flex justify-between items-center"
                   >
                     {slinks.Head}
 
@@ -153,11 +153,14 @@ const ResourceLink = () => {
                       subHeading === slinks.Head ? "xsm:hidden" : "hidden"
                     }`}
                   >
-                    {slinks.sublink.map((slink) => (
-                      <li className="py-3 pl-14">
-                        <Link to={slink.link}>{slink.name}</Link>
-                      </li>
-                    ))}
+                    <div className="absolute right-0 w-full bg-darkestBlue rounded-xl p-3 group parent">
+                      {slinks.sublink.map((slink) => (
+                        <div className="py-4">
+                          <p className="mb-2 text-Lightgrey">{slink.title}</p>
+                          <p className="text-grey">{slink.info}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -170,3 +173,27 @@ const ResourceLink = () => {
 };
 
 export default ResourceLink;
+
+{
+  /* {slinks.sublink.map((slink) => (
+                      <li className="py-3 pl-14">
+                        <Link to={slink.link}>{slink.name}</Link>
+                      </li>
+                    ))} */
+}
+
+{
+  /* <div className="bg-darkestBlue w-[30%] rounded-xl p-3 group parent">
+  <div className="flex justify-between items-center border-b-2 border-grey pb-2 child">
+    <h2 className="font-semibold ">HELP AND GUIDE</h2>
+    <span className="secondchild ">
+      <HiOutlineArrowRight />
+    </span>
+  </div>
+  <p className="mt-4 mb-2">Learn</p>
+  <p className="text-Lightgrey">
+    Need help navigating through our platform and use cases? please click learn
+    more below to read up on the utilities.
+  </p>
+</div>; */
+}

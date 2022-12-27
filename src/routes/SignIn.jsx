@@ -11,7 +11,7 @@ export default function SignIn(props) {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/Home";
+  const from = location.state?.from?.pathname || "/dashboard";
 
   const emailRef = React.useRef();
   const errorRef = React.useRef();

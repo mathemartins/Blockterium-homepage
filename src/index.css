@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800;900&display=swap");
+@import "primereact/resources/themes/lara-light-indigo/theme.css";
+@import "../node_modules/primereact/resources/primereact.min.css";
+@import "../node_modules/primeicons/primeicons.css";
 
 @tailwind base;
 @tailwind components;
@@ -509,5 +512,118 @@
   }
   100% {
     background-position: 50 50%;
+  }
+}
+
+/* .rotateEffectParent {
+  position: relative;
+} */
+
+.productCardGrad {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #2134e1 0deg,
+    #4a59e6 70.5deg,
+    #95b3ff 162.37deg,
+    #95b9ff 233.62deg,
+    #9747ff 310.5deg,
+    #2134e1 360deg
+  );
+  transform: matrix(0.88, 0.14, -0.6, 0.98, 0, 0);
+  mix-blend-mode: overlay;
+  filter: blur(30px);
+}
+
+.rotateEffectParent:hover .productCardGrad {
+  visibility: visible;
+  animation: rotateChangeGradient 2s ease-in-out;
+}
+
+@keyframes rotateChangeGradient {
+  0% {
+    transform: rotate(60deg);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: rotate(-60deg);
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* .rotateEffectParent:hover .productCardGrad {
+  visibility: visible;
+  z-index: 2;
+  background: conic-gradient(
+    from 180deg at 50% 50%,
+    #2134e1 0deg,
+    #4a59e6 70.5deg,
+    #95b3ff 162.37deg,
+    #95b9ff 233.62deg,
+    #9747ff 310.5deg,
+    #2134e1 360deg
+  );
+} */
+.rotateEffectParent:hover .rotateEffect {
+  animation: rotateChange 2s ease-in-out;
+  visibility: hidden;
+}
+
+@keyframes rotateChange {
+  0% {
+    opacity: 0.3;
+    visibility: visible;
+  }
+
+  50% {
+    transform: rotate(-40deg);
+    opacity: 0.2;
+  }
+
+  75% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.rotate {
+  visibility: hidden;
+  position: absolute;
+  top: 12px;
+  left: 14px;
+}
+
+.rotateEffectParent:hover .rotate {
+  animation: rotateChanges 2s ease-in-out;
+  visibility: visible;
+}
+
+@keyframes rotateChanges {
+  0% {
+    transform: rotate(60deg);
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  75% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

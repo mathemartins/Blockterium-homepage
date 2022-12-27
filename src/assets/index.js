@@ -40,6 +40,7 @@ export { default as sponsors } from "./sponsors.svg";
 export { default as SubPackages } from "./SubPackages.svg";
 export { default as smallScreen } from "./smallScreen.svg";
 export { default as productGradient } from "./productGradientBg.svg";
+export { default as cone } from "./cone.svg";
 
 // ******************** Contact Us Page Assets **********************
 export { default as helpDesk } from "./helpDesk.svg";
@@ -65,3 +66,9 @@ export { default as Menuburger } from "./menuburger.svg";
 export { default as ActiveExplore } from "./active-expolore.svg";
 export { default as InactiveExplore } from "./inactive-explore.svg";
 export { default as InactiveDoc } from "./inactive-doc.svg";
+export { default as UserIcon } from "./usericon.svg";
+export { default as ArrowDown } from "./arrowdown.svg";
+export { default as ArrowDown2 } from "./arrowdown2.svg";
+export { default as ConfirmIcon } from "./confirm.svg";
+export { default as ForwardIcon } from "./forward.svg";
+export { default as strokeIcon } from "./stroke.svg";

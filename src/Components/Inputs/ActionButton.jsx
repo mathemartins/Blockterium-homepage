@@ -15,8 +15,10 @@ const ActionButton = ({
         onClick={() => onClick()}
         className={`${classnames} `}
       >
-        {btnIcon && <img src={btnIcon} alt="icon" className="mr-2" />}
         {label}
+        {btnIcon && (
+          <img src={btnIcon} alt="icon" className="ml-2 group-hover:ml-4" />
+        )}
       </button>
     </>
   );

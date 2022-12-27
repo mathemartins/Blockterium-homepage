@@ -25,8 +25,8 @@ const ReviewQuestions = () => {
       </div>
 
       <div
-        className={`mt-3 ${
-          showInfo ? "border border-blue px-3 py-2 h-16" : ""
+        className={`my-4 ${
+          showInfo ? "border border-blue px-3 py-2 " : ""
         } w-[80%] sm:w-[45%] md:w-[33%] m-auto  `}
       >
         <div className="flex justify-between m-auto items-center">
@@ -34,20 +34,28 @@ const ReviewQuestions = () => {
           <div className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center ">
             <button onClick={() => setShowInfo(!showInfo)}>
               {showInfo ? (
-                <p className="font-bold">+</p>
-              ) : (
                 <p className="font-bold ">-</p>
+              ) : (
+                <p className="font-bold">+</p>
               )}
             </button>
           </div>
         </div>
 
-        {showInfo && info}
+        {showInfo && (
+          <p className="mt-2 text-Lightgrey">
+            Blockterium is a blockchain company that facilitates the creation of
+            blockchain and crypto-related applications by supplying all required
+            blockchain APIs. We offer efficient, trustworthy, and consistent
+            solutions that save the stress of blockchain development from start
+            to finish
+          </p>
+        )}
       </div>
 
       <div
-        className={`  mt-3 ${
-          showInfoTwo ? "border border-blue px-3 py-2 h-16" : ""
+        className={` my-4 ${
+          showInfoTwo ? "border border-blue px-3 py-2 " : ""
         } w-[80%] sm:w-[45%] md:w-[33%] m-auto  `}
       >
         <div className={`flex justify-between `}>
@@ -57,19 +65,27 @@ const ReviewQuestions = () => {
             onClick={() => setShowInfoTwo(!showInfoTwo)}
           >
             {showInfoTwo ? (
-              <p className="font-bold p-1">+</p>
+              <p className="font-bold ">-</p>
             ) : (
-              <p className="font-bold pb-1">-</p>
+              <p className="font-bold">+</p>
             )}
           </button>
         </div>
 
-        {showInfoTwo && info}
+        {showInfoTwo && (
+          <p className="mt-2 text-Lightgrey ">
+            We offer many use cases. Our solution targets businesses,
+            enterprises, startups and individual blockchain developer. We have a
+            list of products on our{" "}
+            <span className="text-mainBlue">website</span>, and you can contact
+            our support if there be any questions.
+          </p>
+        )}
       </div>
 
       <div
-        className={`mt-3 ${
-          showInfoThree ? "border border-blue px-3 py-2 h-16" : ""
+        className={`my-4 ${
+          showInfoThree ? "border border-blue px-3 py-2" : ""
         } w-[80%] sm:w-[45%] md:w-[33%] m-auto  `}
       >
         <div className="flex justify-between m-auto items-center  ">
@@ -79,19 +95,24 @@ const ReviewQuestions = () => {
             onClick={() => setShowInfoThree(!showInfoThree)}
           >
             {showInfoThree ? (
-              <p className="font-bold p-1">+</p>
+              <p className="font-bold ">-</p>
             ) : (
-              <p className="font-bold pb-1">-</p>
+              <p className="font-bold">+</p>
             )}
           </button>
         </div>
 
-        {showInfoThree && info}
+        {showInfoThree && (
+          <p className="mt-2 text-Lightgrey ">
+            Sign up on our page, and the sales team will walk you through the
+            process step-by-step.
+          </p>
+        )}
       </div>
 
       <div
-        className={`mt-3 ${
-          showInfoFour ? "border border-blue px-3 py-2 h-16" : ""
+        className={`my-4 ${
+          showInfoFour ? "border border-blue px-3 py-2" : ""
         } w-[80%] sm:w-[45%] md:w-[33%] mx-auto  `}
       >
         <div className="flex justify-between m-auto items-center ">
@@ -101,14 +122,19 @@ const ReviewQuestions = () => {
             onClick={() => setShowInfoFour(!showInfoFour)}
           >
             {showInfoFour ? (
-              <p className="font-bold p-1">+</p>
+              <p className="font-bold ">-</p>
             ) : (
-              <p className="font-bold pb-1">-</p>
+              <p className="font-bold">+</p>
             )}
           </button>
         </div>
 
-        {showInfoFour && info}
+        {showInfoFour && (
+          <p className="mt-2 text-Lightgrey ">
+            Our different payment packages are available on the website with no
+            hidden fees; contact the sales team to get started.
+          </p>
+        )}
       </div>
     </section>
   );

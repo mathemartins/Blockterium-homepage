@@ -60,31 +60,33 @@ const Navbar = () => {
           </div>
 
           {/* Mobile nav */}
-          <ul
-            className={`
-        xsm:hidden bg-black fixed flex flex-col justify-between items-center w-full xxs:w-[50%] sm:w-[30%] top-0 overflow-y-auto bottom-0 pt-[7rem]  pl-4 text-[20px] font-semibold
+          <>
+            <ul
+              className={`
+        xsm:hidden bg-black fixed flex flex-col justify-between items-center w-full xs:w-[60%] sm:w-[50%] top-0 overflow-y-auto bottom-0 pt-[7rem]  pl-4 text-[20px] font-semibold
         duration-500 ${open ? "left-0 " : "left-[-100%] "}
        `}
-          >
-            <Product />
+            >
+              <Product onClick={closeMobileMenu} />
 
-            <HowItWorks />
+              <HowItWorks />
 
-            <Resources />
-            <Price />
-            <li>
-              <Link
-                to={"/contact-us"}
-                className="py-7 px-3 "
-                onClick={closeMobileMenu}
-              >
-                Contact Us
+              <Resources />
+              <Price />
+              <li>
+                <Link
+                  to={"/contact-us"}
+                  className="py-7 px-3 "
+                  onClick={closeMobileMenu}
+                >
+                  Contact Us
+                </Link>
+              </li>
+              <Link to="/login" className="py-5">
+                <Button />
               </Link>
-            </li>
-            <Link to="/login" className="py-5">
-              <Button />
-            </Link>
-          </ul>
+            </ul>
+          </>
         </div>
       </nav>
       <Outlet />

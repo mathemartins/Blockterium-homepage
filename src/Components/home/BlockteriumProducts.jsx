@@ -1,5 +1,5 @@
 import React from "react";
-import { Decentralised, productGradient } from "../../assets/index";
+import { Decentralised, productGradient, cone } from "../../assets/index";
 import { products } from "./data";
 import { AiOutlinePlus } from "react-icons/ai";
 
@@ -15,6 +15,7 @@ const BlockteriumProducts = () => {
         <p className="tracking-[0.3em] text-[14px] lg:text-[16px]">
           PRODUCTS YOU CAN BUILD ON
         </p>
+
         <h1 className="text-[44px] ss:text-[48px] sm:text-[58px] md:text-[48px] lg:text-[56px] xl:text-[72px] font-bold my-4 xsm:w-[90%] md:w-[80%] mb-8 tracking-tighter">
           Build decentralised <br /> applications with <br /> unlimited API
           calls.
@@ -34,10 +35,13 @@ const BlockteriumProducts = () => {
       <div className=" grid-cols-3 grid-rows-3 gap-6 z-[5] hidden xsm:grid w-full">
         {products.map(({ info, title }) => {
           return (
-            <div className=" text-white border border-dimWhite text-[16px] ss:text-[24px] sm:text-[16px]  lg:text-[22px] xl:text-[24px] px-4 py-3 rounded-xl flex flex-col gap-6">
-              <AiOutlinePlus className="h-5 w-5 " />
-              <h2 className="font-bold ">{title}</h2>
-              <p className="text-Lightgrey">{info}</p>
+            <div className=" text-white border border-dimWhite text-[16px] ss:text-[24px] sm:text-[16px]  lg:text-[22px] xl:text-[24px] px-4 py-3 rounded-xl flex flex-col gap-6 rotateEffectParent relative overflow-hidden">
+              <AiOutlinePlus className="h-6 w-6 rotateEffect z-[2]" />
+              <img src={cone} alt="" className="h-6 w-6 rotate " />
+
+              <h2 className="font-bold z-[2] ">{title}</h2>
+              <p className="text-Lightgrey z-[2]">{info}</p>
+              <div className="productCardGrad h-36 w-48"></div>
             </div>
           );
         })}
