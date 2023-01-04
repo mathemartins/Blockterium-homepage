@@ -14,11 +14,11 @@ const ReviewQuestions = () => {
   return (
     <section className="bg-darkestBlue text-white w-full  py-[6rem]">
       <div className="w-[80%] sm:w-[45%] md:w-[33%] m-auto">
-        <h2 className="font-bold text-[36px] text-center tracking-tighter ">
+        <h2 className="font-bold text-[28px] xsm:text-[36px] text-center tracking-tighter ">
           Frequently asked questions
         </h2>
 
-        <p className="text-[14px] mt-1 mb-12 text-Lightgrey text-center">
+        <p className="text-[18px] mt-1 mb-12 text-Lightgrey text-center">
           Our products are integrated seamlessly into any <br /> digital
           platform or website
         </p>
@@ -31,7 +31,7 @@ const ReviewQuestions = () => {
       >
         <div className="flex justify-between m-auto items-center">
           <p>What is Blockterium?</p>
-          <div className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center ">
+          <div className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center object-center">
             <button onClick={() => setShowInfo(!showInfo)}>
               {showInfo ? (
                 <p className="font-bold ">-</p>
@@ -61,7 +61,7 @@ const ReviewQuestions = () => {
         <div className={`flex justify-between `}>
           <p>Our target audience?</p>
           <button
-            className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center "
+            className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center object-center"
             onClick={() => setShowInfoTwo(!showInfoTwo)}
           >
             {showInfoTwo ? (
@@ -91,7 +91,7 @@ const ReviewQuestions = () => {
         <div className="flex justify-between m-auto items-center  ">
           <p>How to Integrate our API?</p>
           <button
-            className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center "
+            className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center object-center"
             onClick={() => setShowInfoThree(!showInfoThree)}
           >
             {showInfoThree ? (
@@ -118,7 +118,7 @@ const ReviewQuestions = () => {
         <div className="flex justify-between m-auto items-center ">
           <p>Payment Plans</p>
           <button
-            className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center "
+            className="border-[1.75px] border-white rounded-[50%] h-4 w-4 flex  justify-center items-center object-center"
             onClick={() => setShowInfoFour(!showInfoFour)}
           >
             {showInfoFour ? (

@@ -16,7 +16,7 @@ const BlockteriumProducts = () => {
           PRODUCTS YOU CAN BUILD ON
         </p>
 
-        <h1 className="text-[44px] ss:text-[48px] sm:text-[58px] md:text-[48px] lg:text-[56px] xl:text-[72px] font-bold my-4 xsm:w-[90%] md:w-[80%] mb-8 tracking-tighter">
+        <h1 className="text-[38px] ss:text-[42px]  xsm:text-[46px] lg:text-[56px] xl:text-[72px] font-bold my-4 xsm:w-[90%] md:w-[80%] mb-8 tracking-tighter">
           Build decentralised <br /> applications with <br /> unlimited API
           calls.
         </h1>

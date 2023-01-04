@@ -1,7 +1,9 @@
+import React, { useContext, useEffect, Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
 import ActionButton from "../Inputs/ActionButton";
 import { ForwardIcon } from "../../assets";
+import AuthContext from "../../context/AuthProvider";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function LogoutModal({
   closeModal,
@@ -10,6 +12,16 @@ export default function LogoutModal({
   title,
   text,
 }) {
+  const { auth, setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    // if used in more components, this should be in context
+    // axios to /logout endpoint
+    setAuth({});
+    localStorage.removeItem("accessToken");
+    navigate("/login");
+  };
   return (
     <>
       {/* <div className="fixed inset-0 flex items-center justify-center">
@@ -67,7 +79,7 @@ export default function LogoutModal({
                         btnIcon={ForwardIcon}
                         label="Log out"
                         classnames="flex justify-center items-center group text-base bg-mainBlue text-mainWhite font-semibold w-full rounded-md text-center p-4"
-                        onClick={closeModal}
+                        onClick={logout}
                       />
                     </div>
                     <div className="col-span-1">

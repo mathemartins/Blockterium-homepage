@@ -28,6 +28,10 @@ const TopBarTwo = () => {
   function openModal() {
     setIsOpen(true);
   }
+
+  const fullName = localStorage.getItem("fullName");
+  const email = localStorage.getItem("email");
+  const business = localStorage.getItem("business");
   return (
     <>
       <div className="flex justify-between items-center bg-mainWhite w-full py-12 md:py-5 px-5 sm:px-10">
@@ -41,16 +45,14 @@ const TopBarTwo = () => {
           <div className="flex flex-col">
             <Popover className="relative">
               <Popover.Button className="flex items-center  border-none outline-none">
-                Adedamola <img src={ArrowDown} className="ml-2" />
+                {fullName} <img src={ArrowDown} className="ml-2" />
               </Popover.Button>
 
               <Popover.Panel className="absolute z-10 right-0 cursor-pointer drop-shadow-2xl text-mainBlack top-10 w-[300px] bg-mainWhite">
                 <div className="flex flex-col">
                   <div className="pt-5 px-3 pb-5">
-                    <h6 className="text-lg">Adewale adedamola</h6>
-                    <p className="text-greyFour text-sm font-light">
-                      adedamolamoses@gmail.com
-                    </p>
+                    <h6 className="text-[16px]">{fullName}</h6>
+                    <p className="text-greyFour text-sm font-light">{email}</p>
                   </div>
                   <Link
                     to="/download"
@@ -73,7 +75,7 @@ const TopBarTwo = () => {
                     Billing
                   </Link>
                   <Link
-                    to="/settings"
+                    to="/dashboard/settings"
                     className={
                       splitLocation[1] === "settings"
                         ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-base"

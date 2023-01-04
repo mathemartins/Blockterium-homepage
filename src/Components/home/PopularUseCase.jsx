@@ -7,8 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 const PopularUseCase = () => {
   const setting = {
-    autoplay: false,
-    autoplaySpeed: 3500,
+    autoplay: true,
+    autoplaySpeed: 2500,
     speed: 1000,
     infinite: true,
     slidesToShow: 1,
@@ -22,13 +22,14 @@ const PopularUseCase = () => {
           <h1 className="text-[44px] ss:text-[48px] sm:text-[58px] md:text-[46px] lg:text-[56px] xl:text-[72px] font-bold tracking-tighter">
             Popular use cases
           </h1>
-          <p className="md:text-[14px] text-[18px] lg:text-[22px] text-grey">
-            We provide the most adaptable platform for developers <br /> to
-            materialize their blockchain concepts quickly.
+          <p className="md:text-[14px] text-[20px] lg:text-[22px] text-grey">
+            We provide the most adaptable platform for developers{" "}
+            <br className="hidden sm:flex" /> to materialize their blockchain
+            concepts quickly.
           </p>
         </article>
 
-        <Slider {...setting} className="w-[80%] m-auto">
+        <Slider {...setting} className="w-[80%]  m-auto">
           {slick.map(({ img }) => {
             return (
               <div className=" ">

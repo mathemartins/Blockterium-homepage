@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { Link as AnchorLink } from "react-scroll";
 import { Logo } from "../../assets/index";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Button from "../../Components/Button";
-import { HiOutlineArrowLeft } from "react-icons/hi";
+import { HiOutlineArrowRight } from "react-icons/hi";
 import {
   Product,
   Resources,
@@ -18,7 +19,7 @@ const Navbar = () => {
   const closeMobileMenu = () => setOpen(false);
   return (
     <>
-      <nav className="bg-black w-full z-10 text-white fixed top-0 py-1 left-0 right-0 px-3 ss:px-6  sm:px-12 lg:px-[6rem] xl:px-[10rem]">
+      <nav className="bg-black w-full z-10 text-white fixed top-0 py-1 left-0 right-0 px-3 ss:px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
         <div className="flex items-center justify-between text-center text-[13px] lg:text-[16px]">
           <div className="z-50 py-2 xsm:w-auto w-full flex justify-between">
             <Link to={"./"} onClick={closeMobileMenu}>
@@ -29,7 +30,7 @@ const Navbar = () => {
               />
             </Link>
 
-            <div onClick={() => setOpen(!open)} className="xsm:hidden text-3xl">
+            <div onClick={() => setOpen(!open)} className="xsm:hidden text-xl">
               {open ? <FaTimes /> : <FaBars />}
             </div>
           </div>
@@ -55,7 +56,7 @@ const Navbar = () => {
               to={"./sign-up"}
               className="BlueGradient px-6 rounded-xl flex gap-2 items-center"
             >
-              Start for free <HiOutlineArrowLeft className="animatedIcon" />
+              Start for free <HiOutlineArrowRight className="animatedIcon" />
             </Link>
           </div>
 
@@ -67,12 +68,41 @@ const Navbar = () => {
         duration-500 ${open ? "left-0 " : "left-[-100%] "}
        `}
             >
-              <Product onClick={closeMobileMenu} />
+              <li className="hover:cursor-pointer hover:text-Lightgrey">
+                <AnchorLink
+                  spy={true}
+                  smooth={true}
+                  to="productSection"
+                  onClick={closeMobileMenu}
+                >
+                  Products
+                </AnchorLink>
+              </li>
 
-              <HowItWorks />
+              <li className="hover:cursor-pointer hover:text-Lightgrey">
+                <AnchorLink
+                  spy={true}
+                  smooth={true}
+                  to="howItWorks"
+                  onClick={closeMobileMenu}
+                >
+                  How it works
+                </AnchorLink>
+              </li>
 
               <Resources />
-              <Price />
+
+              <li className="hover:cursor-pointer hover:text-Lightgrey">
+                <AnchorLink
+                  spy={true}
+                  smooth={true}
+                  to="pricesection"
+                  onClick={closeMobileMenu}
+                >
+                  Pricing
+                </AnchorLink>
+              </li>
+              {/* <Price /> */}
               <li>
                 <Link
                   to={"/contact-us"}

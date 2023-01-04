@@ -16,6 +16,7 @@ const InputFieldTwo = ({
   value,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
+
   const Spiner = () => {
     return (
       <div role="status">
@@ -41,9 +42,9 @@ const InputFieldTwo = ({
   };
   return (
     <>
-      <div className="relative flex bg-gradedBlue bg-opacity-20 rounded-md">
+      <div className="relative pt-3">
         <label
-          className="absolute text-blueBg text-xs top-2 font-extralight mb-0 px-3"
+          className="absolute top-2 text-blueBg text-xs font-extralight mb-0 px-3"
           htmlFor={label}
         >
           {label}
@@ -52,23 +53,24 @@ const InputFieldTwo = ({
           onChange={onChange}
           onClick={onClick}
           onBlur={onBlur}
-          className={`${classnames} appearance-none border-none border-red rounded-md w-full mt-4 px-3 bg-transparent hover:border text-sm`}
-          id={id}
           disabled
+          className={`${classnames} appearance-none border border-greyFive rounded-md xxs:w-[12rem] xs:w-[24rem] sm:w-[10rem] xsm:w-[18rem] bg:w-[13rem]  mt-4 px-3 py-1 bg-transparent hover:border-greyFive text-sm text-greyTen`}
+          id={id}
           type={type == "password" && showPassword ? "text" : type}
           placeholder={placeholder}
           value={value}
         />
-        <div className="flex items-center py-2 pr-2 text-sm">
-          <ActionButton
+        {/* <div className="flex items-center py-2 pr-2 text-sm"> */}
+        {/* <ActionButton
             label="Copy"
             classnames="bg-gradedBlue bg-opacity-40 p-2 mr-1 rounded-md text-mainBlue mainBlue"
-          />
-          <ActionButton
+          /> */}
+
+        {/* <ActionButton
             label="Show"
             classnames="bg-mainBlue text-mainWhite rounded-md p-2"
-          />
-        </div>
+          /> */}
+        {/* </div> */}
       </div>
     </>
   );

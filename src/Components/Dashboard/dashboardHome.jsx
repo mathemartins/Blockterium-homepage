@@ -6,23 +6,46 @@ import DashboardLists from "./DashboardLists";
 
 const DashboardHome = () => {
   return (
-    <div className="block w-full h-screen overflow-auto bg-gradedBlue">
+    <div className="h-screen overflow-auto bg-gradedBlue bg:ml-[15%] pb-12 ">
       <div className="block bg:hidden">
         <MobileTopBar />
       </div>
-      <div className="grid grid-cols-12 h-full overflow-auto">
-        <div className="col-span-12 bg:col-span-2 h-full hidden bg:block">
-          <SideBar />
+
+      <div className="col-span-12 bg:col-span-10 min-h-screen relative overflow-auto">
+        <TopBar />
+        <div className="m-3 -mt-20 h-full">
+          <DashboardLists />
         </div>
-        <div className="col-span-12 bg:col-span-10 min-h-screen relative overflow-auto">
-          <TopBar />
-          <div className="m-3 -mt-20 h-full">
-            <DashboardLists />
-          </div>
-        </div>
+      </div>
+
+      <div className="text-center text-[14px] text-greyFour">
+        <p>© 2022 Blockterium Technology LLC</p>
+        <p className="text-mainBlue">
+          Terms of Use <span>Privacy Policy</span>
+        </p>
       </div>
     </div>
   );
 };
 
 export default DashboardHome;
+
+{
+  /* <div className="grid grid-cols-12 h-full overflow-auto"> */
+}
+{
+  /* <div className="col-span-12 bg:col-span-2 h-full hidden bg:block">
+          <SideBar />
+        </div> */
+}
+{
+  /* <div className="col-span-12 bg:col-span-10 min-h-screen relative overflow-auto">
+          <TopBar />
+          <div className="m-3 -mt-20 h-full">
+            <DashboardLists />
+          </div>
+        </div> */
+}
+{
+  /* </div> */
+}

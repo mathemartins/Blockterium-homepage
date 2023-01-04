@@ -11,11 +11,11 @@ const BlockteriumUse = () => {
         <p className="tracking-[0.3em] text-[14px]">
           BLOCKTERIUM FOR YOUR PRODUCTS
         </p>
-        <h1 className="text-[44px] ss:text-[48px] sm:text-[58px] xsm:text-[46px] lg:text-[56px] xl:text-[72px] font-bold my-4 xsm:w-[70%] mb-8">
+        <h1 className="text-[38px]  xsm:text-[46px] lg:text-[56px] xl:text-[72px] font-bold my-4 xsm:w-[70%] mb-8">
           Simplified plug-and-play and built-in payment options for your
           customers.
         </h1>
-        <p className="text-[22px] ss:text-[24px] sm:text-[28px] xsm:text-[20px] lg:text-[22px] xl:text-[24px] text-Lightgrey xsm:w-[70%]">
+        <p className="text-[22px] xsm:text-[20px] lg:text-[22px] xl:text-[24px] text-Lightgrey xsm:w-[70%]">
           Even without prior/core knowledge of any web3 resource. you can
           integrate web3 based infrastructure to your crypto payment pages
           effortlessly.

@@ -30,6 +30,10 @@ const MobileTopBar = () => {
   function openModal() {
     setIsOpen(true);
   }
+
+  const fullName = localStorage.getItem("fullName");
+  const email = localStorage.getItem("email");
+  const business = localStorage.getItem("business");
   return (
     <>
       <div className="px-5 py-5 relative bg-mainWhite">
@@ -50,15 +54,15 @@ const MobileTopBar = () => {
             <div>
               <Popover className="relative">
                 <Popover.Button className="flex items-center border-none outline-none">
-                  Adedamola <img src={ArrowDown} className="ml-2" />
+                  {fullName} <img src={ArrowDown} className="ml-2" />
                 </Popover.Button>
 
                 <Popover.Panel className="absolute z-10 right-0 cursor-pointer drop-shadow-2xl text-mainBlack top-10 w-[300px] bg-mainWhite">
                   <div className="flex flex-col">
                     <div className="pt-5 px-3 pb-5">
-                      <h6 className="text-lg">Adewale adedamola</h6>
+                      <h6 className="text-lg">{fullName}</h6>
                       <p className="text-greyFour text-sm font-light">
-                        adedamolamoses@gmail.com
+                        {email}
                       </p>
                     </div>
                     <Link
@@ -82,9 +86,9 @@ const MobileTopBar = () => {
                       Billing
                     </Link>
                     <Link
-                      to="/settings"
+                      to="settings"
                       className={
-                        splitLocation[1] === "settings"
+                        splitLocation[2] === "settings"
                           ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-base"
                           : "py-5 px-3 text-base"
                       }
@@ -105,12 +109,12 @@ const MobileTopBar = () => {
             <Link
               to="/dashboard"
               className={
-                splitLocation[1] === "dashboard"
+                splitLocation[2] != "explore"
                   ? `flex items-center px-5 text-mainBlue bg-gradedBlue bg-opacity-20 py-5 border-l-2 border-l-mainBlue`
                   : "bg-mainWhite py-5 flex items-center pl-5"
               }
             >
-              {splitLocation[1] === "dashboard" ? (
+              {splitLocation[2] != "dashboard" ? (
                 <img src={dbActive} className="mr-2" />
               ) : (
                 <img src={dbActive} className="mr-3" />
@@ -121,12 +125,12 @@ const MobileTopBar = () => {
               <div
                 onClick={() => setShowExplore(!showExplore)}
                 className={
-                  splitLocation[1] === "explore"
+                  splitLocation[2] === "explore"
                     ? `text-mainBlue py-5 bg-gradedBlue border-l-4 border-l-mainBlue flex items-center pl-5`
                     : "bg-mainWhite py-5 flex items-center pl-5"
                 }
               >
-                {splitLocation[1] === "explore" ? (
+                {showExplore ? (
                   <img src={ActiveExplore} className="mr-2" />
                 ) : (
                   <img src={InactiveExplore} className="mr-3" />
@@ -136,9 +140,9 @@ const MobileTopBar = () => {
               {showExplore && (
                 <div className="ml-5">
                   <Link
-                    to="/explore/debug"
+                    to="explore/debug"
                     className={
-                      splitLocation[2] === "debug"
+                      splitLocation[3] === "debug"
                         ? `text-mainBlue py-5 flex items-center pl-10`
                         : " py-5 flex items-center pl-10"
                     }

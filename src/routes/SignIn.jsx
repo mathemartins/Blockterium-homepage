@@ -60,6 +60,8 @@ export default function SignIn(props) {
       roles.push(role);
       setAuth({ email, accessToken, roles, username, fullName, phone });
       localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("username", username);
+      localStorage.setItem("fullName", fullName);
       setPassword("");
       setSuccess(true);
       setButtonText("Proceed");
@@ -93,7 +95,7 @@ export default function SignIn(props) {
         </p>
         <img src={iphone} alt="" className="absolute bottom-0 left-[20px]" />
       </div>
-      <div className="sm:hidden py-16 px-3 ss:px-6">
+      <div className="sm:hidden pt-4 px-3 pb-16 ss:px-6">
         <Link to="/">
           <img src={Logo} alt="" className="w-[8rem]" />
         </Link>

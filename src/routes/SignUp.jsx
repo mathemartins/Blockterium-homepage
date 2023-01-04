@@ -76,18 +76,25 @@ export default function SignUp(props) {
           withCredentials: true,
         }
       );
-
       console.log(response);
+
       setButtonText("Proceed");
 
       const accessToken = response?.data?.data?.api_token;
       const username = response?.data?.data?.id;
       const fullName = response?.data?.data?.name;
+      const email = response?.data?.data?.email;
       const business = response?.data?.data?.business;
+      const deviceToken = response?.data?.data?.device_token;
       const role = response?.data?.data?.roles[0].name;
       let roles = [];
       roles.push(role);
       setAuth({ accessToken, username, fullName, business });
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("username", username);
+      localStorage.setItem("fullName", fullName);
+      localStorage.setItem("business", business);
+      localStorage.setItem("email", email);
       setUser("");
       setEmail("");
       setCompanyName("");
@@ -124,7 +131,12 @@ export default function SignUp(props) {
         />
       </div>
       <div className="flex flex-col justify-center w-full">
-        <div className="bg-greyFour md:mt-24 mx-auto max-w-[400px] w-full  rounded-lg mt-12 p-6">
+        <div className="sm:hidden pt-4 px-3 pb-16 ss:px-6">
+          <Link to="/">
+            <img src={Logo} alt="" className="w-[8rem]" />
+          </Link>
+        </div>
+        <div className="bg-greyFour md:mt-24 mx-auto max-w-[400px] w-full  rounded-lg p-6">
           <p
             ref={errorRef}
             className={
@@ -167,7 +179,7 @@ export default function SignUp(props) {
                 id="uidnote"
                 className={
                   userFocus && user
-                    ? "bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+                    ? "bg-black border-t-4 border-blue rounded-b  px-4 py-3 shadow-md"
                     : "offscreen"
                 }
                 role="alert"

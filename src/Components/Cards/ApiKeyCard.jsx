@@ -4,31 +4,31 @@ import InputFieldTwo from "../Inputs/InputFieldTwo";
 const ApiKeyCard = ({ icon, title, network, creditUsage, plan }) => {
   return (
     <>
-      <div className="col-span-1 border rounded-md border-b-greySeven p-4 sm:p-8">
+      <div className="">
         <div className="flex items-center mb-4">
-          <div className="bg-primary p-4 mr-3 rounded-full">
-            <img src={icon} />
+          <div className="bg-primary p-3 mr-3 h-10 w-10 rounded-full">
+            <img src={icon} className="" />
           </div>
           <h3 className="text-mainBlack font-bold">{title}</h3>
         </div>
-        <div className="flex items-center mb-3">
-          <h6 className="mr-3">Network</h6>{" "}
+        <div className="flex items-center mb-3 text-[16px]">
+          <h6 className="mr-3 text-greyFive font-semibold">Network</h6>{" "}
           <span className="text-mainBlack">{network}</span>
         </div>
-        <div className="flex items-center mb-3">
-          <h6 className="mr-3">Credit Usage</h6>{" "}
+        <div className="flex items-center mb-3 text-[16px]">
+          <h6 className="mr-3 text-greyFive font-semibold">Credit Usage</h6>{" "}
           <span className="text-mainBlack">{creditUsage}</span>
         </div>
-        <div className="flex items-center mb-3">
-          <h6 className="mr-3">Plan</h6>{" "}
+        <div className="flex items-center mb-3 text-[16px]">
+          <h6 className="mr-3 text-greyFive font-semibold">Plan</h6>{" "}
           <span className="text-mainBlack">{plan}</span>
         </div>
-        <div>
+        {/* <div>
           <InputFieldTwo
             label="Api Key"
             placeholder="***************************"
           />
-        </div>
+        </div> */}
       </div>
     </>
   );

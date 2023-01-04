@@ -4,14 +4,14 @@ import { HiOutlineArrowRight } from "react-icons/hi";
 
 const BlockteriumSponsors = () => {
   return (
-    <section className="bg-black w-full text-12 flex flex-col items-center justify-center pt-[6rem] xsm:pt-[10rem] pb-[12rem] relative overflow-hidden">
+    <section className="bg-black w-full text-12 flex flex-col items-center justify-center py-[6rem] xs:py-[12rem] sm:pt-[6rem] xsm:pb-[12rem] relative overflow-hidden">
       <p className="text-grey lg:text-[14px] xl:text-[16px]">
         Trusted by 30+ applications
       </p>
 
       <img src={sponsors} alt="" className="w-full sm:w-[80%]  mb-16" />
 
-      <p className="text-primaryFontColor text-[22px] md:text-[18px] lg:text-[20px] xl:text-[24px] w-[90%] sm:w-[45%] md:w-[30%] text-center mb-3 z-[2]">
+      <p className="text-primaryFontColor text-[20px] md:text-[18px] lg:text-[20px] xl:text-[24px] w-[90%] sm:w-[45%] xsm:w-[50%]  text-center mb-3 z-[2]">
         We are a blockchain infrastructure provider enabling you to seamlessly
         utilize secure blockchain node protocols.
       </p>

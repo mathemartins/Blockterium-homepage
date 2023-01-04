@@ -4,6 +4,7 @@ import {
   greyCheckedIcon,
   GreenCheckedIcon,
 } from "../../../assets/index";
+import { Link } from "react-router-dom";
 
 const YearlyPlans = () => {
   return (
@@ -23,7 +24,7 @@ const YearlyPlans = () => {
               </h2>
             </div>
 
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-3 mb-5">
               <li className="">Unlimited API calls</li>
               <li className="">5rq/s</li>
               <li className="">Community support</li>
@@ -31,9 +32,12 @@ const YearlyPlans = () => {
               <li className="">Market Data</li>
             </ul>
 
-            <button className="BlueGradient text-white py-1 px-2 my-5">
+            <Link
+              to={"./sign-up"}
+              className="BlueGradient text-white py-1 px-2 my-5"
+            >
               Choose Plan
-            </button>
+            </Link>
           </div>
 
           <div className="border-4 border-greySix hover:border-LightBlue w-full text-[14px] p-3 ">
@@ -44,16 +48,19 @@ const YearlyPlans = () => {
               </h2>
             </div>
 
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-3 mb-5">
               <li className="">1,000,000 API Calls</li>
               <li className="">200 rq/s</li>
               <li className="">Community support</li>
               <li className="">All Main & Testnets</li>
               <li className="">Market Data</li>
             </ul>
-            <button className="BlueGradient text-white py-1 px-2 my-5">
+            <Link
+              to={"./sign-up"}
+              className="BlueGradient text-white py-1 px-2 my-5"
+            >
               Choose Plan
-            </button>
+            </Link>
           </div>
 
           <div className="border-4 border-greySix hover:border-LightBlue w-full  text-[14px] p-3 ">
@@ -63,7 +70,7 @@ const YearlyPlans = () => {
                 $260 <span className="font-normal text-[14px]">/ month</span>
               </h2>
             </div>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-3 mb-5">
               <li className="">5,000,000 API Calls</li>
               <li className="">200 rq/s</li>
               <li className="">Community support</li>
@@ -71,9 +78,12 @@ const YearlyPlans = () => {
               <li className="">Market Data</li>
             </ul>
 
-            <button className="BlueGradient text-white py-1 px-2 my-5">
+            <Link
+              to={"./sign-up"}
+              className="BlueGradient text-white py-1 px-2 my-5"
+            >
               Choose Plan
-            </button>
+            </Link>
           </div>
 
           <div className="border-4 border-greySix hover:border-LightBlue w-full  text-[14px]  ">
@@ -88,7 +98,7 @@ const YearlyPlans = () => {
             </div>
 
             <div className="pb-3">
-              <ul className="flex flex-col gap-3 px-3 ">
+              <ul className="flex flex-col gap-3 px-3  mb-5">
                 <li className="">Unlimited API calls</li>
                 <li className="">500 rq/s</li>
                 <li className="">Community support</li>
@@ -97,9 +107,12 @@ const YearlyPlans = () => {
               </ul>
 
               <div className="px-3">
-                <button className="BlueGradient text-white py-1 px-2 my-5 ">
+                <Link
+                  to={"./sign-up"}
+                  className="BlueGradient text-white py-1 px-2 my-5"
+                >
                   Choose Plan
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -112,7 +125,7 @@ const YearlyPlans = () => {
               </h2>
             </div>
 
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-3 mb-5">
               <li className="">Unlimited API calls</li>
               <li className="">5rq/s</li>
               <li className="">Community support</li>
@@ -120,9 +133,12 @@ const YearlyPlans = () => {
               <li className="">Market Data</li>
             </ul>
 
-            <button className="BlueGradient text-white py-1 px-2 my-5">
+            <Link
+              to={"./sign-up"}
+              className="BlueGradient text-white py-1 px-2 my-5"
+            >
               Choose Plan
-            </button>
+            </Link>
           </div>
         </div>
       </article>

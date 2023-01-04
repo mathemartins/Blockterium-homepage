@@ -41,6 +41,7 @@ export { default as SubPackages } from "./SubPackages.svg";
 export { default as smallScreen } from "./smallScreen.svg";
 export { default as productGradient } from "./productGradientBg.svg";
 export { default as cone } from "./cone.svg";
+export { default as africaLogo } from "./heroAfrica.png";
 
 // ******************** Contact Us Page Assets **********************
 export { default as helpDesk } from "./helpDesk.svg";
