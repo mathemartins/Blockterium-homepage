@@ -54,7 +54,7 @@ const InputFieldTwo = ({
           onClick={onClick}
           onBlur={onBlur}
           disabled
-          className={`${classnames} appearance-none border border-greyFive rounded-md xxs:w-[12rem] xs:w-[24rem] sm:w-[10rem] xsm:w-[18rem] bg:w-[13rem]  mt-4 px-3 py-1 bg-transparent hover:border-greyFive text-sm text-greyTen`}
+          className={`${classnames} appearance-none border border-greyFive rounded-md xxs:w-[8rem] xs:w-[18rem] sm:w-[12rem] xsm:w-[18rem] bg:w-[13rem] lg:w-[15rem] xl:w-[20rem] mt-4 px-3 py-1 bg-transparent hover:border-greyFive text-sm text-greyTen`}
           id={id}
           type={type == "password" && showPassword ? "text" : type}
           placeholder={placeholder}

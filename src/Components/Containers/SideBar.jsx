@@ -110,7 +110,12 @@ const SideBar = () => {
               </div>
             )}
           </Link>
-          <Link to="/docs" className="flex items-center pl-10 py-5">
+
+          <a
+            href="https://documenter.getpostman.com/view/2205059/2s8Z73wpyS"
+            target="_blank"
+            className="flex items-center pl-10 py-5"
+          >
             {splitLocation[1] === "dashboard" ? (
               <img src={InactiveDoc} className="mr-2" />
             ) : (
@@ -119,7 +124,7 @@ const SideBar = () => {
             <span className="w-full flex justify-between items-center pr-5">
               Docs <img src={strokeIcon} />
             </span>
-          </Link>
+          </a>
           <Link to="/contact" className="flex items-center pl-10 py-5">
             {splitLocation[1] === "dashboard" ? (
               <img src={dbIcon} className="mr-2" />

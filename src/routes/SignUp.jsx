@@ -54,12 +54,6 @@ export default function SignUp(props) {
 
     setButtonText("Processing...");
 
-    // const v2 = PWD_REGEX.test(password);
-    // if (!v2) {
-    //   setErrorMsg("Invalid Entry");
-    //   return;
-    // }
-
     const userData = {
       name: user,
       email: email,
@@ -76,8 +70,6 @@ export default function SignUp(props) {
           withCredentials: true,
         }
       );
-      console.log(response);
-
       setButtonText("Proceed");
 
       const accessToken = response?.data?.data?.api_token;
@@ -89,12 +81,13 @@ export default function SignUp(props) {
       const role = response?.data?.data?.roles[0].name;
       let roles = [];
       roles.push(role);
-      setAuth({ accessToken, username, fullName, business });
+      setAuth({ accessToken, username, fullName, business, deviceToken });
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("username", username);
       localStorage.setItem("fullName", fullName);
       localStorage.setItem("business", business);
       localStorage.setItem("email", email);
+      localStorage.setItem("deviceToken", deviceToken);
       setUser("");
       setEmail("");
       setCompanyName("");

@@ -18,6 +18,7 @@ import GuideCard from "../Cards/GuideCard";
 import { Link, useLocation } from "react-router-dom";
 import { Popover } from "@headlessui/react";
 import LogoutModal from "../Modal/LogoutModal";
+import PaymentRequiredModal from "../Modal/PaymentRequiredModal";
 import { useStateContext } from "../../context/ContextProvider";
 import axios from "../../api/axios";
 
@@ -31,8 +32,13 @@ const DashboardLists = ({ classnames }) => {
   const GENERATE_API_URL = "/accounts/generate/api-key/";
 
   let [isOpen, setIsOpen] = useState(false);
+  let [Open, setOpen] = useState(false);
   const [mainnetApiKey, setMainnetApiKey] = useState("");
   const [isCopied, setIsCopied] = useState(false);
+  const [showTestnet, setShowTesnet] = useState("show");
+  const [showMainnet, setShowMainnet] = useState("show");
+  const [buttonText, setButtonText] = useState("Create new API");
+  const [resetButtonText, setResetButtonText] = useState("Reset");
 
   const onCopyText = () => {
     setIsCopied(true);
@@ -45,11 +51,19 @@ const DashboardLists = ({ classnames }) => {
     setIsOpen(false);
   }
 
+  function closePaymentModal() {
+    setOpen(false);
+  }
+
   function openModal() {
     setIsOpen(true);
   }
+  function openPaymentModal() {
+    setOpen(true);
+  }
 
   const apiToken = localStorage.getItem("accessToken");
+  const testnetToken = localStorage.getItem("deviceToken");
 
   async function fetchDashboardData() {
     try {
@@ -62,7 +76,6 @@ const DashboardLists = ({ classnames }) => {
       });
 
       const ApiCounts = response?.data?.data?.api_count;
-      const TestnetKey = response?.data?.data?.testnet_api_key;
       const DefiEarnings = response?.data?.data?.defi_earnings;
       const CreditUsage = response?.data?.data?.credit_usage;
       const DexP = response?.data?.data?.dex_p2p;
@@ -70,7 +83,7 @@ const DashboardLists = ({ classnames }) => {
       const MainnetNetwork = response?.data?.data?.mainnet_network;
 
       localStorage.setItem("ApiCounts", ApiCounts);
-      localStorage.setItem("TestnetKey", TestnetKey);
+      // localStorage.setItem("TestnetKey", TestnetKey);
       localStorage.setItem("DefiEarnings", DefiEarnings);
       localStorage.setItem("CreditUsage", CreditUsage);
       localStorage.setItem("DexP", DexP);
@@ -80,8 +93,21 @@ const DashboardLists = ({ classnames }) => {
       console.log(error);
     }
   }
+  fetchDashboardData();
+
+  const apiCalls = localStorage.getItem("ApiCounts");
+  // const testnetKey = localStorage.getItem("TestnetKey");
+  const creditUsage = localStorage.getItem("CreditUsage");
+  const defiEarnings = localStorage.getItem("DefiEarnings");
+  const dexP = localStorage.getItem("DexP");
+  const testnetNetwork = localStorage.getItem("TestnetNetwork");
+  const mainnetNetwork = localStorage.getItem("MainnetNetwork");
+  const mainnetKey = localStorage.getItem("MainnetKey");
+  const mainnetResetKey = localStorage.getItem("ResetmainnetKey");
 
   async function generateApiKey() {
+    setButtonText("Generating Key...");
+
     try {
       const response = await axios.get(GENERATE_API_URL, {
         headers: {
@@ -93,25 +119,40 @@ const DashboardLists = ({ classnames }) => {
 
       const MainnetKey = response?.data?.data?.mainnet_api_key;
       localStorage.setItem("MainnetKey", MainnetKey);
+      setButtonText("Create new API");
+
+      setMainnetApiKey(mainnetKey);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
-  generateApiKey();
+  async function ResetKey() {
+    setResetButtonText("Resetting...");
+    try {
+      const response = await axios.post(
+        GENERATE_API_URL,
+        JSON.stringify({ apikey: mainnetKey }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiToken}`,
+          },
+          withCredentials: true,
+        }
+      );
 
-  const apiCalls = localStorage.getItem("ApiCounts");
-  const testnetKey = localStorage.getItem("TestnetKey");
-  const mainnetKey = localStorage.getItem("MainnetKey");
-  const creditUsage = localStorage.getItem("CreditUsage");
-  const defiEarnings = localStorage.getItem("DefiEarnings");
-  const dexP = localStorage.getItem("DexP");
-  const testnetNetwork = localStorage.getItem("TestnetNetwork");
-  const mainnetNetwork = localStorage.getItem("MainnetNetwork");
-
-  const AccessToken = async () => {
-    await setMainnetApiKey(mainnetKey);
-  };
+      const ResetmainnetKey = response?.data?.data?.mainnet_api_key;
+      localStorage.setItem("ResetmainnetKey", ResetmainnetKey);
+      setMainnetApiKey(mainnetResetKey);
+      setResetButtonText("Reset");
+    } catch (error) {
+      if (error.response.statusText === "Payment Required") {
+        openPaymentModal();
+      }
+      setResetButtonText("Reset");
+    }
+  }
 
   return (
     <>
@@ -238,15 +279,7 @@ const DashboardLists = ({ classnames }) => {
                 </div>
               </div>
             </div>
-            <div className="flex xs:hidden overflow-hidden bg-red-400">
-              {/* {
-                                detail2.map((val, index)=> (
-                                    <div className='min-w-[150px] border border-greySeven py-6' key={index}>
-                                        <h6 className='text-center'>{val.apiCalls} <span className='text-greyFive ml-2'>{val.detail}</span></h6>
-                                    </div>
-                                ))
-                            } */}
-            </div>
+            <div className="flex xs:hidden overflow-hidden bg-red-400"></div>
             <div className="hidden xs:grid grid-cols-3 border-t relative text-mainBlack w-full border-t-greySeven mt-6">
               <div className="col-span-1 py-4">
                 <h6 className="text-center text-[14px] font-bold">
@@ -277,54 +310,22 @@ const DashboardLists = ({ classnames }) => {
               <h3 className="text-mainBlack text-[16px] font-bold">
                 Your Api Keys
               </h3>
-              <div>
+
+              <div className="">
                 <ActionButton
-                  label="Create new API"
-                  classnames="bg-mainBlue text-mainWhite px-2 py-1 tracking-wide rounded"
-                  onClick={AccessToken}
+                  label={buttonText}
+                  classnames="bg-gradedBlue bg-opacity-40 text-mainBlue font-semibold px-2 py-1 tracking-wide rounded text-[14px]"
+                  onClick={generateApiKey}
+                />
+                <ActionButton
+                  label={resetButtonText}
+                  classnames="bg-mainBlue text-mainWhite px-2 py-1 tracking-wide rounded text-[14px] ml-3"
+                  onClick={ResetKey}
                 />
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-3 mt-5  text-greyFive text-lg font-medium  relative">
-              <div className="col-span-1 border rounded-md border-b-greySeven ">
-                <div className="p-4 sm:p-6">
-                  <ApiKeyCard
-                    icon={testnet2Icon}
-                    title="Mainnet"
-                    network={mainnetNetwork}
-                    creditUsage={creditUsage}
-                    plan="Enterprise"
-                  />
-                </div>
-                <div className="flex bg-gradedBlue bg-opacity-20 rounded-md  justify-between pb-2">
-                  <InputFieldTwo
-                    label="Api Key"
-                    placeholder="************************************"
-                    onChange={(e) => setMainnetApiKey(e.target.value)}
-                    value={mainnetApiKey}
-                  />
-                  <CopyToClipboard text={mainnetApiKey} onCopy={onCopyText}>
-                    <div className="copy-area p-3">
-                      <ActionButton
-                        label="Copy"
-                        onClick={() => {}}
-                        classnames={`bg-gradedBlue bg-opacity-40 p-2 mr-1 rounded-md  mainBlue ${
-                          isCopied ? `text-mainBlue font-bold` : `text-mainBlue`
-                        }`}
-                      />
-                      {isCopied ? (
-                        <p className="absolute -bottom-10 left-[50%] text-mainBlue text-sm">
-                          Copiedd!!!!
-                        </p>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                  </CopyToClipboard>
-                </div>
-              </div>
-
               <div className="col-span-1 border rounded-md border-b-greySeven ">
                 <div className="p-4 sm:p-6">
                   <ApiKeyCard
@@ -335,31 +336,103 @@ const DashboardLists = ({ classnames }) => {
                     plan="free"
                   />
                 </div>
-                <div className="flex bg-gradedBlue bg-opacity-20 rounded-md  justify-between pb-2">
+
+                <div className="flex bg-gradedBlue bg-opacity-20 rounded-md  justify-between items-center pb-2 px-2">
                   <InputFieldTwo
                     label="Api Key"
-                    placeholder={testnetKey}
+                    type={showTestnet === "show" ? `password` : `text`}
+                    value={testnetToken}
                     // onChange={(e) => setMainnetApiKey(e.target.value)}
-                    value={testnetKey}
+                    // value={testnetKey}
                   />
-                  <CopyToClipboard text={testnetKey} onCopy={onCopyText}>
-                    <div className="copy-area p-3">
+
+                  <div className="flex items-center mt-4 text-[14px]">
+                    <div>
                       <ActionButton
-                        label="Copy"
-                        onClick={() => {}}
-                        classnames={`bg-gradedBlue bg-opacity-40 p-2 mr-1 rounded-md  mainBlue ${
-                          isCopied ? `text-mainBlue font-bold` : `text-mainBlue`
-                        }`}
+                        label={showTestnet}
+                        onClick={() => {
+                          showTestnet === "show"
+                            ? setShowTesnet("hide")
+                            : setShowTesnet("show");
+                        }}
+                        classnames={`bg-mainBlue w-[3rem] px-2  mr-1 rounded-md  mainBlue text-white  `}
                       />
-                      {isCopied ? (
-                        <p className="absolute -bottom-10 left-[50%] text-mainBlue text-sm">
-                          Copiedd!!!!
-                        </p>
-                      ) : (
-                        ""
-                      )}
                     </div>
-                  </CopyToClipboard>
+                    <CopyToClipboard text={testnetToken} onCopy={onCopyText}>
+                      <div className=" ">
+                        <ActionButton
+                          label="Copy"
+                          onClick={() => {}}
+                          classnames={`bg-gradedBlue bg-opacity-40 px-2  mr-1 rounded-md  mainBlue ${
+                            isCopied
+                              ? `text-mainBlue font-bold`
+                              : `text-mainBlue`
+                          }`}
+                        />
+                        {isCopied ? (
+                          <p className="absolute -bottom-10 left-[50%] text-mainBlue text-sm">
+                            Copiedd!!!!
+                          </p>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </CopyToClipboard>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-span-1 border rounded-md border-b-greySeven ">
+                <div className="p-4 sm:p-6">
+                  <ApiKeyCard
+                    icon={testnet2Icon}
+                    title="Mainnet"
+                    network={mainnetNetwork}
+                    creditUsage={creditUsage}
+                    plan="Enterprise"
+                  />
+                </div>
+                <div className="flex bg-gradedBlue bg-opacity-20 rounded-md  justify-between pb-2 px-2">
+                  <InputFieldTwo
+                    label="Api Key"
+                    type={showMainnet === "show" ? `password` : `text`}
+                    onChange={(e) => setMainnetApiKey(e.target.value)}
+                    value={mainnetKey}
+                  />
+
+                  <div className="flex items-center mt-4 text-[14px]">
+                    <div>
+                      <ActionButton
+                        label={showMainnet}
+                        onClick={() => {
+                          showMainnet === "show"
+                            ? setShowMainnet("hide")
+                            : setShowMainnet("show");
+                        }}
+                        classnames={`bg-mainBlue w-[3rem] px-2  mr-1 rounded-md  mainBlue text-white  `}
+                      />
+                    </div>
+                    <CopyToClipboard text={mainnetApiKey} onCopy={onCopyText}>
+                      <div className="">
+                        <ActionButton
+                          label="Copy"
+                          onClick={() => {}}
+                          classnames={`bg-gradedBlue bg-opacity-40 px-2  rounded-md  mainBlue ${
+                            isCopied
+                              ? `text-mainBlue font-bold`
+                              : `text-mainBlue`
+                          }`}
+                        />
+                        {isCopied ? (
+                          <p className="absolute -bottom-10 left-[50%] text-mainBlue text-sm">
+                            Copiedd!!!!
+                          </p>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </CopyToClipboard>
+                  </div>
                 </div>
               </div>
             </div>
@@ -411,6 +484,16 @@ const DashboardLists = ({ classnames }) => {
           isOpen={isOpen}
           title="Logout"
           text="You are about to logout from your account, are you sure?"
+        />
+      )}
+
+      {Open && (
+        <PaymentRequiredModal
+          closePaymentModal={closePaymentModal}
+          openPaymentModal={openPaymentModal}
+          Open={Open}
+          title="Upgrade plan"
+          text="Upgrade to premium Enterprise plan to unlock this feature"
         />
       )}
     </>
