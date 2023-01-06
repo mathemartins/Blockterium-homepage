@@ -93,7 +93,9 @@ const DashboardLists = ({ classnames }) => {
       console.log(error);
     }
   }
-  fetchDashboardData();
+  useEffect(() => {
+    fetchDashboardData();
+  }, []);
 
   const apiCalls = localStorage.getItem("ApiCounts");
   // const testnetKey = localStorage.getItem("TestnetKey");
@@ -119,8 +121,8 @@ const DashboardLists = ({ classnames }) => {
 
       const MainnetKey = response?.data?.data?.mainnet_api_key;
       localStorage.setItem("MainnetKey", MainnetKey);
-      setButtonText("Create new API");
 
+      setButtonText("Create new API");
       setMainnetApiKey(mainnetKey);
     } catch (error) {
       // console.log(error);
@@ -493,7 +495,7 @@ const DashboardLists = ({ classnames }) => {
           openPaymentModal={openPaymentModal}
           Open={Open}
           title="Upgrade plan"
-          text="Upgrade to premium Enterprise plan to unlock this feature"
+          text="Payment Required"
         />
       )}
     </>

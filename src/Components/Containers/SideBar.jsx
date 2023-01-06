@@ -31,7 +31,7 @@ const SideBar = () => {
           <Link
             to="/dashboard"
             className={
-              splitLocation[2] != "explore"
+              splitLocation[2] != "explore" && splitLocation[2] != "docs"
                 ? `text-mainBlue py-5 bg-gradedBlue border-l-4 border-l-mainBlue flex items-center pl-10`
                 : "bg-mainWhite py-5 flex items-center pl-10"
             }
@@ -70,7 +70,7 @@ const SideBar = () => {
             </div>
             {showExplore && (
               <div className="ml-10">
-                <Link
+                {/* <Link
                   to="explore/debug"
                   className={
                     splitLocation[3] === "debug"
@@ -81,7 +81,7 @@ const SideBar = () => {
                   <div className="flex items-center">
                     <div className="border-b-2 w-5 rounded-xl"></div> Debug
                   </div>
-                </Link>
+                </Link> */}
                 <Link
                   to="explore/subscription"
                   className={
@@ -111,12 +111,13 @@ const SideBar = () => {
             )}
           </Link>
 
-          <a
-            href="https://documenter.getpostman.com/view/2205059/2s8Z73wpyS"
-            target="_blank"
+          <Link
+            to="docs"
+            // href="https://documenter.getpostman.com/view/2205059/2s8Z73wpyS"
+            // target="_blank"
             className="flex items-center pl-10 py-5"
           >
-            {splitLocation[1] === "dashboard" ? (
+            {splitLocation[3] === "docs" ? (
               <img src={InactiveDoc} className="mr-2" />
             ) : (
               <img src={InactiveDoc} className="mr-3" />
@@ -124,7 +125,7 @@ const SideBar = () => {
             <span className="w-full flex justify-between items-center pr-5">
               Docs <img src={strokeIcon} />
             </span>
-          </a>
+          </Link>
           <Link to="/contact" className="flex items-center pl-10 py-5">
             {splitLocation[1] === "dashboard" ? (
               <img src={dbIcon} className="mr-2" />

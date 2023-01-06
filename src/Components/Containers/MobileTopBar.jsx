@@ -86,7 +86,7 @@ const MobileTopBar = () => {
                       Billing
                     </Link>
                     <Link
-                      to="settings"
+                      to="/dashboard/settings"
                       className={
                         splitLocation[2] === "settings"
                           ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-base"
@@ -109,7 +109,7 @@ const MobileTopBar = () => {
             <Link
               to="/dashboard"
               className={
-                splitLocation[2] != "explore"
+                splitLocation[2] != "explore" && splitLocation[2] != "docs"
                   ? `flex items-center px-5 text-mainBlue bg-gradedBlue bg-opacity-20 py-5 border-l-2 border-l-mainBlue`
                   : "bg-mainWhite py-5 flex items-center pl-5"
               }
@@ -139,8 +139,8 @@ const MobileTopBar = () => {
               </div>
               {showExplore && (
                 <div className="ml-5">
-                  <Link
-                    to="explore/debug"
+                  {/* <Link
+                    to="/dashboard/explore/debug"
                     className={
                       splitLocation[3] === "debug"
                         ? `text-mainBlue py-5 flex items-center pl-10`
@@ -148,9 +148,9 @@ const MobileTopBar = () => {
                     }
                   >
                     <span>Debug</span>
-                  </Link>
+                  </Link> */}
                   <Link
-                    to="/explore/subscription"
+                    to="/dashboard/explore/subscription"
                     className={
                       splitLocation[2] === "subscription"
                         ? `text-mainBlue py-5 flex items-center pl-10`
@@ -160,7 +160,7 @@ const MobileTopBar = () => {
                     <span>Subsciption</span>
                   </Link>
                   <Link
-                    to="/explore/pricing"
+                    to="/dashboard/explore/pricing"
                     className={
                       splitLocation[2] === "pricing"
                         ? `text-mainBlue py-5 flex items-center pl-10`
@@ -173,9 +173,9 @@ const MobileTopBar = () => {
               )}
             </Link>
             <Link
-              to="/docs"
+              to="/dashboard/docs"
               className={
-                splitLocation[1] === "docs"
+                splitLocation[2] === "docs"
                   ? `flex items-center px-5 text-mainBlue bg-gradedBlue bg-opacity-20 py-5 border-l-2 border-l-mainBlue`
                   : "bg-mainWhite py-5 flex items-center pl-5"
               }

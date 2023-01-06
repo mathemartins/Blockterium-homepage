@@ -1,24 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TopBarTwo from "../../Containers/TopBarTwo";
 import MobileTopBar from "../../Containers/MobileTopBar";
 import SideBar from "../../Containers/SideBar";
 import ActionButton from "../../Inputs/ActionButton";
 import SwitchComp from "../../Inputs/CustomSwitch";
 import PricingCard from "../../Cards/PricingCard";
-import { ConfirmIcon } from "../../../assets";
+import { ConfirmIcon, LimitKey } from "../../../assets";
 import { Dropdown } from "primereact/dropdown";
+import axios from "../../../api/axios";
 
 const SubscriptionIndex = () => {
-  const [settingsTab, setSettingsTab] = useState("mainnet");
-  const [mode, setMode] = useState(false);
-  const [filter, setFilter] = useState("");
-  const citySelectItems = [
-    { label: "New York", value: "NY" },
-    { label: "Rome", value: "RM" },
-    { label: "London", value: "LDN" },
-    { label: "Istanbul", value: "IST" },
-    { label: "Paris", value: "PRS" },
-  ];
+  const GENERATE_API_URL = "/accounts/generate/api-key/";
+  const [isPremium, setIsPremium] = useState(false);
+  const apiToken = localStorage.getItem("accessToken");
+
+  async function checkPremiumUsers() {
+    try {
+      const response = await axios.get(GENERATE_API_URL, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiToken}`,
+        },
+        withCredentials: true,
+      });
+
+      const premiumUser = response?.data?.data?.is_premium;
+
+      setIsPremium(premiumUser);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    checkPremiumUsers();
+  }, []);
+  // const [settingsTab, setSettingsTab] = useState("mainnet");
+  // const [mode, setMode] = useState(false);
+  // const [filter, setFilter] = useState("");
+  // const citySelectItems = [
+  //   { label: "New York", value: "NY" },
+  //   { label: "Rome", value: "RM" },
+  //   { label: "London", value: "LDN" },
+  //   { label: "Istanbul", value: "IST" },
+  //   { label: "Paris", value: "PRS" },
+  // ];
   return (
     <div className="w-[85%] h-screen bg:ml-[15%]">
       <div className="block bg:hidden">
@@ -36,37 +62,50 @@ const SubscriptionIndex = () => {
                 <h3 className="text-mainBlack font-bold text-[16px]">
                   Plan Type
                 </h3>
-                <div className="text-sm text-mainWhite bg-mainGreen flex items-center rounded-full px-4 py-1">
+                <div
+                  className={`text-sm text-mainWhite ${
+                    isPremium ? `bg-mainGreen` : `bg-mainRed`
+                  }  flex items-center rounded-full px-4 py-1`}
+                >
                   <img src={ConfirmIcon} className="mr-2" />
-                  Active
+                  {isPremium ? `Active` : `Not Active`}
                 </div>
               </div>
               <>
-                <div className="bg-mainWhite  my-5 border border-greySeven rounded-md  py-2  px-4 text-[14px]">
-                  <div className=" py-1">
-                    <h2 className="font-semibold text-[16px]">Enterprise</h2>
-                    <h2 className="font-bold my-3 text-[16px]">
-                      $100{" "}
-                      <span className="font-normal text-[14px]">/ month</span>
-                    </h2>
-                  </div>
+                {isPremium && (
+                  <div className="bg-mainWhite  my-5 border border-greySeven rounded-md  py-2  px-4 text-[14px]">
+                    <div className=" py-1">
+                      <h2 className="font-semibold text-[16px]">Enterprise</h2>
+                      <h2 className="font-bold my-3 text-[16px]">
+                        $100{" "}
+                        <span className="font-normal text-[14px]">/ month</span>
+                      </h2>
+                    </div>
 
-                  <div className="pb-3 text-greyTen">
-                    <ul className="flex flex-col gap-3  ">
-                      <li className="">Unlimited API calls</li>
-                      <li className="">500 rq/s</li>
-                      <li className="">Community support</li>
-                      <li className="">API Testnets</li>
-                      <li className="">Market Data</li>
-                    </ul>
+                    <div className="pb-3 text-greyTen">
+                      <ul className="flex flex-col gap-3  ">
+                        <li className="">Unlimited API calls</li>
+                        <li className="">500 rq/s</li>
+                        <li className="">Community support</li>
+                        <li className="">API Testnets</li>
+                        <li className="">Market Data</li>
+                      </ul>
+                    </div>
                   </div>
-                </div>
+                )}
+
+                {!isPremium && (
+                  <div className="bg-mainWhite  my-5 border border-greySeven rounded-md  py-2 px-4 text-[14px] flex flex-col items-center">
+                    <h2 className="font-semibold mb-4">No Active plans</h2>
+                    <img src={LimitKey} alt="" />
+                  </div>
+                )}
               </>
               <div className="bg-mainWhite  my-5 border border-greySeven rounded-md py-2 px-4">
                 <h3 className="text-[16px] font-semibold text-mainBlack">
                   API Calls
                 </h3>
-                <div className="flex justify-between">
+                {/* <div className="flex justify-between">
                   <p className="text-[13px] text-greyTen font-medium">
                     Total Request made
                   </p>
@@ -79,13 +118,13 @@ const SubscriptionIndex = () => {
                     <option value="This Month">Jan</option>
                     <option value="This Month">Feb</option>
                   </select>
-                </div>
+                </div> */}
                 <h3 className="text-2xl text-mainBlack font-bold mt-6">34</h3>
               </div>
 
-              <h2 className="text-mainRed border border-mainRed w-[50%] p-2 font-semibold rounded-md hover:cursor-pointer">
+              {/* <h2 className="text-mainRed border border-mainRed w-[50%] p-2 font-semibold rounded-md hover:cursor-pointer">
                 Cancel Plan
-              </h2>
+              </h2> */}
             </div>
           </>
 

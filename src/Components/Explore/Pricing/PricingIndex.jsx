@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import TopBarTwo from "../../Containers/TopBarTwo";
 import MobileTopBar from "../../Containers/MobileTopBar";
 import { SubPackages } from "../../../assets/index";
-import MonthlyPlans from "../../home/PricePlans/MonthlyPlans";
-import Toggle from "../../home/Toggle";
-import ActionButton from "../../Inputs/ActionButton";
+import MonthlyPriceCard from "../../Cards/MonthlyPriceCard";
+import YearlyPriceCard from "../../Cards/YearlyPriceCard";
 import SwitchComp from "../../Inputs/CustomSwitch";
-import PricingCard from "../../Cards/PricingCard";
 
 const PricingIndex = () => {
   const [settingsTab, setSettingsTab] = useState("mainnet");
   const [mode, setMode] = useState(false);
   return (
-    <div className="w-[85%] h-screen bg:ml-[15%]">
+    <div className="bg:w-[85%] w-full h-screen bg:ml-[15%]">
       <div className="block bg:hidden">
         <MobileTopBar />
       </div>
@@ -33,12 +31,13 @@ const PricingIndex = () => {
               <p>Yearly</p>
             </div>
           </div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-2 mt-6 sm:mt-10">
+          {/* <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-2 mt-6 sm:mt-10">
             <div className="col-span-1">
               <PricingCard />
             </div>
             <div className="col-span-1">
               <PricingCard />
+
             </div>
             <div className="col-span-1">
               <PricingCard />
@@ -49,8 +48,19 @@ const PricingIndex = () => {
             <div className="col-span-1">
               <PricingCard custom />
             </div>
-          </div>
-          <div className="hidden xsm:block">
+          </div> */}
+          {!mode && (
+            <div className="mt-6 mb-2">
+              <MonthlyPriceCard />
+            </div>
+          )}
+          {mode && (
+            <div className="mt-6 mb-2">
+              <YearlyPriceCard />
+            </div>
+          )}
+
+          <div className="hidden md:block">
             <img src={SubPackages} alt="" />
           </div>
         </div>
