@@ -3,17 +3,17 @@ import { Dialog, Transition } from "@headlessui/react";
 import ActionButton from "../Inputs/ActionButton";
 import { ForwardIcon } from "../../assets";
 import { Link } from "react-router-dom";
-import LogoutModal from "./LogoutModal";
+import PaymentRequestMessage from "./PaymentRequestMessage";
 
 export default function SubscriptionModal({
   closePaymentModal,
   Open,
-
   openPaymentModal,
   title,
   text,
 }) {
   let [isOpen, setIsOpen] = useState(false);
+  const fullName = localStorage.getItem("fullName");
 
   function openModal() {
     setIsOpen(true);
@@ -93,12 +93,12 @@ export default function SubscriptionModal({
       )}
 
       {isOpen && (
-        <LogoutModal
+        <PaymentRequestMessage
           closeModal={closeModal}
           openModal={openModal}
           isOpen={isOpen}
-          title="Logout"
-          text="You are about to logout from your account, are you sure?"
+          title="Request Sent"
+          text={`Thank you ${fullName}, we will confirm your payment and get back to you.`}
         />
       )}
     </>
