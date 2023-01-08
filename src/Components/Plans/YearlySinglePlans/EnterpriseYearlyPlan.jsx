@@ -3,6 +3,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import ActionButton from "../../Inputs/ActionButton";
 import SubscriptionModal from "../../Modal/SubscriptionModal";
 import QRCode from "qrcode.react";
+import { MdOutlineFileCopy } from "react-icons/md";
 
 const EnterpriseYearlyPlan = () => {
   let [Open, setOpen] = useState(false);
@@ -70,10 +71,12 @@ const EnterpriseYearlyPlan = () => {
         <CopyToClipboard text={url} onCopy={onCopyText}>
           <div className=" ">
             <ActionButton
-              label="Copy"
+              label={<MdOutlineFileCopy />}
               onClick={() => {}}
               classnames={`bg-gradedBlue bg-opacity-40 px-2  mr-1 rounded-md  mainBlue ${
-                isCopied ? `text-mainBlue font-bold` : `text-mainBlue`
+                isCopied
+                  ? `text-mainBlue font-bold mb-2 mr-3 text-[14px]`
+                  : `text-mainBlue`
               }`}
             />
           </div>
