@@ -8,7 +8,7 @@ const BUSINESS_REGISTER_URL = "/accounts/register/business/";
 const DEVELOPER_REGISTER_URL = "/accounts/register/";
 
 // const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-// const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 export default function SignUp(props) {
   const { setAuth } = useAuth();
@@ -38,9 +38,9 @@ export default function SignUp(props) {
     userRef.current.focus();
   }, []);
 
-  // React.useEffect(() => {
-  //   setValidPassword(PWD_REGEX.test(password));
-  // }, [password]);
+  React.useEffect(() => {
+    setValidPassword(PWD_REGEX.test(password));
+  }, [password]);
 
   React.useEffect(
     function () {
@@ -53,6 +53,12 @@ export default function SignUp(props) {
     event.preventDefault();
 
     setButtonText("Processing...");
+
+    const v2 = PWD_REGEX.test(password);
+    if (!v2) {
+      setErrorMsg("Invalid Entry");
+      return;
+    }
 
     const userData = {
       name: user,
@@ -70,7 +76,6 @@ export default function SignUp(props) {
           withCredentials: true,
         }
       );
-      setButtonText("Proceed");
 
       const accessToken = response?.data?.data?.api_token;
       const username = response?.data?.data?.id;
@@ -99,6 +104,7 @@ export default function SignUp(props) {
       console.log(error);
       setErrorMsg(error.response?.data["message"]);
       setButtonText("Proceed");
+      errorRef.current.focus();
     }
   }
 
@@ -130,22 +136,34 @@ export default function SignUp(props) {
           </Link>
         </div>
         <div className="bg-greyFour md:mt-24 mx-auto max-w-[400px] w-full  rounded-lg p-6">
-          <p
+          {/* <p
             ref={errorRef}
             className={
               errorMsg
-                ? "bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-2 rounded relative"
-                : "offscreen"
+                ? "offscreen "
+                : " border text-white border-red-400  px-4 py-3 mt-2 rounded"
             }
             aria-live="assertive"
             role="alert"
           >
             {errorMsg}
-          </p>
+          </p> */}
           <form
             onSubmit={handleSubmit}
-            className=" w-full mx-auto text-[14px]  text-Lightgrey rounded-lg"
+            className=" w-full mx-auto text-[14px] text-Lightgrey rounded-lg"
           >
+            <p
+              ref={errorRef}
+              className={
+                errorMsg
+                  ? "bg-red-100 border text-black border-red-400 px-4 py-3 mt-2 rounded "
+                  : "offscreen"
+              }
+              aria-live="assertive"
+              role="alert"
+            >
+              {errorMsg}
+            </p>
             <h2 className="text-[20px] font-semibold text-white">
               Lets’ get to know you
             </h2>
@@ -189,7 +207,7 @@ export default function SignUp(props) {
                   </div>
                   <div>
                     <p className="text-[12px] my-2 text-white">
-                      Please enter valid first and last name{" "}
+                      Please enter valid first and last name
                     </p>
                   </div>
                 </div>
@@ -297,7 +315,7 @@ export default function SignUp(props) {
                   id="pwdnote"
                   className={
                     passwordFocus && !validPassword
-                      ? "bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+                      ? "bg-white border-t-4  rounded-b text-teal-900 px-4 py-3 shadow-md border border-red-500"
                       : "offscreen"
                   }
                   role="alert"
@@ -313,12 +331,12 @@ export default function SignUp(props) {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[12px] py-2">
+                      <p className={`text-[12px] py-2`}>
                         8 to 24 characters.
-                        {/* <br />
+                        <br />
                         Must include uppercase and lowercase letters, a number
                         and a special character.
-                        <br /> */}
+                        <br />
                         Special characters allowed
                       </p>
                     </div>
@@ -334,7 +352,7 @@ export default function SignUp(props) {
             </div>
             <button
               className="w-full  py-1 BlueGradient rounded-lg hover:shadow-blue-500/50 text-white font-semibold"
-              // disabled={!validPassword ? true : false}
+              disabled={!validPassword ? true : false}
               type="submit"
             >
               {buttonText}
