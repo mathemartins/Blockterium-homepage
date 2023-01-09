@@ -35,18 +35,9 @@ const SubscriptionIndex = () => {
   useEffect(() => {
     checkPremiumUsers();
   }, []);
-  // const [settingsTab, setSettingsTab] = useState("mainnet");
-  // const [mode, setMode] = useState(false);
-  // const [filter, setFilter] = useState("");
-  // const citySelectItems = [
-  //   { label: "New York", value: "NY" },
-  //   { label: "Rome", value: "RM" },
-  //   { label: "London", value: "LDN" },
-  //   { label: "Istanbul", value: "IST" },
-  //   { label: "Paris", value: "PRS" },
-  // ];
+
   return (
-    <div className="w-[85%] h-screen bg:ml-[15%]">
+    <div className="w-full bg:w-[85%] h-screen bg:ml-[15%]">
       <div className="block bg:hidden">
         <MobileTopBar />
       </div>

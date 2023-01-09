@@ -31,7 +31,9 @@ const SideBar = () => {
           <Link
             to="/dashboard"
             className={
-              splitLocation[2] != "explore" && splitLocation[2] != "docs"
+              splitLocation[2] != "explore" &&
+              splitLocation[2] != "docs" &&
+              splitLocation[2] != "contact"
                 ? `text-mainBlue py-5 bg-gradedBlue border-l-4 border-l-mainBlue flex items-center pl-10`
                 : "bg-mainWhite py-5 flex items-center pl-10"
             }
@@ -126,8 +128,8 @@ const SideBar = () => {
               Docs <img src={strokeIcon} />
             </span>
           </Link>
-          <Link to="/contact" className="flex items-center pl-10 py-5">
-            {splitLocation[1] === "dashboard" ? (
+          <Link to="contact" className="flex items-center pl-10 py-5">
+            {splitLocation[2] === "contact" ? (
               <img src={dbIcon} className="mr-2" />
             ) : (
               <img src={dbActive} className="mr-3" />

@@ -10,6 +10,7 @@ import SettingsIndex from "./Components/Settings/SettingsIndex";
 import PricingIndex from "./Components/Explore/Pricing/PricingIndex";
 import SubscriptionIndex from "./Components/Explore/Subscription/SubscriptionIndex";
 import Docs from "./Components/Docs/Docs.jsx";
+import ContactUsForm from "./Components/ContactUsForm/ContactUsForm";
 
 // ************************************************************************************
 
@@ -35,6 +36,7 @@ export default function App(props) {
           <Route path="explore/pricing" element={<PricingIndex />} />
 
           <Route path="docs" element={<Docs />} />
+          <Route path="contact" element={<ContactUsForm />} />
         </Route>
 
         {/* <Route path="/dashboard" element={<DashboardHome />} />

@@ -109,7 +109,9 @@ const MobileTopBar = () => {
             <Link
               to="/dashboard"
               className={
-                splitLocation[2] != "explore" && splitLocation[2] != "docs"
+                splitLocation[2] != "explore" &&
+                splitLocation[2] != "docs" &&
+                splitLocation[2] != "contact"
                   ? `flex items-center px-5 text-mainBlue bg-gradedBlue bg-opacity-20 py-5 border-l-2 border-l-mainBlue`
                   : "bg-mainWhite py-5 flex items-center pl-5"
               }
@@ -190,9 +192,9 @@ const MobileTopBar = () => {
               </span>
             </Link>
             <Link
-              to="/contact"
+              to="/dashboard/contact"
               className={
-                splitLocation[1] === "contact"
+                splitLocation[2] === "contact"
                   ? `flex items-center px-5 text-mainBlue bg-gradedBlue bg-opacity-20 py-5 border-l-2 border-l-mainBlue`
                   : "bg-mainWhite py-5 flex items-center pl-5"
               }
