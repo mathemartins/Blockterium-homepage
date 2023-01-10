@@ -62,6 +62,10 @@ export default function SignIn(props) {
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("username", username);
       localStorage.setItem("fullName", fullName);
+
+      localStorage.setItem("business", business);
+      localStorage.setItem("email", email);
+      localStorage.setItem("deviceToken", deviceToken);
       setPassword("");
       setSuccess(true);
       setButtonText("Proceed");

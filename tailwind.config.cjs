@@ -39,6 +39,7 @@ module.exports = {
         gradedBlue: "rgba(197, 202, 255, 0.2)",
         mainBlack: "#000000",
         mainGreen: "#8CCA66",
+        red: "#ff0000",
       },
       fontFamily: {
         assistant: ["Assistant"],

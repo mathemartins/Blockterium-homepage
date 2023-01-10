@@ -34,7 +34,7 @@ const Hero = () => {
               spy={true}
               smooth={true}
               to="pricesection"
-              className="bg-white text-center text-black pr-14 sm:pr-10 px-10 py-2 md:py-1 rounded-xl mt-3 ss:mt-0 ss:ml-3 "
+              className="bg-white text-center text-black pr-14 sm:pr-10 px-10 py-2 md:py-1 rounded-xl mt-3 ss:mt-0 ss:ml-3 cursor-pointer"
             >
               See Pricing
             </AnchorLink>

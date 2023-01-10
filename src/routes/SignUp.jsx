@@ -165,7 +165,7 @@ export default function SignUp(props) {
               {errorMsg}
             </p>
             <h2 className="text-[20px] font-semibold text-white">
-              Lets’ get to know you
+              Let's get to know you
             </h2>
             <p className="text-grey my-3">
               kindly provide your business name and the details of who will run
@@ -257,7 +257,7 @@ export default function SignUp(props) {
               </div>
 
               <div className="flex flex-col text-Lightgrey py-2">
-                <label>Company's name</label>
+                <label>Company's Name</label>
                 <input
                   className="rounded-lg bg-gray-800 mt-2 p-2 focus:border-secondary focus:bg-gray-800 focus:outline-none"
                   ref={userRef}

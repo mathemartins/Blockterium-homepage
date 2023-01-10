@@ -160,20 +160,20 @@ export const contactUsPageCards = [
     id: 1,
     img: helpDesk,
     title: "Help Desk",
-    info: "The process of managing a task through its life cycle. It involves planning, testing, tracking.",
+    info: "Contact us via the helpdesk for all inquiries, support requests, suggestions, and feedback.",
   },
   {
     id: 2,
     img: contactSales,
-    title: "Contact Sales",
-    info: "The technology by which a process or procedure is performed with minimal human assistance.",
+    title: "Contact Sales Team",
+    info: "Want to get started? Get in touch with our Sales Team.",
   },
-  {
-    id: 3,
-    img: discord,
-    title: "Discord",
-    info: "Creating plan to spend your money, This spending planer is called a budgeting tool for business.",
-  },
+  // {
+  //   id: 3,
+  //   img: discord,
+  //   title: "Discord and Telegram",
+  //   info: "Creating plan to spend your money, This spending planer is called a budgeting tool for business.",
+  // },
 ];
 
 export const FrequentQuestions = [

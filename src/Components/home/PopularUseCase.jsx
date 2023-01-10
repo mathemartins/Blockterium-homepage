@@ -20,7 +20,7 @@ const PopularUseCase = () => {
       <div className=" ">
         <article className="mb-16 bg-black py-4">
           <h1 className="text-[44px] ss:text-[48px] sm:text-[58px] md:text-[46px] lg:text-[56px] xl:text-[72px] font-bold tracking-tighter">
-            Popular use cases
+            Popular Use Cases
           </h1>
           <p className="md:text-[14px] text-[20px] lg:text-[22px] text-grey">
             We provide the most adaptable platform for developers{" "}

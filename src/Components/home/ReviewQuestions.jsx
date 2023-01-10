@@ -48,7 +48,7 @@ const ReviewQuestions = () => {
             blockchain and crypto-related applications by supplying all required
             blockchain APIs. We offer efficient, trustworthy, and consistent
             solutions that save the stress of blockchain development from start
-            to finish
+            to finish.
           </p>
         )}
       </div>
@@ -76,9 +76,8 @@ const ReviewQuestions = () => {
           <p className="mt-2 text-Lightgrey ">
             We offer many use cases. Our solution targets businesses,
             enterprises, startups and individual blockchain developer. We have a
-            list of products on our{" "}
-            <span className="text-mainBlue">website</span>, and you can contact
-            our support if there be any questions.
+            list of products on our website, and you can contact our support if
+            there be any questions.
           </p>
         )}
       </div>
