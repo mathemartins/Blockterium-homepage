@@ -15,11 +15,13 @@ export default function SignIn(props) {
 
   const emailRef = React.useRef();
   const errorRef = React.useRef();
+  const emailErrorRef = React.useRef();
 
   const [email, setEmail] = React.useState("");
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [password, setPassword] = React.useState("");
   const [errorMsg, setErrorMsg] = React.useState("");
+  const [emailError, setEmailError] = React.useState("");
   const [success, setSuccess] = React.useState(false);
 
   const [buttonText, setButtonText] = React.useState("Proceed");
@@ -85,6 +87,7 @@ export default function SignIn(props) {
         setErrorMsg("Oops! an error occurred!");
       } else {
         setErrorMsg(error.response?.data["message"]);
+        setButtonText("Proceed");
       }
       errorRef.current.focus();
       setButtonText("Proceed");
@@ -126,7 +129,7 @@ export default function SignIn(props) {
               ref={errorRef}
               className={
                 errorMsg
-                  ? "bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-2 rounded relative"
+                  ? "bg-Lightgrey text-mainRed border border-mainRed text-red-700 px-4 py-3 mt-2 rounded relative"
                   : "offscreen"
               }
               aria-live="assertive"
@@ -141,7 +144,14 @@ export default function SignIn(props) {
                 type="email"
                 ref={emailRef}
                 autoComplete="off"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (!e.target.value.includes("@")) {
+                    setEmailError("Please enter a valid email address");
+                  } else {
+                    setEmailError("");
+                  }
+                }}
                 value={email}
                 placeholder="johndoe@blockterium.com"
                 aria-describedby="emailnote"
@@ -149,6 +159,19 @@ export default function SignIn(props) {
                 onBlur={() => setEmailFocus(false)}
                 required
               />
+
+              <p
+                ref={emailErrorRef}
+                className={
+                  emailError
+                    ? "bg-Lightgrey text-mainRed border border-mainRed text-red-700 px-4 py-3 mt-2 rounded relative"
+                    : "offscreen"
+                }
+                aria-live="assertive"
+                role="alert"
+              >
+                {emailError}
+              </p>
             </div>
             <div className="flex flex-col text-white py-2">
               <label>Password</label>
