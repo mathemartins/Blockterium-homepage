@@ -26,24 +26,35 @@ const DashboardLists = ({ classnames }) => {
   const location = useLocation();
   const { pathname } = location;
   const splitLocation = pathname.split("/");
+
   const fullName = localStorage.getItem("fullName");
   const email = localStorage.getItem("email");
+  const apiToken = localStorage.getItem("accessToken");
+  const deviceToken = localStorage.getItem("deviceToken");
+  const apiCalls = localStorage.getItem("ApiCounts");
+  // const testnetKey = localStorage.getItem("TestnetKey");
+  const creditUsage = localStorage.getItem("CreditUsage");
+  const defiEarnings = localStorage.getItem("DefiEarnings");
+  const dexP = localStorage.getItem("DexP");
+  const testnetNetwork = localStorage.getItem("TestnetNetwork");
+  const mainnetNetwork = localStorage.getItem("MainnetNetwork");
+  const mainnetKey = localStorage.getItem("MainnetKey");
+  const mainnetResetKey = localStorage.getItem("ResetmainnetKey");
+
   const DASHBOARD_URL = "/accounts/dashboard/";
   const GENERATE_API_URL = "/accounts/generate/api-key/";
-
-  let [isOpen, setIsOpen] = useState(false);
-  let [Open, setOpen] = useState(false);
-  const [mainnetApiKey, setMainnetApiKey] = useState("");
-  const [isCopied, setIsCopied] = useState(false);
-  const [showTestnet, setShowTesnet] = useState("show");
-  const [showMainnet, setShowMainnet] = useState("show");
-  const [buttonText, setButtonText] = useState("Create new API");
-  const [resetButtonText, setResetButtonText] = useState("Reset");
 
   const onCopyText = () => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
+    }, 2000);
+  };
+
+  const onCopyMainnetKey = () => {
+    setIsCopiedMainnet(true);
+    setTimeout(() => {
+      setIsCopiedMainnet(false);
     }, 2000);
   };
 
@@ -61,9 +72,6 @@ const DashboardLists = ({ classnames }) => {
   function openPaymentModal() {
     setOpen(true);
   }
-
-  const apiToken = localStorage.getItem("accessToken");
-  const testnetToken = localStorage.getItem("deviceToken");
 
   async function fetchDashboardData() {
     try {
@@ -97,16 +105,6 @@ const DashboardLists = ({ classnames }) => {
     fetchDashboardData();
   }, []);
 
-  const apiCalls = localStorage.getItem("ApiCounts");
-  // const testnetKey = localStorage.getItem("TestnetKey");
-  const creditUsage = localStorage.getItem("CreditUsage");
-  const defiEarnings = localStorage.getItem("DefiEarnings");
-  const dexP = localStorage.getItem("DexP");
-  const testnetNetwork = localStorage.getItem("TestnetNetwork");
-  const mainnetNetwork = localStorage.getItem("MainnetNetwork");
-  const mainnetKey = localStorage.getItem("MainnetKey");
-  const mainnetResetKey = localStorage.getItem("ResetmainnetKey");
-
   async function generateApiKey() {
     setButtonText("Generating Key...");
 
@@ -123,7 +121,7 @@ const DashboardLists = ({ classnames }) => {
       localStorage.setItem("MainnetKey", MainnetKey);
 
       setButtonText("Create new API");
-      setMainnetApiKey(mainnetKey);
+      setMainnetApiKey(mainnetResetKey);
     } catch (error) {
       // console.log(error);
     }
@@ -146,7 +144,7 @@ const DashboardLists = ({ classnames }) => {
 
       const ResetmainnetKey = response?.data?.data?.mainnet_api_key;
       localStorage.setItem("ResetmainnetKey", ResetmainnetKey);
-      setMainnetApiKey(mainnetResetKey);
+      setMainnetApiKey(mainnetKey);
       setResetButtonText("Reset");
     } catch (error) {
       if (error.response.statusText === "Payment Required") {
@@ -155,6 +153,16 @@ const DashboardLists = ({ classnames }) => {
       setResetButtonText("Reset");
     }
   }
+
+  let [isOpen, setIsOpen] = useState(false);
+  let [Open, setOpen] = useState(false);
+  const [mainnetApiKey, setMainnetApiKey] = useState(mainnetKey);
+  const [isCopied, setIsCopied] = useState(false);
+  const [isCopiedMainnet, setIsCopiedMainnet] = useState(false);
+  const [showTestnet, setShowTesnet] = useState("show");
+  const [showMainnet, setShowMainnet] = useState("show");
+  const [buttonText, setButtonText] = useState("Create new API");
+  const [resetButtonText, setResetButtonText] = useState("Reset");
 
   return (
     <>
@@ -343,9 +351,7 @@ const DashboardLists = ({ classnames }) => {
                   <InputFieldTwo
                     label="Api Key"
                     type={showTestnet === "show" ? `password` : `text`}
-                    value={testnetToken}
-                    // onChange={(e) => setMainnetApiKey(e.target.value)}
-                    // value={testnetKey}
+                    value={deviceToken}
                   />
 
                   <div className="flex items-center mt-4 text-[14px]">
@@ -360,7 +366,8 @@ const DashboardLists = ({ classnames }) => {
                         classnames={`bg-mainBlue w-[3rem] px-2  mr-1 rounded-md  mainBlue text-white  `}
                       />
                     </div>
-                    <CopyToClipboard text={testnetToken} onCopy={onCopyText}>
+
+                    <CopyToClipboard text={deviceToken} onCopy={onCopyText}>
                       <div className=" ">
                         <ActionButton
                           label="Copy"
@@ -399,7 +406,7 @@ const DashboardLists = ({ classnames }) => {
                     label="Api Key"
                     type={showMainnet === "show" ? `password` : `text`}
                     onChange={(e) => setMainnetApiKey(e.target.value)}
-                    value={mainnetKey}
+                    value={mainnetApiKey}
                   />
 
                   <div className="flex items-center mt-4 text-[14px]">
@@ -414,18 +421,22 @@ const DashboardLists = ({ classnames }) => {
                         classnames={`bg-mainBlue w-[3rem] px-2  mr-1 rounded-md  mainBlue text-white  `}
                       />
                     </div>
-                    <CopyToClipboard text={mainnetApiKey} onCopy={onCopyText}>
+
+                    <CopyToClipboard
+                      text={mainnetApiKey}
+                      onCopy={onCopyMainnetKey}
+                    >
                       <div className="">
                         <ActionButton
                           label="Copy"
                           onClick={() => {}}
                           classnames={`bg-gradedBlue bg-opacity-40 px-2  rounded-md  mainBlue ${
-                            isCopied
+                            isCopiedMainnet
                               ? `text-mainBlue font-bold`
                               : `text-mainBlue`
                           }`}
                         />
-                        {isCopied ? (
+                        {isCopiedMainnet ? (
                           <p className="absolute -bottom-10 left-[50%] text-mainBlue text-sm">
                             Copiedd!!!!
                           </p>

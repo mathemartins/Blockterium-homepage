@@ -52,17 +52,26 @@ export default function SignIn(props) {
         }
       );
       const accessToken = response?.data?.data?.api_token;
+      const deviceToken = response?.data?.data?.device_token;
       const username = response?.data?.data?.id;
       const fullName = response?.data?.data?.name;
-      const phone = response?.data?.data?.custom_fields?.phone?.value;
+      const business = response?.data?.data?.business;
       const role = response?.data?.data?.roles[0].name;
+
       let roles = [];
       roles.push(role);
-      setAuth({ email, accessToken, roles, username, fullName, phone });
+      setAuth({
+        email,
+        accessToken,
+        roles,
+        username,
+        fullName,
+        business,
+        deviceToken,
+      });
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("username", username);
       localStorage.setItem("fullName", fullName);
-
       localStorage.setItem("business", business);
       localStorage.setItem("email", email);
       localStorage.setItem("deviceToken", deviceToken);
