@@ -44,6 +44,9 @@ const DashboardLists = ({ classnames }) => {
   const DASHBOARD_URL = "/accounts/dashboard/";
   const GENERATE_API_URL = "/accounts/generate/api-key/";
 
+  const [isPremium, setIsPremium] = useState(false);
+  const [mainnetApiKey, setMainnetApiKey] = useState("");
+
   const onCopyText = () => {
     setIsCopied(true);
     setTimeout(() => {
@@ -89,6 +92,8 @@ const DashboardLists = ({ classnames }) => {
       const DexP = response?.data?.data?.dex_p2p;
       const TestnetNetwork = response?.data?.data?.testnet_network;
       const MainnetNetwork = response?.data?.data?.mainnet_network;
+      const premiumUser = response?.data?.data?.is_premium;
+      console.log(premiumUser);
 
       localStorage.setItem("ApiCounts", ApiCounts);
       // localStorage.setItem("TestnetKey", TestnetKey);
@@ -97,6 +102,7 @@ const DashboardLists = ({ classnames }) => {
       localStorage.setItem("DexP", DexP);
       localStorage.setItem("TestnetNetwork", TestnetNetwork);
       localStorage.setItem("MainnetNetwork", MainnetNetwork);
+      setIsPremium(premiumUser);
     } catch (error) {
       console.log(error);
     }
@@ -144,7 +150,7 @@ const DashboardLists = ({ classnames }) => {
 
       const ResetmainnetKey = response?.data?.data?.mainnet_api_key;
       localStorage.setItem("ResetmainnetKey", ResetmainnetKey);
-      setMainnetApiKey(mainnetKey);
+      setMainnetApiKey("00000000000000000000");
       setResetButtonText("Reset");
     } catch (error) {
       if (error.response.statusText === "Payment Required") {
@@ -156,7 +162,7 @@ const DashboardLists = ({ classnames }) => {
 
   let [isOpen, setIsOpen] = useState(false);
   let [Open, setOpen] = useState(false);
-  const [mainnetApiKey, setMainnetApiKey] = useState(mainnetKey);
+
   const [isCopied, setIsCopied] = useState(false);
   const [isCopiedMainnet, setIsCopiedMainnet] = useState(false);
   const [showTestnet, setShowTesnet] = useState("show");
@@ -198,8 +204,8 @@ const DashboardLists = ({ classnames }) => {
                         to="/billing"
                         className={
                           splitLocation[1] === "billing"
-                            ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-base"
-                            : "py-5 px-3 text-base"
+                            ? "py-3 px-3 bg-gradedBlue bg-opacity-30 text-base"
+                            : "py-3 px-3 text-base"
                         }
                       >
                         Billing
@@ -208,13 +214,13 @@ const DashboardLists = ({ classnames }) => {
                         to="/settings"
                         className={
                           splitLocation[1] === "settings"
-                            ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-base"
-                            : "py-5 px-3 text-base"
+                            ? "py-3 px-3 bg-gradedBlue bg-opacity-30 text-base"
+                            : "py-3 px-3 text-base"
                         }
                       >
                         Settings
                       </Link>
-                      <div className="py-5 px-3 text-base" onClick={openModal}>
+                      <div className="py-3 px-3 text-base" onClick={openModal}>
                         Logout
                       </div>
                     </div>
@@ -243,7 +249,7 @@ const DashboardLists = ({ classnames }) => {
                       <div className="flex flex-col">
                         <div className="pt-5 px-3 pb-5">
                           <h6 className="text-lg">{fullName}</h6>
-                          <p className="text-greyFour text-sm font-light">
+                          <p className="text-mainBlue text-sm font-light">
                             {email}
                           </p>
                         </div>
@@ -251,8 +257,8 @@ const DashboardLists = ({ classnames }) => {
                           to="/download"
                           className={
                             splitLocation[1] === "download"
-                              ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-base border-t-2 border-t-greyFive"
-                              : "py-5 px-3 text-base border-t-2 border-t-greyFive"
+                              ? "py-3 px-3 bg-gradedBlue bg-opacity-30 text-base border-t-2 border-t-greyFive"
+                              : "py-3 px-3 text-base border-t-2 border-t-greyFive"
                           }
                         >
                           Download pitch deck
@@ -261,8 +267,8 @@ const DashboardLists = ({ classnames }) => {
                           to="/billing"
                           className={
                             splitLocation[1] === "billing"
-                              ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-base"
-                              : "py-5 px-3 text-base"
+                              ? "py-3 px-3 bg-gradedBlue bg-opacity-30 text-base"
+                              : "py-3 px-3 text-base"
                           }
                         >
                           Billing
@@ -271,14 +277,14 @@ const DashboardLists = ({ classnames }) => {
                           to="settings"
                           className={
                             splitLocation[2] === "settings"
-                              ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-base"
-                              : "py-5 px-3 text-base"
+                              ? "py-3 px-3 bg-gradedBlue bg-opacity-30 text-base"
+                              : "py-3 px-3 text-base"
                           }
                         >
                           Settings
                         </Link>
                         <div
-                          className="py-5 px-3 text-base"
+                          className="py-3 px-3 text-base"
                           onClick={openModal}
                         >
                           Logout
@@ -325,18 +331,18 @@ const DashboardLists = ({ classnames }) => {
                 <ActionButton
                   label={buttonText}
                   classnames="bg-gradedBlue bg-opacity-40 text-mainBlue font-semibold px-2 py-1 tracking-wide rounded text-[14px]"
-                  onClick={generateApiKey}
+                  onClick={isPremium ? generateApiKey : openPaymentModal}
                 />
                 <ActionButton
                   label={resetButtonText}
                   classnames="bg-mainBlue text-mainWhite px-2 py-1 tracking-wide rounded text-[14px] ml-3"
-                  onClick={ResetKey}
+                  onClick={isPremium ? ResetKey : openPaymentModal}
                 />
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-3 mt-5  text-greyFive text-lg font-medium  relative">
-              <div className="col-span-1 border rounded-md border-b-greySeven ">
+              <div className="flex flex-col justify-between border rounded-md border-b-greySeven ">
                 <div className="p-4 sm:p-6">
                   <ApiKeyCard
                     icon={testnet2Icon}
@@ -345,6 +351,12 @@ const DashboardLists = ({ classnames }) => {
                     creditUsage={creditUsage}
                     plan="free"
                   />
+                  {/* <div className="flex items-center mb-3 text-[16px]">
+                    <h6 className="mr-3 text-greyFive font-semibold">
+                      Credit Usage
+                    </h6>{" "}
+                    <span className="text-mainBlack">{creditUsage}</span>
+                  </div> */}
                 </div>
 
                 <div className="flex bg-gradedBlue bg-opacity-20 rounded-md  justify-between items-center pb-2 px-2">
@@ -391,22 +403,28 @@ const DashboardLists = ({ classnames }) => {
                 </div>
               </div>
 
-              <div className="col-span-1 border rounded-md border-b-greySeven ">
+              <div className="flex flex-col justify-between border rounded-md border-b-greySeven ">
                 <div className="p-4 sm:p-6">
                   <ApiKeyCard
                     icon={testnet2Icon}
                     title="Mainnet"
                     network={mainnetNetwork}
-                    creditUsage={creditUsage}
-                    plan="Enterprise"
+                    // creditUsage={creditUsage}
+                    plan="Premium"
                   />
+                  <div className="flex items-center mb-3 text-[16px]">
+                    <h6 className="mr-3 text-greyFive font-semibold">
+                      Credit Usage
+                    </h6>{" "}
+                    <span className="text-mainBlack">{creditUsage}</span>
+                  </div>
                 </div>
                 <div className="flex bg-gradedBlue bg-opacity-20 rounded-md  justify-between pb-2 px-2">
                   <InputFieldTwo
                     label="Api Key"
                     type={showMainnet === "show" ? `password` : `text`}
                     onChange={(e) => setMainnetApiKey(e.target.value)}
-                    value={mainnetApiKey}
+                    value={isPremium ? mainnetApiKey : ""}
                   />
 
                   <div className="flex items-center mt-4 text-[14px]">
@@ -423,7 +441,7 @@ const DashboardLists = ({ classnames }) => {
                     </div>
 
                     <CopyToClipboard
-                      text={mainnetApiKey}
+                      text={isPremium ? mainnetApiKey : ""}
                       onCopy={onCopyMainnetKey}
                     >
                       <div className="">
@@ -431,14 +449,14 @@ const DashboardLists = ({ classnames }) => {
                           label="Copy"
                           onClick={() => {}}
                           classnames={`bg-gradedBlue bg-opacity-40 px-2  rounded-md  mainBlue ${
-                            isCopiedMainnet
+                            isCopiedMainnet && isPremium
                               ? `text-mainBlue font-bold`
                               : `text-mainBlue`
                           }`}
                         />
-                        {isCopiedMainnet ? (
+                        {isCopiedMainnet && isPremium ? (
                           <p className="absolute -bottom-10 left-[50%] text-mainBlue text-sm">
-                            Copiedd!!!!
+                            Copied
                           </p>
                         ) : (
                           ""

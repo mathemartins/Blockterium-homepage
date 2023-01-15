@@ -11,6 +11,7 @@ import PricingIndex from "./Components/Explore/Pricing/PricingIndex";
 import SubscriptionIndex from "./Components/Explore/Subscription/SubscriptionIndex";
 import Docs from "./Components/Docs/Docs.jsx";
 import ContactUsForm from "./Components/ContactUsForm/ContactUsForm";
+import ResetPassword from "./Components/ResetPassword";
 
 // ************************************************************************************
 
@@ -24,6 +25,7 @@ export default function App(props) {
 
         <Route path="login" element={<Login />} />
         <Route path="sign-up" element={<SignUp />} />
+        <Route path="reset-password" element={<ResetPassword />} />
 
         <Route path="/contact-us" element={<ContactUs />} />
 

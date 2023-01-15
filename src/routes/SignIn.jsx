@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Logo, Bg, iphone } from "../assets/index";
 import axios from "../api/axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LOGIN_URL = "/accounts/login/";
 
@@ -20,12 +21,19 @@ export default function SignIn(props) {
   const [email, setEmail] = React.useState("");
   const [emailFocus, setEmailFocus] = React.useState(false);
   const [password, setPassword] = React.useState("");
+
   const [errorMsg, setErrorMsg] = React.useState("");
   const [emailError, setEmailError] = React.useState("");
   const [success, setSuccess] = React.useState(false);
 
   const [buttonText, setButtonText] = React.useState("Proceed");
   const [passwordFocus, setPasswordFocus] = React.useState(false);
+
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   React.useEffect(function () {
     emailRef.current.focus();
@@ -159,33 +167,54 @@ export default function SignIn(props) {
                 onBlur={() => setEmailFocus(false)}
                 required
               />
-
-              <p
-                ref={emailErrorRef}
-                className={
-                  emailError
-                    ? "bg-Lightgrey text-mainRed border border-mainRed text-red-700 px-4 py-3 mt-2 rounded relative"
-                    : "offscreen"
-                }
-                aria-live="assertive"
-                role="alert"
-              >
-                {emailError}
-              </p>
+              {emailFocus && email ? (
+                <p
+                  ref={emailErrorRef}
+                  className={
+                    emailError
+                      ? "bg-white border-t-4  rounded-b text-teal-900 px-4 py-3 shadow-md border border-red-500"
+                      : "offscreen"
+                  }
+                  aria-live="assertive"
+                  role="alert"
+                >
+                  <div className="flex">
+                    <div className="py-1">
+                      <svg
+                        className="fill-current h-4 w-4 text-purple mr-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                      </svg>
+                    </div>
+                    <div>{emailError}</div>
+                  </div>
+                </p>
+              ) : (
+                ``
+              )}
             </div>
             <div className="flex flex-col text-white py-2">
               <label>Password</label>
-              <input
-                className="rounded-lg bg-gray-800 mt-2 p-2 focus:border-secondary focus:bg-gray-800 focus:outline-none"
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                placeholder="**********"
-                aria-describedby="pwdnote"
-                onFocus={() => setPasswordFocus(true)}
-                onBlur={() => setPasswordFocus(false)}
-                required
-              />
+              <div className="rounded-lg bg-gray-800 mt-2 p-2 focus:border-secondary focus:bg-gray-800 focus:outline-none flex items-center justify-between">
+                <input
+                  className="rounded-lg bg-gray-800  focus:border-secondary focus:bg-gray-800 focus:outline-none"
+                  type={showPassword ? "text" : "password"}
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  placeholder="**********"
+                  aria-describedby="pwdnote"
+                  onFocus={() => setPasswordFocus(true)}
+                  onBlur={() => setPasswordFocus(false)}
+                  required
+                />
+                <div>
+                  <button type="button" onClick={togglePasswordVisibility}>
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </button>
+                </div>
+              </div>
             </div>
             <div className="flex justify-between text-white py-2">
               <p className="flex items-center text-[12px]">

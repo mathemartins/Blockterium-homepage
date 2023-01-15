@@ -15,10 +15,10 @@ const ApiKeyCard = ({ icon, title, network, creditUsage, plan }) => {
           <h6 className="mr-3 text-greyFive font-semibold">Network</h6>{" "}
           <span className="text-mainBlack">{network}</span>
         </div>
-        <div className="flex items-center mb-3 text-[16px]">
+        {/* <div className="flex items-center mb-3 text-[16px]">
           <h6 className="mr-3 text-greyFive font-semibold">Credit Usage</h6>{" "}
           <span className="text-mainBlack">{creditUsage}</span>
-        </div>
+        </div> */}
         <div className="flex items-center mb-3 text-[16px]">
           <h6 className="mr-3 text-greyFive font-semibold">Plan</h6>{" "}
           <span className="text-mainBlack">{plan}</span>

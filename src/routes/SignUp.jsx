@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Logo, Bg, iphone } from "../assets/index";
 import useAuth from "../hooks/useAuth";
 import axios from "../api/axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const BUSINESS_REGISTER_URL = "/accounts/register/business/";
 const DEVELOPER_REGISTER_URL = "/accounts/register/";
@@ -18,6 +19,7 @@ export default function SignUp(props) {
 
   const userRef = React.useRef();
   const errorRef = React.useRef();
+  const emailErrorRef = React.useRef();
 
   const [userFocus, setUserFocus] = React.useState(false);
   const [emailFocus, setEmailFocus] = React.useState(false);
@@ -33,6 +35,13 @@ export default function SignUp(props) {
   const [password, setPassword] = React.useState("");
   const [errorMsg, setErrorMsg] = React.useState("");
   const [success, setSuccess] = React.useState(false);
+  const [emailError, setEmailError] = React.useState("");
+
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   React.useEffect(function () {
     userRef.current.focus();
@@ -180,38 +189,12 @@ export default function SignUp(props) {
                 autoComplete="off"
                 onChange={(e) => setUser(e.target.value)}
                 value={user}
-                placeholder="John Doe"
+                placeholder="Enter your first Name and last Name"
                 aria-describedby="uidnote"
                 onFocus={() => setUserFocus(true)}
                 onBlur={() => setUserFocus(false)}
                 required
               />
-              <div
-                id="uidnote"
-                className={
-                  userFocus && user
-                    ? "bg-black border-t-4 border-blue rounded-b  px-4 py-3 shadow-md"
-                    : "offscreen"
-                }
-                role="alert"
-              >
-                <div className="flex items-center">
-                  <div className="py-1">
-                    <svg
-                      className="fill-current h-4 w-4 text-purple mr-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-[12px] my-2 text-white">
-                      Please enter valid first and last name
-                    </p>
-                  </div>
-                </div>
-              </div>
 
               <div className="flex flex-col text-Lightgrey py-2">
                 <label>Email</label>
@@ -220,7 +203,14 @@ export default function SignUp(props) {
                   ref={userRef}
                   type="email"
                   autoComplete="off"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (!e.target.value.includes("@")) {
+                      setEmailError("Please enter a valid email address");
+                    } else {
+                      setEmailError("");
+                    }
+                  }}
                   value={email}
                   placeholder="johndoe@blockterium.com"
                   aria-describedby="emailnote"
@@ -228,32 +218,34 @@ export default function SignUp(props) {
                   onBlur={() => setEmailFocus(false)}
                   required
                 />
-                <div
-                  id="emailnote"
-                  className={
-                    emailFocus
-                      ? "bg-black border-t-4 border-blue rounded-b  px-4 py-3 shadow-md"
-                      : "offscreen"
-                  }
-                  role="alert"
-                >
-                  <div className="flex items-center">
-                    <div className="py-1">
-                      <svg
-                        className="fill-current h-4 w-4 text-purple mr-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
-                      </svg>
+
+                {emailFocus && email ? (
+                  <p
+                    ref={emailErrorRef}
+                    className={
+                      emailError
+                        ? "bg-white border-t-4  rounded-b text-teal-900 px-4 py-3 shadow-md border border-red-500"
+                        : "offscreen"
+                    }
+                    aria-live="assertive"
+                    role="alert"
+                  >
+                    <div className="flex">
+                      <div className="py-1">
+                        <svg
+                          className="fill-current h-4 w-4 text-purple mr-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                        </svg>
+                      </div>
+                      <div>{emailError}</div>
                     </div>
-                    <div>
-                      <p className="text-[12px] py-2 text-white">
-                        Enter valid email address
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                  </p>
+                ) : (
+                  ``
+                )}
               </div>
 
               <div className="flex flex-col text-Lightgrey py-2">
@@ -271,77 +263,64 @@ export default function SignUp(props) {
                   onBlur={() => setCompanyNameFocus(false)}
                   required
                 />
-                <div
-                  id="companyidnote"
-                  className={
-                    companyNameFocus && companyName
-                      ? "bg-black border-t-4 border-blue rounded-b  px-4 py-3 shadow-md"
-                      : "offscreen"
-                  }
-                  role="alert"
-                >
-                  <div className="flex items-center">
-                    <div className="py-1">
-                      <svg
-                        className="fill-current h-4 w-4 text-purple mr-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
-                      </svg>
-                    </div>
-                    <p className="text-[12px] py-2 text-white">
-                      Enter valid company's name
-                    </p>
-                  </div>
-                </div>
               </div>
 
               <div className="flex flex-col text-white py-2">
                 <label>Password</label>
-                <input
-                  className="rounded-lg bg-gray-800 mt-2 p-2 focus:border-secondary focus:bg-gray-800 focus:outline-none"
-                  type="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  placeholder="**********"
-                  aria-invalid={validPassword ? "false" : "true"}
-                  aria-describedby="pwdnote"
-                  onFocus={() => setPasswordFocus(true)}
-                  onBlur={() => setPasswordFocus(false)}
-                  required
-                />
-                <div
-                  id="pwdnote"
-                  className={
-                    passwordFocus && !validPassword
-                      ? "bg-white border-t-4  rounded-b text-teal-900 px-4 py-3 shadow-md border border-red-500"
-                      : "offscreen"
-                  }
-                  role="alert"
-                >
-                  <div className="flex">
-                    <div className="py-1">
-                      <svg
-                        className="fill-current h-4 w-4 text-purple mr-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className={`text-[12px] py-2`}>
-                        8 to 24 characters.
-                        <br />
-                        Must include uppercase and lowercase letters, a number
-                        and a special character.
-                        <br />
-                        Special characters allowed
-                      </p>
-                    </div>
+                <div className="rounded-lg bg-gray-800 mt-2 p-2 focus:border-secondary focus:bg-gray-800 focus:outline-none flex items-center justify-between">
+                  <input
+                    className="rounded-lg bg-gray-800  focus:border-secondary focus:bg-gray-800 focus:outline-none"
+                    type={showPassword ? "text" : "password"}
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    placeholder="**********"
+                    aria-invalid={validPassword ? "false" : "true"}
+                    aria-describedby="pwdnote"
+                    onFocus={() => setPasswordFocus(true)}
+                    onBlur={() => setPasswordFocus(false)}
+                    required
+                  />
+                  <div>
+                    <button type="button" onClick={togglePasswordVisibility}>
+                      {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
                   </div>
                 </div>
+                {passwordFocus && !validPassword ? (
+                  <div
+                    id="pwdnote"
+                    className={
+                      passwordFocus && !validPassword
+                        ? "bg-white border-t-4  rounded-b text-teal-900 px-4 py-3 shadow-md border border-red-500"
+                        : "offscreen"
+                    }
+                    role="alert"
+                  >
+                    <div className="flex">
+                      <div className="py-1">
+                        <svg
+                          className="fill-current h-4 w-4 text-purple mr-4"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className={`text-[12px] py-2`}>
+                          8 to 24 characters.
+                          <br />
+                          Must include uppercase and lowercase letters, a number
+                          and a special character.
+                          <br />
+                          Special characters allowed
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  ``
+                )}
               </div>
             </div>
             <div className="flex justify-between text-white py-2 px-4">
@@ -360,262 +339,9 @@ export default function SignUp(props) {
           </form>
         </div>
         <h2 className="text-white font-poppins text-center  cursor-pointer py-6">
-          <Link to="/login">Login as a developer</Link>
+          <Link to="/login">Already have an account ?</Link>
         </h2>
       </div>
     </div>
   );
-}
-
-//   try {
-//     const response = await axios.post(
-//       MERCHANT_REGISTER_URL,
-//       JSON.stringify({
-//         name: user,
-//         email: email,
-//         phone: phone,
-//         password: password,
-//       }),
-//       {
-//         headers: { "Content-Type": "application/json" },
-//         withCredentials: true,
-//       }
-//     );
-//     const accessToken = response?.data?.data?.api_token;
-//     const username = response?.data?.data?.id;
-//     const fullName = response?.data?.data?.name;
-//     const phone = response?.data?.data?.custom_fields?.phone?.value;
-//     const role = response?.data?.data?.roles[0].name;
-//     let roles = [];
-//     roles.push(role);
-//     setAuth({ email, accessToken, roles, username, fullName, phone });
-//     setUser("");
-//     setEmail("");
-//     setPhone("");
-//     setPassword("");
-//     setSuccess(true);
-//     setButtonText("Proceed");
-//     navigate(from, { replace: true });
-//   } catch (error) {
-//     console.log(error);
-//     setErrorMsg(error.response?.data["message"]);
-//     setButtonText("Proceed");
-//     errorRef.current.focus();
-//   }
-{
-  /* <div className="flex flex-col justify-center w-full">
-  <div className="bg-darkestGrey mx-auto max-w-[400px] w-full  rounded-lg mt-12 p-6">
-    <h2 className="text-2xl text-white font-poppins font-semibold text-center py-[40px]">
-      RACK
-    </h2>
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-[400px] w-full mx-auto bg-primary p-8 px-8 rounded-lg"
-    >
-      <h2 className="text-[15px] text-white font-poppins text-center">
-        MERCHANT REGISTRATION
-      </h2>
-      <p
-        ref={errorRef}
-        className={
-          errorMsg
-            ? "bg-red-100 border border-red-400 text-red-700 px-4 py-3 mt-2 rounded relative"
-            : "offscreen"
-        }
-        aria-live="assertive"
-        role="alert"
-      >
-        {errorMsg}
-      </p>
-      <div className="flex flex-col text-white py-2">
-        <label>Full Name</label>
-        <input
-          className="rounded-lg bg-gray-800 mt-2 p-2 focus:border-secondary focus:bg-gray-800 focus:outline-none"
-          type="name"
-          ref={userRef}
-          autoComplete="off"
-          onChange={(e) => setUser(e.target.value)}
-          value={user}
-          placeholder="John Doe"
-          aria-describedby="uidnote"
-          onFocus={() => setUserFocus(true)}
-          onBlur={() => setUserFocus(false)}
-          required
-        />
-        <div
-          id="uidnote"
-          className={
-            userFocus && user
-              ? "bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
-              : "offscreen"
-          }
-          role="alert"
-        >
-          <div className="flex">
-            <div className="py-1">
-              <svg
-                className="fill-current h-6 w-6 text-teal-500 mr-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[12px] py-2">
-                Please enter valid first and last name{" "}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-col text-white py-2">
-        <label>Email</label>
-        <input
-          className="rounded-lg bg-gray-800 mt-2 p-2 focus:border-secondary focus:bg-gray-800 focus:outline-none"
-          type="email"
-          autoComplete="off"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          placeholder="johndoe@rack.best"
-          aria-describedby="emailnote"
-          onFocus={() => setEmailFocus(true)}
-          onBlur={() => setEmailFocus(false)}
-          required
-        />
-        <div
-          id="emailnote"
-          className={
-            emailFocus
-              ? "bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
-              : "offscreen"
-          }
-          role="alert"
-        >
-          <div className="flex">
-            <div className="py-1">
-              <svg
-                className="fill-current h-6 w-6 text-teal-500 mr-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[12px] py-2">Enter valid email address</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-col text-white py-2">
-        <label>Phone</label>
-        <input
-          className="rounded-lg bg-gray-800 mt-2 p-2 focus:border-secondary focus:bg-gray-800 focus:outline-none"
-          type="text"
-          autoComplete="off"
-          onChange={(e) => setPhone(e.target.value)}
-          value={phone}
-          placeholder="+3569013129381"
-          aria-invalid={validPhone ? "false" : "true"}
-          aria-describedby="phonenote"
-          onFocus={() => setPhoneFocus(true)}
-          onBlur={() => setPhoneFocus(false)}
-          required
-        />
-        <div
-          id="phonenote"
-          className={
-            phoneFocus && !validPhone
-              ? "bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
-              : "offscreen"
-          }
-          role="alert"
-        >
-          <div className="flex">
-            <div className="py-1">
-              <svg
-                className="fill-current h-6 w-6 text-teal-500 mr-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[12px] py-2">
-                Enter Country DIAL Code
-                <br />
-                As seen in the placeholder, MALTESE Residents can proceed
-                without a DIAL Code
-                <br />
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-col text-white py-2">
-        <label>Password</label>
-        <input
-          className="rounded-lg bg-gray-800 mt-2 p-2 focus:border-secondary focus:bg-gray-800 focus:outline-none"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          placeholder="**********"
-          aria-invalid={validPassword ? "false" : "true"}
-          aria-describedby="pwdnote"
-          onFocus={() => setPasswordFocus(true)}
-          onBlur={() => setPasswordFocus(false)}
-          required
-        />
-        <div
-          id="pwdnote"
-          className={
-            passwordFocus && !validPassword
-              ? "bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
-              : "offscreen"
-          }
-          role="alert"
-        >
-          <div className="flex">
-            <div className="py-1">
-              <svg
-                className="fill-current h-6 w-6 text-teal-500 mr-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-[12px] py-2">
-                8 to 24 characters.
-                <br />
-                Must include uppercase and lowercase letters, a number and a
-                special character.
-                <br />
-                Special characters allowed
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-between text-white py-2">
-        <p className="items-center text-[12px]">
-          By clicking <strong>Procced</strong>, you have agreed to our terms
-        </p>
-      </div>
-      <button
-        className="w-full my-5 py-2 bg-secondary rounded-lg hover:shadow-blue-500/50 text-white font-semibold"
-        disabled={!validPhone || !validPassword ? true : false}
-        type="submit"
-      >
-        {buttonText}
-      </button>
-    </form>
-  </div>
-  <h2 className="text-white font-poppins text-center py-[40px] cursor-pointer">
-    <Link to="/login">Login as a merchant</Link>
-  </h2>
-</div>; */
 }
