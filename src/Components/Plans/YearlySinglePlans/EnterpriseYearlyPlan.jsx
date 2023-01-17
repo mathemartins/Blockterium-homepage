@@ -94,13 +94,15 @@ const EnterpriseYearlyPlan = () => {
         <div className="bg-veryLightBlue text-LightBlue w-[80%]">
           <p>Recommended</p>
         </div>
-        <div className="px-3 py-1">
+        <div className="px-3 py-1 mb-6">
           <h2 className="font-semibold text-[16px]">Enterprise</h2>
-          <h2 className="font-bold mt-1 mb-6 text-[16px]">
-            $400 <span className="font-normal text-[14px]">/ month</span>
+          <h2 className="font-bold my-1 text-[16px]">
+            $400 <span className="font-normal text-[14px]">/ year</span>
           </h2>
+          <h5 className="text-mainRed font-bold text-[12px]">
+            40% discount off
+          </h5>
         </div>
-
         <div className="pb-3 ">
           <ul className="flex flex-col gap-3 px-3 mb-5">
             <li className="">Unlimited API calls</li>

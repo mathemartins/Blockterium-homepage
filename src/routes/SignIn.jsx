@@ -181,7 +181,11 @@ export default function SignIn(props) {
                   <div className="flex">
                     <div className="py-1">
                       <svg
-                        className="fill-current h-4 w-4 text-purple mr-4"
+                        className={
+                          emailError
+                            ? `fill-current h-4 w-4 text-purple mr-4`
+                            : `hidden`
+                        }
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                       >

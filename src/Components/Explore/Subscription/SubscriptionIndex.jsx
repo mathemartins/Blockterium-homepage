@@ -8,6 +8,7 @@ import PricingCard from "../../Cards/PricingCard";
 import { ConfirmIcon, LimitKey } from "../../../assets";
 import { Dropdown } from "primereact/dropdown";
 import axios from "../../../api/axios";
+import { Link } from "react-router-dom";
 
 const SubscriptionIndex = () => {
   const GENERATE_API_URL = "/accounts/generate/api-key/";
@@ -125,9 +126,12 @@ const SubscriptionIndex = () => {
                 <h3 className="text-mainBlack font-bold text-[16px]">
                   Billing History
                 </h3>
-                <div className="text-sm text-mainWhite bg-mainBlue flex items-center rounded-md px-4 py-1">
+                <Link
+                  to={"/dashboard/explore/pricing"}
+                  className="text-sm text-mainWhite bg-mainBlue flex items-center rounded-md px-4 py-1"
+                >
                   Upgrade Plan
-                </div>
+                </Link>
               </div>
               <table className="w-full text-left text-[13px] mt-5">
                 <thead>

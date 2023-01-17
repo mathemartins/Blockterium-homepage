@@ -91,11 +91,14 @@ const CustomYearlyPlan = () => {
   return (
     <>
       <div className="border-4 border-greySix hover:border-LightBlue w-full text-[14px] p-3 ">
-        <div className="pt-4">
+        <div className="pt-4 mb-6">
           <h2 className="font-semibold text-[16px]">Custom</h2>
-          <h2 className="font-bold mt-1 mb-6 text-[16px]">
-            $700 <span className="font-normal text-[14px]">/ month</span>
+          <h2 className="font-bold my-1 text-[16px]">
+            $700 <span className="font-normal text-[14px]">/ year</span>
           </h2>
+          <h5 className="text-mainRed font-bold text-[12px]">
+            50% discount off
+          </h5>
         </div>
 
         <ul className="flex flex-col gap-3 mb-5">

@@ -47,16 +47,12 @@ const ContactUs = () => {
             establish, run and scale their digital assets activities seamlessly.
           </p>
           <div className="my-4 text-[14px]">
-            <p className=" mb-1 text-grey text-[16px]">Contact Sales Team:</p>
-            <p className="flex items-center justify-center">
-              <HiOutlineMail className=" mr-1" /> Email: hi@blockterium.io
-            </p>
-            <p className="flex items-center">
-              Address: <FaMapPin className="text-mainRed ml-2" />
-              <span> no 52, Orchid Road Lekki, Lagos, Nigeria.</span>
-            </p>
             <p className="my-2  text-white  bg-mainBlue py-1 font-bold rounded-xl hover:text-mainBlue hover:bg-white">
               Discord and Telegram
+            </p>
+
+            <p className="flex items-center justify-center">
+              <HiOutlineMail className=" mr-1" /> Email: hi@blockterium.io
             </p>
           </div>
 

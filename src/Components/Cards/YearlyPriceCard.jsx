@@ -16,10 +16,10 @@ const YearlyPriceCard = () => {
         </div>
         <div className="grid xsm:grid-cols-5 xsm:grid-rows-1 sm:grid-cols-2 grid-cols-1 w-full">
           <div className=" border-4 border-greySix hover:border-LightBlue bg-white  subscription w-full  text-[14px] p-3 ">
-            <div className="pt-4">
+            <div className="pt-4 mb-6">
               <h2 className="font-semibold text-[18px]">Free</h2>
-              <h2 className="font-bold mt-1 mb-6 text-[16px]">
-                $0 <span className="font-normal text-[14px]">/ month</span>
+              <h2 className="font-bold my-1  text-[16px]">
+                $0 <span className="font-normal text-[14px]">/ year</span>
               </h2>
             </div>
 

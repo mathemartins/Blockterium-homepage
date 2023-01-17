@@ -22,9 +22,9 @@ const YearlyPlans = () => {
               <h2 className="font-bold my-1  text-[16px]">
                 $0 <span className="font-normal text-[14px]">/ year</span>
               </h2>
-              <h5 className="text-mainRed font-bold text-[12px]">
+              {/* <h5 className="text-mainRed font-bold text-[12px]">
                 15% discount off
-              </h5>
+              </h5> */}
             </div>
 
             <ul className="flex flex-col gap-3 mb-5">

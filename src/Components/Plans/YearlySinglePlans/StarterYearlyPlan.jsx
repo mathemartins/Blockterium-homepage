@@ -91,14 +91,17 @@ const StarterYearlyPlan = () => {
   return (
     <>
       <div className="border-4 border-greySix hover:border-LightBlue w-full text-[14px] p-3 ">
-        <div className="pt-4">
+        <div className="pt-4 mb-6">
           <h2 className="font-semibold text-[16px]">Starter</h2>
-          <h2 className="font-bold mt-1 mb-6 text-[16px]">
-            $120 <span className="font-normal text-[14px]">/ month</span>
+          <h2 className="font-bold my-1 text-[16px]">
+            $120 <span className="font-normal text-[14px]">/ year</span>
           </h2>
+          <h5 className="text-mainRed font-bold text-[12px]">
+            20% discount off
+          </h5>
         </div>
 
-        <ul className="flex flex-col gap-3 mb-1">
+        <ul className="flex flex-col gap-3 mb-5">
           <li className="">1,000,000 API Calls</li>
           <li className="">200 rq/s</li>
           <li className="">Community support</li>
@@ -107,7 +110,7 @@ const StarterYearlyPlan = () => {
         </ul>
         <button
           onClick={openPaymentModal}
-          className="BlueGradient text-white py-1 px-2 my-4"
+          className="BlueGradient text-white py-1 px-2 my-5"
         >
           Choose Plan
         </button>
