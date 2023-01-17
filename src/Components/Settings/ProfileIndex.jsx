@@ -28,12 +28,12 @@ const ProfileIndex = () => {
           type="number"
           placeholder="Enter Phone Number"
         />
-        <SettingsInput label="Country" type="text" placeholder="Country" />
+        {/* <SettingsInput label="Country" type="text" placeholder="Country" />
         <SettingsInput
           label="City"
           type="text"
           placeholder="Enter your current City"
-        />
+        /> */}
       </form>
     </div>
   );
