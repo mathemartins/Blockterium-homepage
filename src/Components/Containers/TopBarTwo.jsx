@@ -64,7 +64,7 @@ const TopBarTwo = () => {
                   >
                     Download pitch deck
                   </Link>
-                  <Link
+                  {/* <Link
                     to="/billing"
                     className={
                       splitLocation[1] === "billing"
@@ -73,7 +73,7 @@ const TopBarTwo = () => {
                     }
                   >
                     Billing
-                  </Link>
+                  </Link> */}
                   <Link
                     to="/dashboard/settings"
                     className={

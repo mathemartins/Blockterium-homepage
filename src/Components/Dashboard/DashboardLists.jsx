@@ -196,7 +196,7 @@ const DashboardLists = ({ classnames }) => {
                       >
                         Download pitch deck
                       </Link>
-                      <Link
+                      {/* <Link
                         to="/billing"
                         className={
                           splitLocation[1] === "billing"
@@ -205,7 +205,7 @@ const DashboardLists = ({ classnames }) => {
                         }
                       >
                         Billing
-                      </Link>
+                      </Link> */}
                       <Link
                         to="/settings"
                         className={
@@ -259,7 +259,7 @@ const DashboardLists = ({ classnames }) => {
                         >
                           Download pitch deck
                         </Link>
-                        <Link
+                        {/* <Link
                           to="/billing"
                           className={
                             splitLocation[1] === "billing"
@@ -268,7 +268,7 @@ const DashboardLists = ({ classnames }) => {
                           }
                         >
                           Billing
-                        </Link>
+                        </Link> */}
                         <Link
                           to="settings"
                           className={
