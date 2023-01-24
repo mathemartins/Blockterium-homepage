@@ -13,7 +13,18 @@ import { Link } from "react-router-dom";
 const SubscriptionIndex = () => {
   const GENERATE_API_URL = "/accounts/generate/api-key/";
   const [isPremium, setIsPremium] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const apiToken = localStorage.getItem("accessToken");
+  const SUBSCRIPTION_URL = "/pricing/billing/";
+  const [billingHistory, setBillingHistory] = useState([
+    {
+      date: "October",
+      type: "Enterprise Package",
+      refId: "ggttwreryy",
+      amountPaid: "400 USDT",
+      reciept: "hhhhhhhfftter",
+    },
+  ]);
 
   async function checkPremiumUsers() {
     try {
@@ -26,8 +37,26 @@ const SubscriptionIndex = () => {
       });
 
       const premiumUser = response?.data?.data?.is_premium;
+      setIsLoading(false);
 
       setIsPremium(premiumUser);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function billings() {
+    try {
+      const response = await axios.get(SUBSCRIPTION_URL, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiToken}`,
+        },
+        withCredentials: true,
+      });
+
+      console.log(response.data);
+      setBillingHistory(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -36,6 +65,14 @@ const SubscriptionIndex = () => {
   useEffect(() => {
     checkPremiumUsers();
   }, []);
+
+  useEffect(() => {
+    billings();
+  }, []);
+
+  if (isLoading) {
+    return <div className="absolute left-[45%] top-[50%]">Loading...</div>;
+  }
 
   return (
     <div className="w-full bg:w-[85%] h-screen bg:ml-[15%]">
@@ -69,8 +106,8 @@ const SubscriptionIndex = () => {
                     <div className=" py-1">
                       <h2 className="font-semibold text-[16px]">Enterprise</h2>
                       <h2 className="font-bold my-3 text-[16px]">
-                        $100{" "}
-                        <span className="font-normal text-[14px]">/ month</span>
+                        5 days
+                        {/* <span className="font-normal text-[14px]">/ month</span> */}
                       </h2>
                     </div>
 
@@ -93,11 +130,11 @@ const SubscriptionIndex = () => {
                   </div>
                 )}
               </>
-              <div className="bg-mainWhite  my-5 border border-greySeven rounded-md py-2 px-4">
-                <h3 className="text-[16px] font-semibold text-mainBlack">
+              {/* <div className="bg-mainWhite  my-5 border border-greySeven rounded-md py-2 px-4"> */}
+              {/* <h3 className="text-[16px] font-semibold text-mainBlack">
                   API Calls
-                </h3>
-                {/* <div className="flex justify-between">
+                </h3> */}
+              {/* <div className="flex justify-between">
                   <p className="text-[13px] text-greyTen font-medium">
                     Total Request made
                   </p>
@@ -111,8 +148,8 @@ const SubscriptionIndex = () => {
                     <option value="This Month">Feb</option>
                   </select>
                 </div> */}
-                <h3 className="text-2xl text-mainBlack font-bold mt-6">34</h3>
-              </div>
+              {/* <h3 className="text-2xl text-mainBlack font-bold mt-6">34</h3> */}
+              {/* </div> */}
 
               {/* <h2 className="text-mainRed border border-mainRed w-[50%] p-2 font-semibold rounded-md hover:cursor-pointer">
                 Cancel Plan
@@ -153,19 +190,19 @@ const SubscriptionIndex = () => {
                 </thead>
                 <tbody>
                   <td className="w-[20%] border border-greySeven px-2 py-2">
-                    Dec/02/2022
+                    {billingHistory.date}
                   </td>
                   <td className="w-[20%] border border-greySeven px-2 py-2">
-                    Enterprise package
+                    {billingHistory.type}
                   </td>
                   <td className="w-[20%] border border-greySeven px-2 py-2">
-                    347yy843y4380
+                    {billingHistory.refId}
                   </td>
                   <td className="w-[20%] border border-greySeven px-2 py-2">
-                    1000 USDT
+                    {billingHistory.amountPaid}
                   </td>
                   <td className="w-[20%] text-mainBlue font-semibold border border-greySeven px-2 py-2">
-                    Download
+                    {billingHistory.reciept}
                   </td>
                 </tbody>
               </table>

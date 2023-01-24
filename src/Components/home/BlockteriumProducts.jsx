@@ -28,11 +28,11 @@ const BlockteriumProducts = () => {
       </article>
       <img src={productGradient} alt="" className="absolute top-0 right-0 " />
 
-      <div className="z-[2] xsm:hidden">
+      {/* <div className="z-[2] xsm:hidden">
         <img src={Decentralised} className="z-[2]" alt="" />
-      </div>
+      </div> */}
 
-      <div className=" grid-cols-3 grid-rows-3 gap-6 z-[5] hidden xsm:grid w-full">
+      <div className="grid-cols-1 grid-rows-1 sm:grid-cols-2 sm:grid-rows-2 xsm:grid-cols-3 xsm:grid-rows-3 gap-6 z-[5] mt-12 xsm:mt-1 grid w-full">
         {products.map(({ info, title }) => {
           return (
             <div className=" text-white border border-dimWhite text-[16px] ss:text-[24px] sm:text-[16px]  lg:text-[22px] xl:text-[24px] px-4 py-3 rounded-xl flex flex-col gap-6 rotateEffectParent relative overflow-hidden">

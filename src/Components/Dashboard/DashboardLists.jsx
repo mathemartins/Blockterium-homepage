@@ -26,55 +26,29 @@ const DashboardLists = ({ classnames }) => {
   const location = useLocation();
   const { pathname } = location;
   const splitLocation = pathname.split("/");
+  const [updateData, setUpdateData] = React.useState([
+    {
+      api_count: "156",
+      credit_usage: "255 Credits",
+      defi_earnings: "$0006,219",
+      dex_p2p: "178",
+      is_premium: true,
+    },
+  ]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fullName = localStorage.getItem("fullName");
   const email = localStorage.getItem("email");
   const apiToken = localStorage.getItem("accessToken");
   const deviceToken = localStorage.getItem("deviceToken");
-  const apiCalls = localStorage.getItem("ApiCounts");
-  // const testnetKey = localStorage.getItem("TestnetKey");
-  const creditUsage = localStorage.getItem("CreditUsage");
-  const defiEarnings = localStorage.getItem("DefiEarnings");
-  const dexP = localStorage.getItem("DexP");
-  const testnetNetwork = localStorage.getItem("TestnetNetwork");
-  const mainnetNetwork = localStorage.getItem("MainnetNetwork");
+
   const mainnetKey = localStorage.getItem("MainnetKey");
   const mainnetResetKey = localStorage.getItem("ResetmainnetKey");
 
   const DASHBOARD_URL = "/accounts/dashboard/";
   const GENERATE_API_URL = "/accounts/generate/api-key/";
-
   const [isPremium, setIsPremium] = useState(false);
   const [mainnetApiKey, setMainnetApiKey] = useState("");
-
-  const onCopyText = () => {
-    setIsCopied(true);
-    setTimeout(() => {
-      setIsCopied(false);
-    }, 2000);
-  };
-
-  const onCopyMainnetKey = () => {
-    setIsCopiedMainnet(true);
-    setTimeout(() => {
-      setIsCopiedMainnet(false);
-    }, 2000);
-  };
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function closePaymentModal() {
-    setOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
-  function openPaymentModal() {
-    setOpen(true);
-  }
 
   async function fetchDashboardData() {
     try {
@@ -86,30 +60,20 @@ const DashboardLists = ({ classnames }) => {
         withCredentials: true,
       });
 
-      const ApiCounts = response?.data?.data?.api_count;
-      const DefiEarnings = response?.data?.data?.defi_earnings;
-      const CreditUsage = response?.data?.data?.credit_usage;
-      const DexP = response?.data?.data?.dex_p2p;
-      const TestnetNetwork = response?.data?.data?.testnet_network;
-      const MainnetNetwork = response?.data?.data?.mainnet_network;
       const premiumUser = response?.data?.data?.is_premium;
-      console.log(premiumUser);
 
-      localStorage.setItem("ApiCounts", ApiCounts);
-      // localStorage.setItem("TestnetKey", TestnetKey);
-      localStorage.setItem("DefiEarnings", DefiEarnings);
-      localStorage.setItem("CreditUsage", CreditUsage);
-      localStorage.setItem("DexP", DexP);
-      localStorage.setItem("TestnetNetwork", TestnetNetwork);
-      localStorage.setItem("MainnetNetwork", MainnetNetwork);
+      const resp = response?.data?.data;
+      setUpdateData(resp);
+      setIsLoading(false);
       setIsPremium(premiumUser);
     } catch (error) {
       console.log(error);
     }
   }
+
   useEffect(() => {
-    fetchDashboardData();
-  }, []);
+    (async () => fetchDashboardData())();
+  }, [updateData]);
 
   async function generateApiKey() {
     setButtonText("Generating Key...");
@@ -162,13 +126,45 @@ const DashboardLists = ({ classnames }) => {
 
   let [isOpen, setIsOpen] = useState(false);
   let [Open, setOpen] = useState(false);
-
   const [isCopied, setIsCopied] = useState(false);
   const [isCopiedMainnet, setIsCopiedMainnet] = useState(false);
   const [showTestnet, setShowTesnet] = useState("show");
   const [showMainnet, setShowMainnet] = useState("show");
   const [buttonText, setButtonText] = useState("Create new API");
   const [resetButtonText, setResetButtonText] = useState("Reset");
+
+  const onCopyText = () => {
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+  };
+
+  const onCopyMainnetKey = () => {
+    setIsCopiedMainnet(true);
+    setTimeout(() => {
+      setIsCopiedMainnet(false);
+    }, 2000);
+  };
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function closePaymentModal() {
+    setOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+  function openPaymentModal() {
+    setOpen(true);
+  }
+
+  if (isLoading) {
+    return <div className="absolute left-[45%] top-[50%]">Loading...</div>;
+  }
 
   return (
     <>
@@ -299,15 +295,16 @@ const DashboardLists = ({ classnames }) => {
             <div className="hidden xs:grid grid-cols-3 border-t relative text-mainBlack w-full border-t-greySeven mt-6">
               <div className="col-span-1 py-4">
                 <h6 className="text-center text-[14px] font-bold">
-                  {apiCalls}
+                  {updateData.api_count}
                   <span className="text-greyTen ml-2 font-medium">
                     Api calls
                   </span>
                 </h6>
               </div>
+
               <div className="col-span-1 border-x border-x-greySeven py-4">
                 <h6 className="text-center text-[14px] font-bold">
-                  {defiEarnings}
+                  {updateData.defi_earnings}
                   <span className="text-greyTen ml-2 font-medium">
                     DeFi Yield
                   </span>
@@ -315,7 +312,7 @@ const DashboardLists = ({ classnames }) => {
               </div>
               <div className="col-span-1 py-4">
                 <h6 className="text-center text-[14px] font-bold">
-                  {dexP}
+                  {updateData.dex_p2p}
                   <span className="text-greyTen ml-2 font-medium">Dex P2P</span>
                 </h6>
               </div>
@@ -347,8 +344,8 @@ const DashboardLists = ({ classnames }) => {
                   <ApiKeyCard
                     icon={testnet2Icon}
                     title="Testnet"
-                    network={testnetNetwork}
-                    creditUsage={creditUsage}
+                    network={updateData.testnet_network}
+                    creditUsage={updateData.credit_usage}
                     plan="free"
                   />
                   {/* <div className="flex items-center mb-3 text-[16px]">
@@ -408,15 +405,17 @@ const DashboardLists = ({ classnames }) => {
                   <ApiKeyCard
                     icon={testnet2Icon}
                     title="Mainnet"
-                    network={mainnetNetwork}
-                    // creditUsage={creditUsage}
+                    network={updateData.mainnet_network}
+                    creditUsage={updateData.credit_usage}
                     plan="Premium"
                   />
                   <div className="flex items-center mb-3 text-[16px]">
                     <h6 className="mr-3 text-greyFive font-semibold">
                       Credit Usage
                     </h6>{" "}
-                    <span className="text-mainBlack">{creditUsage}</span>
+                    <span className="text-mainBlack">
+                      {updateData.credit_usage}
+                    </span>
                   </div>
                 </div>
                 <div className="flex bg-gradedBlue bg-opacity-20 rounded-md  justify-between pb-2 px-2">

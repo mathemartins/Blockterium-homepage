@@ -65,7 +65,7 @@ export default function SubscriptionModal({
                       <p className="text-lg tracking-wide text-black">{text}</p>
                     </div>
 
-                    <div className="">
+                    {/* <div className="">
                       <div className="">
                         <ActionButton
                           type="button"
@@ -83,7 +83,7 @@ export default function SubscriptionModal({
                           label="Close"
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </Dialog.Panel>
                 </Transition.Child>
               </div>

@@ -329,8 +329,14 @@ export default function SignUp(props) {
             </div>
             <div className="flex justify-between text-white py-2 px-4">
               <p className="items-center text-[12px]">
-                By clicking <strong>Procced</strong>, you have agreed to our
-                terms
+                By clicking <strong>Procced</strong>, you have agreed to our{" "}
+                {""}
+                <Link
+                  to={"/terms-conditions"}
+                  className="text-mainBlue cursor-pointer font-bold"
+                >
+                  terms and condition
+                </Link>
               </p>
             </div>
             <button
