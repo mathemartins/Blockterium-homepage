@@ -3,7 +3,9 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import { Dropdown } from "primereact/dropdown";
 import InputField from "../Inputs/InputField";
 import InputFieldTwo from "../Inputs/InputFieldTwo";
+import { MdNotInterested } from "react-icons/md";
 import {
+  ConfirmIcon,
   profilePicture2,
   testnetIcon,
   testnet2Icon,
@@ -404,11 +406,28 @@ const DashboardLists = ({ classnames }) => {
                 <div className="p-4 sm:p-6">
                   <ApiKeyCard
                     icon={testnet2Icon}
-                    title="Mainnet"
+                    title={
+                      <div className="flex items-center">
+                        {isPremium ? (
+                          <>
+                            {" "}
+                            Mainnet
+                            <img
+                              src={ConfirmIcon}
+                              className={`text-sm text-mainWhite 
+                                 bg-mainGreen flex items-center rounded-full h-4 w-4 justify-center ml-2`}
+                            />
+                          </>
+                        ) : (
+                          <MdNotInterested className="text-mainRed font-bold" />
+                        )}
+                      </div>
+                    }
                     network={updateData.mainnet_network}
                     creditUsage={updateData.credit_usage}
                     plan="Premium"
                   />
+
                   <div className="flex items-center mb-3 text-[16px]">
                     <h6 className="mr-3 text-greyFive font-semibold">
                       Credit Usage

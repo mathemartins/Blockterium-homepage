@@ -15,6 +15,7 @@ const BlockteriumUse = () => {
           Simplified plug-and-play and built-in payment options for your
           customers.
         </h1>
+        <div></div>
         <p className="text-[22px] xsm:text-[20px] lg:text-[22px] xl:text-[24px] text-Lightgrey xsm:w-[70%]">
           Even without prior/core knowledge of any web3 resource. you can
           integrate web3 based infrastructure to your crypto payment pages

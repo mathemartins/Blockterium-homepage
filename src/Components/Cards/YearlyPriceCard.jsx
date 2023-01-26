@@ -18,8 +18,8 @@ const YearlyPriceCard = () => {
           <div className=" border-4 border-greySix hover:border-LightBlue bg-white  subscription w-full  text-[14px] p-3 ">
             <div className="pt-4 mb-6">
               <h2 className="font-semibold text-[18px]">Free</h2>
-              <h2 className="font-bold my-1  text-[16px]">
-                $0 <span className="font-normal text-[14px]">/ year</span>
+              <h2 className="font-bold my-1  text-[13px]">
+                0 USDT <span className="font-normal text-[12px]">/ year</span>
               </h2>
             </div>
 

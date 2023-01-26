@@ -48,13 +48,16 @@ const Navbar = () => {
             </Link>
           </ul>
           <div className="hidden xsm:flex  gap-2">
-            <Link to={"./login"} className="greyGradient px-7 rounded-xl py-1">
+            <Link
+              to={"./login"}
+              className="greyGradient py-2 md:py-1  xsm:w-[10rem]"
+            >
               Login
             </Link>
 
             <Link
               to={"./sign-up"}
-              className="BlueGradient px-6 rounded-xl flex gap-2 items-center"
+              className="BlueGradient flex gap-2 items-center justify-center py-2 md:py-1  xsm:w-[10rem]"
             >
               Start for free <HiOutlineArrowRight className="animatedIcon" />
             </Link>

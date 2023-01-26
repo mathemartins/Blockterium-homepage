@@ -4,7 +4,7 @@ import { HiOutlineArrowRight } from "react-icons/hi";
 
 const BlockteriumSponsors = () => {
   return (
-    <section className="bg-black w-full text-12 flex flex-col items-center justify-center py-[6rem] xs:py-[12rem] sm:pt-[6rem] xsm:pb-[12rem] relative overflow-hidden">
+    <section className="bg-black w-full text-12 flex flex-col items-center justify-center py-[3rem] xsm:py-[8rem] sm:pt-[6rem] xsm:pb-[12rem] relative overflow-hidden">
       <p className="text-grey lg:text-[14px] xl:text-[16px]">
         Trusted by 30+ applications
       </p>
@@ -17,10 +17,10 @@ const BlockteriumSponsors = () => {
       </p>
 
       <div className="flex ss:flex-row flex-col mt-3 ss:gap-3 text-[20px] md:text-[14px] lg:text-[16px] xl:text-[18px] z-[2]">
-        <button className="bg-blue hover:bg-white hover:text-black px-8 py-[0.3rem]  flex items-center gap-2 rounded-2xl justify-center text-white ">
+        <button className="bg-blue xsm:hover:bg-white hover:text-black  flex items-center gap-2  justify-center text-white w-[15rem] md:w-[10rem] py-2 md:py-1">
           See case studies <HiOutlineArrowRight className="animatedIcon" />{" "}
         </button>
-        <button className="greyGradient text-white px-16 mt-4 ss:mt-0   rounded-2xl ">
+        <button className="greyGradient text-white mt-4 ss:mt-0 py-2 md:py-1 w-[15rem] md:w-[10rem]">
           Learn More
         </button>
       </div>

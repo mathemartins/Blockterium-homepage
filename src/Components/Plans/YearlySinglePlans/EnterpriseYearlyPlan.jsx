@@ -181,7 +181,7 @@ const EnterpriseYearlyPlan = () => {
           <div
             className={
               transferError
-                ? "bg-white border-t-4  rounded-b text-LightBlue px-4 py-2 shadow-md border border-red-500"
+                ? "bg-white border-t-4  rounded-b text-mainRed font-semibold px-4 py-2 shadow-md border border-red-500"
                 : "offscreen"
             }
           >
@@ -209,11 +209,11 @@ const EnterpriseYearlyPlan = () => {
         </div>
         <div className="px-3 py-1 mb-6">
           <h2 className="font-semibold text-[16px]">Enterprise</h2>
-          <h2 className="font-bold my-1 text-[16px]">
-            $400 <span className="font-normal text-[14px]">/ year</span>
+          <h2 className="font-bold my-1 text-[13px]">
+            1,200 USDT <span className="font-normal text-[12px]">/ year</span>
           </h2>
           <h5 className="text-mainRed font-bold text-[12px]">
-            40% discount off
+            30% discount off
           </h5>
         </div>
         <div className="pb-3 ">

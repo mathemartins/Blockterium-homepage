@@ -16,6 +16,24 @@ const BlockteriumAim = () => {
           <h2 className="text-[38px] ss:text-[42px]  xsm:text-[46px] lg:text-[56px] xl:text-[72px] font-bold my-4  tracking-tighter">
             Build great products with ready-made multichain crypto wallet APIs.
           </h2>
+          <div className="hidden sm:block">
+            <p className="text-grey text-[22px]  sm:text-[24px] xsm:text-[20px] lg:text-[22px] xl:text-[24px]">
+              Blockterium offers a framework that reduces the complexity of
+              blockchain development. This, in turn, reduces the cost and time
+              spent on writing codes.
+            </p>
+            <Link
+              to={"./sign-up"}
+              className="bg-blue hover:bg-white hover:text-black  justify-center  mt-6 text-white flex items-center gap-1 mb-8 py-2 md:py-1 w-[15rem] xsm:w-[10rem]"
+            >
+              Start for free
+              <HiOutlineArrowRight />
+            </Link>
+          </div>
+        </article>
+        <img src={creatorsCode} alt="" className="xsm:w-[40%] w-full" />
+
+        <div className="sm:hidden mt-8">
           <p className="text-grey text-[22px]  sm:text-[24px] xsm:text-[20px] lg:text-[22px] xl:text-[24px]">
             Blockterium offers a framework that reduces the complexity of
             blockchain development. This, in turn, reduces the cost and time
@@ -23,13 +41,12 @@ const BlockteriumAim = () => {
           </p>
           <Link
             to={"./sign-up"}
-            className="bg-blue hover:bg-white hover:text-black w-[12rem] justify-center  px-4 mt-12 text-white flex items-center gap-1 py-1 mb-6 rounded-2xl"
+            className="bg-blue hover:bg-white hover:text-black  justify-center  mt-6 text-white flex items-center gap-1 mb-8 py-2 md:py-1 w-full"
           >
             Start for free
             <HiOutlineArrowRight />
           </Link>
-        </article>
-        <img src={creatorsCode} alt="" className="xsm:w-[40%] w-full" />
+        </div>
       </div>
     </section>
   );

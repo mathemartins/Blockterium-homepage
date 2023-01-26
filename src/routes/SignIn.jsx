@@ -235,9 +235,13 @@ export default function SignIn(props) {
               {buttonText}
             </button>
           </form>
-          <h2 className="text-white font-poppins text-center py-[5px] cursor-pointer">
-            <Link to="/sign-up" className="">
-              Don't have an account?
+          <h2 className="text-white font-poppins text-center py-[5px] ">
+            Don't have an account?{" "}
+            <Link
+              to="/sign-up"
+              className="text-mainBlue font-bold cursor-pointer"
+            >
+              Sign Up
             </Link>
           </h2>
         </div>

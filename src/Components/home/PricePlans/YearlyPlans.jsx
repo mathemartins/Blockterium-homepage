@@ -20,8 +20,14 @@ const YearlyPlans = () => {
             <div className="pt-4 mb-6">
               <h2 className="font-semibold text-[18px]">Free</h2>
               <h2 className="font-bold my-1  text-[16px]">
-                $0 <span className="font-normal text-[14px]">/ year</span>
+                0 USDT
+                <span className="font-normal text-[16px] xsm:text-[14px] md:text-[16px] ">
+                  / year
+                </span>
               </h2>
+              <h5 className="text-white font-bold text-[12px]">
+                0% discount off
+              </h5>
               {/* <h5 className="text-mainRed font-bold text-[12px]">
                 15% discount off
               </h5> */}
@@ -46,11 +52,12 @@ const YearlyPlans = () => {
           <div className="border-4 border-greySix hover:border-LightBlue w-full text-[14px] p-3 ">
             <div className="pt-4 mb-6">
               <h2 className="font-semibold text-[16px]">Starter</h2>
-              <h2 className="font-bold my-1 text-[16px]">
-                $120 <span className="font-normal text-[14px]">/ year</span>
+              <h2 className="font-bold my-1 text-[16px] xsm:text-[14px] md:text-[16px]">
+                240 USDT{" "}
+                <span className="font-normal text-[14px] ">/ year</span>
               </h2>
               <h5 className="text-mainRed font-bold text-[12px]">
-                20% discount off
+                10% discount off
               </h5>
             </div>
 
@@ -72,11 +79,11 @@ const YearlyPlans = () => {
           <div className="border-4 border-greySix hover:border-LightBlue w-full  text-[14px] p-3 ">
             <div className="pt-4 mb-6">
               <h2 className="font-semibold text-[16px]">Basic</h2>
-              <h2 className="font-bold my-1 text-[16px]">
-                $260 <span className="font-normal text-[14px]">/ year</span>
+              <h2 className="font-bold my-1 text-[16px] xsm:text-[14px] md:text-[16px]">
+                720 USDT <span className="font-normal text-[14px]">/ year</span>
               </h2>
               <h5 className="text-mainRed font-bold text-[12px]">
-                30% discount off
+                20% discount off
               </h5>
             </div>
             <ul className="flex flex-col gap-3 mb-5">
@@ -101,11 +108,12 @@ const YearlyPlans = () => {
             </div>
             <div className="px-3 py-1 mb-6">
               <h2 className="font-semibold text-[16px]">Enterprise</h2>
-              <h2 className="font-bold my-1 text-[16px]">
-                $400 <span className="font-normal text-[14px]">/ year</span>
+              <h2 className="font-bold my-1 text-[16px] xsm:text-[14px] md:text-[16px]">
+                1,200 USDT{" "}
+                <span className="font-normal text-[14px]">/ year</span>
               </h2>
               <h5 className="text-mainRed font-bold text-[12px]">
-                40% discount off
+                30% discount off
               </h5>
             </div>
 
@@ -132,11 +140,12 @@ const YearlyPlans = () => {
           <div className="border-4 border-greySix hover:border-LightBlue hover:border-2 w-full text-[14px] p-3 ">
             <div className="pt-4 mb-6">
               <h2 className="font-semibold text-[16px]">Custom</h2>
-              <h2 className="font-bold my-1 text-[16px]">
-                $700 <span className="font-normal text-[14px]">/ year</span>
+              <h2 className="font-bold my-1 text-[16px] xsm:text-[14px] md:text-[16px]">
+                2,400 USDT{" "}
+                <span className="font-normal text-[14px]">/ year</span>
               </h2>
               <h5 className="text-mainRed font-bold text-[12px]">
-                50% discount off
+                30% discount off
               </h5>
             </div>
 

@@ -19,23 +19,38 @@ const IntegrateWallet = () => {
           <h2 className="text-[38px] ss:text-[42px] sm:text-[44px] xsm:text-[46px] lg:text-[56px] xl:text-[72px] font-bold my-4 w-[90%] tracking-tighter">
             Integrate Secure Wallet Infrastructure For Your product.
           </h2>
+          <div className="hidden sm:block">
+            <p className="text-grey text-[22px] xsm:text-[20px] lg:text-[22px] xl:text-[24px]">
+              Our platform readily connects with any ecosystem: blockchain,
+              fintechs, any businesses that wants to build web3 solution. We
+              offer infinite scalability and limitless usage for businesses and
+              enterprises.
+            </p>
+            <Link to="/login">
+              <button className="bg-blue hover:bg-white hover:text-black  justify-center  mt-6 text-white flex items-center gap-1 mb-8 py-2 md:py-1 w-[15rem] xsm:w-[10rem]">
+                Get Started
+                <HiOutlineArrowRight className="animatedIcon" />
+              </button>
+            </Link>
+          </div>
+        </article>
 
+        <img src={integrated} alt="" className="xsm:w-[40%] w-full z-[5] " />
+
+        <div className="sm:hidden">
           <p className="text-grey text-[22px] xsm:text-[20px] lg:text-[22px] xl:text-[24px]">
             Our platform readily connects with any ecosystem: blockchain,
             fintechs, any businesses that wants to build web3 solution. We offer
             infinite scalability and limitless usage for businesses and
             enterprises.
           </p>
-
           <Link to="/login">
-            <button className="bg-blue hover:bg-white hover:text-black  justify-center  px-10 mt-6 rounded-2xl text-white flex items-center gap-1 py-1 mb-8">
+            <button className="bg-blue hover:bg-white hover:text-black  justify-center  mt-6 text-white flex items-center gap-1 mb-8 py-2 md:py-1 w-full">
               Get Started
               <HiOutlineArrowRight className="animatedIcon" />
             </button>
           </Link>
-        </article>
-
-        <img src={integrated} alt="" className="xsm:w-[40%] w-full z-[5] " />
+        </div>
         <div className="lightBall "></div>
       </div>
     </section>

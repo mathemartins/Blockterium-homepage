@@ -13,6 +13,7 @@ import {
   strokeIcon,
 } from "../../assets";
 import LogoutModal from "../Modal/LogoutModal";
+import { FaTimes } from "react-icons/fa";
 import { ArrowDown } from "../../assets/index";
 
 const MobileTopBar = () => {
@@ -42,7 +43,11 @@ const MobileTopBar = () => {
             <img src={ColouredLogo} className="w-[100px]" />
           </Link>
           <div onClick={() => setShow(!show)}>
-            <img src={Menuburger} />
+            {show ? (
+              <FaTimes className="text-mainRed font-bold" />
+            ) : (
+              <img src={Menuburger} />
+            )}
           </div>
         </div>
         <div className="flex items-center justify-between">

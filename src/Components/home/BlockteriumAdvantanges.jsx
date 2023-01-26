@@ -24,9 +24,9 @@ const BlockteriumAdvantages = () => {
 
       <article className="xsm:w-[40%] flex flex-col justify-center items-center h-[400px] xsm:py-6">
         <h1 className="text-[38px] ss:text-[42px] sm:text-[58px] xsm:text-[38px] md:text-[42] lg:text-[46px] xl:text-[64px] font-bold my-4 md:w-[70%] mb-8 text-black leading-[4rem] text-center">
-          Why blockerium <br /> is 10x better 🤩!
+          Why blockerium <br className="hidden xsm:flex" /> is 10x better 🤩!
         </h1>
-        <p className="text-[22px]  sm:text-[24px] xsm:text-[18px] lg:text-[22px] xl:text-[24px] text-black md:w-[70%] text-center">
+        <p className="text-[22px]  sm:text-[24px] xsm:text-[18px] lg:text-[22px] xl:text-[24px] text-black md:w-[70%] xsm:text-center">
           Our solutions include wallet as a service solution (Custodial and
           Non-Custodial for wallet creation, send and receive), Defi yield
           Interoperability solution and decentralized peer - 2 - peer
@@ -35,7 +35,7 @@ const BlockteriumAdvantages = () => {
 
         <Link
           to={"./sign-up"}
-          className="BlueGradient justify-center hover:bg-white px-10 my-6 text-white flex items-center gap-1 py-1 rounded-2xl"
+          className="BlueGradient justify-center xsm:hover:bg-white my-6 text-white  items-center gap-1  hidden sm:flex py-2 md:py-1 w-[15rem] xsm:w-[10rem]"
         >
           Start for free
           <HiOutlineArrowRight className="animatedIcon" />
@@ -71,6 +71,14 @@ const BlockteriumAdvantages = () => {
           })}
         </div>
       </div>
+
+      <Link
+        to={"./sign-up"}
+        className="BlueGradient justify-center xsm:hover:bg-white my-6 text-white  items-center gap-1  sm:hidden flex py-2 md:py-1 w-full xsm:w-[10rem]"
+      >
+        Start for free
+        <HiOutlineArrowRight className="animatedIcon" />
+      </Link>
     </section>
   );
 };

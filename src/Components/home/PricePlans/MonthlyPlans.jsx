@@ -19,8 +19,8 @@ const MonthlyPlans = () => {
           <div className=" border-4 border-greySix hover:border-LightBlue bg-white  subscription w-full  text-[14px] p-3 ">
             <div className="pt-4">
               <h2 className="font-semibold text-[18px]">Free</h2>
-              <h2 className="font-bold mt-1 mb-6 text-[16px]">
-                $0 <span className="font-normal text-[14px]">/ month</span>
+              <h2 className="font-bold mt-1 mb-6 text-[16px] xsm:text-[14px] md:text-[16px]">
+                0 USDT <span className="font-normal text-[14px]">/ month</span>
               </h2>
             </div>
 
@@ -43,8 +43,8 @@ const MonthlyPlans = () => {
           <div className="border-4 border-greySix hover:border-LightBlue w-full text-[14px] p-3 ">
             <div className="pt-4">
               <h2 className="font-semibold text-[16px]">Starter</h2>
-              <h2 className="font-bold mt-1 mb-6 text-[16px]">
-                $20 <span className="font-normal text-[14px]">/ month</span>
+              <h2 className="font-bold mt-1 mb-6 text-[16px] xsm:text-[14px] md:text-[16px]">
+                20 USDT <span className="font-normal text-[14px]">/ month</span>
               </h2>
             </div>
 
@@ -66,8 +66,8 @@ const MonthlyPlans = () => {
           <div className="border-4 border-greySix hover:border-LightBlue w-full  text-[14px] p-3 ">
             <div className="pt-4">
               <h2 className="font-semibold text-[16px]">Basic</h2>
-              <h2 className="font-bold mt-1 mb-6 text-[16px]">
-                $60 <span className="font-normal text-[14px]">/ month</span>
+              <h2 className="font-bold mt-1 mb-6 text-[16px] xsm:text-[14px] md:text-[16px]">
+                60 USDT <span className="font-normal text-[14px]">/ month</span>
               </h2>
             </div>
             <ul className="flex flex-col gap-3 mb-5">
@@ -91,9 +91,10 @@ const MonthlyPlans = () => {
               <p>Recommended</p>
             </div>
             <div className="px-3 py-1">
-              <h2 className="font-semibold text-[16px]">Enterprise</h2>
-              <h2 className="font-bold mt-1 mb-6 text-[16px]">
-                $100 <span className="font-normal text-[14px]">/ month</span>
+              <h2 className="font-semibold text-[14px]">Enterprise</h2>
+              <h2 className="font-bold mt-1 mb-6 text-[16px] xsm:text-[14px] md:text-[16px]">
+                100 USDT{" "}
+                <span className="font-normal text-[14px]">/ month</span>
               </h2>
             </div>
 
@@ -120,8 +121,9 @@ const MonthlyPlans = () => {
           <div className="border-4 border-greySix hover:border-LightBlue hover:border-2 w-full text-[14px] p-3 ">
             <div className="pt-4">
               <h2 className="font-semibold text-[16px]">Custom</h2>
-              <h2 className="font-bold mt-1 mb-6 text-[16px]">
-                $200 <span className="font-normal text-[14px]">/ month</span>
+              <h2 className="font-bold mt-1 mb-6 text-[16px] xsm:text-[14px] md:text-[16px]">
+                200 USDT{" "}
+                <span className="font-normal text-[14px]">/ month</span>
               </h2>
             </div>
 

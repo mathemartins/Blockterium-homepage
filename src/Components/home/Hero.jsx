@@ -9,9 +9,9 @@ import { Price } from "../../routes/navigation/navLinks/index";
 const Hero = () => {
   return (
     <section className="w-full relative bg-black overflow-hidden py-[8rem] xsm:py-[12rem] text-white px-3 ss:px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem] ">
-      <div className="neww hidden md:flex"></div>
+      <div className="neww "></div>
       <div className="lightBg xsm:hidden"></div>
-      <div className=" miniLappy md:hidden"></div>
+      {/* <div className=" miniLappy md:hidden"></div> */}
       <div className="flex flex-col xsm:flex-row justify-between xsm:items-center">
         <article className="z-[5]">
           <h2 className="font-bold text-[38px] ss:text-[42px] md:text-[46px] lg:text-[56px] xl:text-[72px] tracking-tighter leading-[55px] lg:leading-[80px]">
@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="flex ss:flex-row flex-col text-[18px] md:text-[14px] lg:text-[16px] xl:text-[18px]">
             <Link
               to={"./sign-up"}
-              className="bg-blue  hover:bg-white hover:text-black px-7 py-2 md:py-1 flex items-center gap-2 rounded-xl justify-center"
+              className="bg-blue xsm:hover:bg-white hover:text-black   flex items-center gap-2  justify-center py-2 md:py-1 w-full ss:w-[15rem] xsm:w-[10rem]"
             >
               Start for free <HiOutlineArrowRight className="animatedIcon" />
             </Link>
@@ -34,7 +34,7 @@ const Hero = () => {
               spy={true}
               smooth={true}
               to="pricesection"
-              className="bg-white text-center text-black pr-14 sm:pr-10 px-10 py-2 md:py-1 rounded-xl mt-3 ss:mt-0 ss:ml-3 cursor-pointer"
+              className="bg-white text-center text-black py-2 md:py-1  w-full ss:w-[15rem] xsm:w-[10rem] mt-3 ss:mt-0 ss:ml-3 cursor-pointer"
             >
               See Pricing
             </AnchorLink>
@@ -42,7 +42,7 @@ const Hero = () => {
 
           <Link
             to=""
-            className="flex items-center gap-1 text-[13px] md:text-[14px] lg:text-[16px] xl:text-[18px] my-3 "
+            className="flex items-center gap-1 text-[14px]  lg:text-[16px] xl:text-[18px] my-12 "
           >
             <AiOutlineCloudDownload /> Download whitepaper/ deck
           </Link>
@@ -51,7 +51,7 @@ const Hero = () => {
           <img
             src={africaLogo}
             alt=""
-            className=" sm:w-[500px] sm:h-[300px] md:h-[400px]  md:w-[700px] lg:w-full lg:h-[1000px]m-auto object-contain xsm:object-center"
+            className="h-[300px] sm:w-[500px] sm:h-[300px] md:h-[400px] md:w-[700px] lg:w-full lg:h-[400px] m-auto object-contain xsm:object-center"
           />
         </div>
       </div>

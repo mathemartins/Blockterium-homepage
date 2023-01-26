@@ -193,7 +193,7 @@ const StarterPlan = () => {
           <div
             className={
               transferError
-                ? "bg-white border-t-4  rounded-b text-LightBlue px-4 py-2 shadow-md border border-red-500"
+                ? "bg-white border-t-4  rounded-b text-mainRed font-semibold px-4 py-2 shadow-md border border-red-500"
                 : "offscreen"
             }
           >
@@ -218,9 +218,9 @@ const StarterPlan = () => {
       <div className="border-4 border-greySix hover:border-LightBlue w-full text-[14px] p-3 ">
         <div className="pt-4">
           <h2 className="font-semibold text-[16px]">Starter</h2>
-          <h2 className="font-bold mt-1 mb-6 text-[16px]">
-            $20
-            <span className="font-normal text-[14px]">/ month</span>
+          <h2 className="font-bold mt-1 mb-6 text-[13px]">
+            20 USDT
+            <span className="font-normal text-[12px]">/ month</span>
           </h2>
         </div>
 
@@ -231,7 +231,7 @@ const StarterPlan = () => {
           <li className="">All Main & Testnets</li>
           <li className="">Market Data</li>
         </ul>
-        <button onClick={Data} className="BlueGradient text-white py-1 px-2">
+        <button onClick={Data} className="BlueGradient text-white py-1 px-2 ">
           {buttonText}
         </button>
       </div>

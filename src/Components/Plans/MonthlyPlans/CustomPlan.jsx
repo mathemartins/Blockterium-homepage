@@ -187,7 +187,7 @@ const CustomPlan = () => {
           <div
             className={
               transferError
-                ? "bg-white border-t-4  rounded-b text-LightBlue px-4 py-2 shadow-md border border-red-500"
+                ? "bg-white border-t-4  rounded-b text-mainRed font-semibold px-4 py-2 shadow-md border border-red-500"
                 : "offscreen"
             }
           >
@@ -212,8 +212,8 @@ const CustomPlan = () => {
       <div className="border-4 border-greySix hover:border-LightBlue w-full text-[14px] p-3 ">
         <div className="pt-4">
           <h2 className="font-semibold text-[16px]">Custom</h2>
-          <h2 className="font-bold mt-1 mb-6 text-[16px]">
-            $200 <span className="font-normal text-[14px]">/ month</span>
+          <h2 className="font-bold mt-1 mb-6 text-[13px]">
+            200 USDT <span className="font-normal text-[12px]">/ month</span>
           </h2>
         </div>
 

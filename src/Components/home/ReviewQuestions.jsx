@@ -18,9 +18,9 @@ const ReviewQuestions = () => {
           Frequently asked questions
         </h2>
 
-        <p className="text-[18px] mt-1 mb-12 text-Lightgrey text-center">
-          Our products are integrated seamlessly into any <br /> digital
-          platform or website
+        <p className="text-[18px] mt-1 mb-12  text-Lightgrey text-center">
+          Our products are integrated seamlessly into any digital platform or
+          website
         </p>
       </div>
 

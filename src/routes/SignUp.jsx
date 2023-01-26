@@ -118,7 +118,7 @@ export default function SignUp(props) {
   }
 
   return (
-    <div className="flex flex-row w-full bg-black ">
+    <div className="flex flex-row w-full  bg-black ">
       <div className="hidden sm:block authpage relative text-grey w-[50%] py-6 px-6">
         <Link to="/">
           <img src={Logo} alt="" className="w-[8rem] " />
@@ -159,7 +159,7 @@ export default function SignUp(props) {
           </p> */}
           <form
             onSubmit={handleSubmit}
-            className=" w-full mx-auto text-[14px] text-Lightgrey rounded-lg"
+            className=" w-full mx-auto text-[14px] text-Lightgrey rounded-lg py-5"
           >
             <p
               ref={errorRef}

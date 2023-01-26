@@ -55,7 +55,6 @@ const SubscriptionIndex = () => {
         withCredentials: true,
       });
 
-      console.log(response.data);
       setBillingHistory(response.data);
     } catch (error) {
       console.log(error);
@@ -84,9 +83,9 @@ const SubscriptionIndex = () => {
         <TopBarTwo />
       </div>
       <div className="w-full  py-6 sm:py:10 md:py-12 px-5 sm:px-10 h-full bg-greyEight">
-        <div className="w-full flex justify-between gap-4">
+        <div className="w-full flex flex-col xsm:flex-row justify-between gap-4">
           <>
-            <div className="w-[30%] bg-mainWhite p-2 ">
+            <div className="w-full xsm:w-[30%] bg-mainWhite p-2 ">
               <div className="flex w-full bg-mainWhite items-center  justify-between">
                 <h3 className="text-mainBlack font-bold text-[16px]">
                   Plan Type
@@ -158,7 +157,7 @@ const SubscriptionIndex = () => {
           </>
 
           <>
-            <div className="w-[70%] bg-mainWhite p-2 ">
+            <div className="w-full xsm:w-[70%] bg-mainWhite p-2 ">
               <div className="flex w-full bg-mainWhite items-center  justify-between">
                 <h3 className="text-mainBlack font-bold text-[16px]">
                   Billing History

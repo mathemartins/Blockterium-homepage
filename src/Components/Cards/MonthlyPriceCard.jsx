@@ -18,8 +18,8 @@ const MonthlyPriceCard = () => {
             <div className=" border-4 border-greySix hover:border-LightBlue bg-white  subscription w-full  text-[14px] p-3 ">
               <div className="pt-4">
                 <h2 className="font-semibold text-[18px]">Free</h2>
-                <h2 className="font-bold mt-1 mb-6 text-[16px]">
-                  $0 <span className="font-normal text-[14px]">/ month</span>
+                <h2 className="font-bold mt-1 mb-6 text-[13px]">
+                  0 USDT<span className="font-normal text-[12px]">/ month</span>
                 </h2>
               </div>
 
