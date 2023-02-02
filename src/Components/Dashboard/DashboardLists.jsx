@@ -22,6 +22,7 @@ import { Popover } from "@headlessui/react";
 import LogoutModal from "../Modal/LogoutModal";
 import PaymentRequiredModal from "../Modal/PaymentRequiredModal";
 import { useStateContext } from "../../context/ContextProvider";
+import ReactLoading from "react-loading";
 import axios from "../../api/axios";
 
 const DashboardLists = ({ classnames }) => {
@@ -165,7 +166,17 @@ const DashboardLists = ({ classnames }) => {
   }
 
   if (isLoading) {
-    return <div className="absolute left-[45%] top-[50%]">Loading...</div>;
+    return (
+      <div>
+        <ReactLoading
+          type={"spin"}
+          color={"#4A59E5"}
+          height={27}
+          width={27}
+          className="absolute left-[50%] top-[50%]"
+        />
+      </div>
+    );
   }
 
   return (
@@ -230,7 +241,7 @@ const DashboardLists = ({ classnames }) => {
                   <img src={profilePicture2} className="mr-2 ss:mr-3" />
                   <div>
                     <h3 className="text-[20px] font-bold tracking-tighter">
-                      {`Welcome back ${fullName},`}
+                      {`Welcome back, ${fullName}`}
                     </h3>
                     <p className="text-greyFive text-[14px] sm:text-[16px] font-semibold">
                       Happy Building

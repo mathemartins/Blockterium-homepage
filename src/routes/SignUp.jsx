@@ -165,7 +165,7 @@ export default function SignUp(props) {
               ref={errorRef}
               className={
                 errorMsg
-                  ? "bg-red-100 border text-black border-red-400 px-4 py-3 mt-2 rounded "
+                  ? "bg-Lightgrey text-mainRed border border-mainRed text-red-700 px-4 py-3 mt-2 rounded relative"
                   : "offscreen"
               }
               aria-live="assertive"
@@ -349,7 +349,10 @@ export default function SignUp(props) {
           </form>
         </div>
         <h2 className="text-white font-poppins text-center  cursor-pointer py-6">
-          <Link to="/login">Already have an account ?</Link>
+          Already have an account ?{" "}
+          <Link to="/login" className="text-mainBlue font-bold cursor-pointer">
+            Log in
+          </Link>
         </h2>
       </div>
     </div>

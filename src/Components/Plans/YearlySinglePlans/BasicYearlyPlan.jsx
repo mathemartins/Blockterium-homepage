@@ -218,7 +218,7 @@ const BasicYearlyPlan = () => {
             20% discount off
           </h5>
         </div>
-        <ul className="flex flex-col gap-3 mb-5">
+        <ul className="flex flex-col gap-3 mb-5 text-[13px]">
           <li className="">5,000,000 API Calls</li>
           <li className="">200 rq/s</li>
           <li className="">Community support</li>
