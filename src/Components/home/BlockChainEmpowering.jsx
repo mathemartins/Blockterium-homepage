@@ -20,9 +20,9 @@ const BlockChainEmpowering = () => {
           Start for free <HiOutlineArrowRight className="animatedIcon" />
         </button>
       </Link>
-      <div>
-        <img src={dashboarb} className=" rounded-xl" alt="" />
-      </div>
+      <div className="empowerImg rounded-xl sm:hidden"></div>
+      <div className="empowerImgSm rounded-xl hidden sm:block"></div>
+      {/* <img src={dashboarb} className=" rounded-xl " alt="" /> */}
     </section>
   );
 };

@@ -92,13 +92,13 @@ const ContactUsForm = () => {
               checked={subscribed}
               onChange={(event) => setSubscribed(event.target.checked)}
               className="hover:bg-gradedBlue text-mainBlue my-4 "
-            />
+            />{" "}
             Subscribe to our newsletter
           </label>
           <button
             type="submit"
             disabled={submitting}
-            className="BlueGradient text-mainWhite"
+            className="BlueGradient text-mainWhite py-1 rounded-md"
           >
             Send
           </button>

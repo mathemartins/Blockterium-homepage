@@ -224,14 +224,17 @@ const StarterPlan = () => {
           </h2>
         </div>
 
-        <ul className="flex flex-col gap-3 mb-5">
+        <ul className="flex flex-col gap-3 mb-5 text-[13px]">
           <li className="">1,000,000 API Calls</li>
           <li className="">200 rq/s</li>
           <li className="">Community support</li>
           <li className="">All Main & Testnets</li>
           <li className="">Market Data</li>
         </ul>
-        <button onClick={Data} className="BlueGradient text-white py-1 px-2 ">
+        <button
+          onClick={Data}
+          className="BlueGradient text-white py-1 px-2 my-5"
+        >
           {buttonText}
         </button>
       </div>

@@ -217,7 +217,7 @@ const EnterpriseYearlyPlan = () => {
           </h5>
         </div>
         <div className="pb-3 ">
-          <ul className="flex flex-col gap-3 px-3 mb-5">
+          <ul className="flex flex-col gap-3 px-3 mb-5 text-[13px]">
             <li className="">Unlimited API calls</li>
             <li className="">500 rq/s</li>
             <li className="">Community support</li>

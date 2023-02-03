@@ -629,3 +629,16 @@
     opacity: 1;
   }
 }
+
+.empowerImg {
+  background: url("./assets/screenRecord.png") no-repeat;
+  object-fit: cover;
+  width: 100%;
+  height: 35rem;
+}
+
+.empowerImgSm {
+  background: url("./assets/screenRecord.png") no-repeat center/contain;
+  width: 100%;
+  height: 30rem;
+}

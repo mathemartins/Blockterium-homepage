@@ -9,6 +9,7 @@ import { ConfirmIcon, LimitKey } from "../../../assets";
 import { Dropdown } from "primereact/dropdown";
 import axios from "../../../api/axios";
 import { Link } from "react-router-dom";
+import ReactLoading from "react-loading";
 
 const SubscriptionIndex = () => {
   const GENERATE_API_URL = "/accounts/generate/api-key/";
@@ -62,19 +63,40 @@ const SubscriptionIndex = () => {
   }
 
   useEffect(() => {
-    checkPremiumUsers();
-  }, []);
+    (async () => checkPremiumUsers())();
+  }, [isPremium]);
 
   useEffect(() => {
     billings();
   }, []);
 
   if (isLoading) {
-    return <div className="absolute left-[45%] top-[50%]">Loading...</div>;
+    return (
+      <div className="w-full bg:w-[85%] h-screen bg:ml-[15%]">
+        <div className="block bg:hidden">
+          <MobileTopBar />
+        </div>
+        <div className="hidden bg:block sticky top-0 right-0 w-full">
+          <TopBarTwo />
+        </div>
+        <div className="w-full  py-6 sm:py:10 md:py-12 px-5 sm:px-10 h-full bg-greyEight">
+          <div>
+            <ReactLoading
+              type={"spin"}
+              color={"#4A59E5"}
+              height={27}
+              width={27}
+              className="absolute left-[50%] top-[50%]"
+            />
+          </div>
+          ;
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="w-full bg:w-[85%] h-screen bg:ml-[15%]">
+    <div className="w-full bg:w-[85%] md:h-screen bg:ml-[15%]">
       <div className="block bg:hidden">
         <MobileTopBar />
       </div>

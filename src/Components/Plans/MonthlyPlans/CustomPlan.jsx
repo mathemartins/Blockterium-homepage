@@ -217,7 +217,7 @@ const CustomPlan = () => {
           </h2>
         </div>
 
-        <ul className="flex flex-col gap-3 mb-5">
+        <ul className="flex flex-col gap-3 mb-5 text-[13px]">
           <li className="">Unlimited API calls</li>
           <li className="">5rq/s</li>
           <li className="">Community support</li>
