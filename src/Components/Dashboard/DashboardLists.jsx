@@ -200,11 +200,11 @@ const DashboardLists = ({ classnames }) => {
                         </p>
                       </div>
                       <Link
-                        to="/download"
+                        to="#"
                         className={
                           splitLocation[1] === "download"
-                            ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-[14px] border-t-2 border-t-greyFive"
-                            : "py-5 px-3 text-base border-t-2 border-t-greyFive"
+                            ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-[14px] border-t-2 border-t-greyFive text-greyFive"
+                            : "py-5 px-3 text-base border-t-2 border-t-greyFive text-greyFive"
                         }
                       >
                         Download pitch deck
@@ -263,11 +263,11 @@ const DashboardLists = ({ classnames }) => {
                           </p>
                         </div>
                         <Link
-                          to="/download"
+                          to="#"
                           className={
                             splitLocation[1] === "download"
-                              ? "py-3 px-3 bg-gradedBlue bg-opacity-30 text-base border-t-2 border-t-greyFive"
-                              : "py-3 px-3 text-base border-t-2 border-t-greyFive"
+                              ? "py-3 px-3 bg-gradedBlue bg-opacity-30 text-base border-t-2 border-t-greyFive text-grey"
+                              : "py-3 px-3 text-base border-t-2 border-t-greyFive text-greyFive"
                           }
                         >
                           Download pitch deck
@@ -506,7 +506,8 @@ const DashboardLists = ({ classnames }) => {
               duration="6 min read"
               text="How to get started with blockain on blockterium"
             />
-            <GuideCard
+
+            {/* <GuideCard
               image={Guide2}
               duration="6 min read"
               text="How to get started with blockain on blockterium"
@@ -515,26 +516,30 @@ const DashboardLists = ({ classnames }) => {
               image={Guide2}
               duration="6 min read"
               text="How to get started with blockain on blockterium"
-            />
+            /> */}
           </div>
-          <div className="p-5 group border border-greySeven bg-[#FAFAFF] hover:bg-primary">
-            <img src={LimitKey} className="mb-4" />
-            <div className="group-hover:text-mainWhite">
-              <h3 className="text-xl font-semibold group-hover:text-mainWhite">
-                You reached limit for
-                <br /> free API keys!
-              </h3>
-              <p className="my-3 group-hover:text-mainWhite group-hover:opacity-25">
-                Choose a plan to create New API keys
-              </p>
-              <Link
-                to=""
-                className="text-mainBlue text-sm group-hover:text-mainWhite"
-              >
-                Get Started
-              </Link>
+          {isPremium ? (
+            ""
+          ) : (
+            <div className="p-5 group border border-greySeven bg-[#FAFAFF] hover:bg-primary">
+              <img src={LimitKey} className="mb-4" />
+              <div className="group-hover:text-mainWhite">
+                <h3 className="text-xl font-semibold group-hover:text-mainWhite">
+                  You reached limit for
+                  <br /> free API keys!
+                </h3>
+                <p className="my-3 group-hover:text-mainWhite group-hover:opacity-25">
+                  Choose a plan to create New API keys
+                </p>
+                <Link
+                  to={"/dashboard/explore/pricing"}
+                  className="text-mainBlue text-sm group-hover:text-mainWhite"
+                >
+                  Get Started
+                </Link>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
       {isOpen && (

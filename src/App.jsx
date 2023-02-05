@@ -13,6 +13,7 @@ import Docs from "./Components/Docs/Docs.jsx";
 import ContactUsForm from "./Components/ContactUsForm/ContactUsForm";
 import ResetPassword from "./Components/ResetPassword";
 import TermsAndCondition from "./routes/navigation/TermsAndCondition";
+import PrivacyPolicy from "./routes/navigation/PrivacyPolicy";
 // ************************************************************************************
 
 export default function App(props) {
@@ -27,6 +28,7 @@ export default function App(props) {
         <Route path="sign-up" element={<SignUp />} />
         <Route path="terms-conditions" element={<TermsAndCondition />} />
         <Route path="reset-password" element={<ResetPassword />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
 
         <Route path="/contact-us" element={<ContactUs />} />
 

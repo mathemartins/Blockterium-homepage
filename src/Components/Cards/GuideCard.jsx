@@ -5,7 +5,12 @@ const GuideCard = ({ image, link, duration, text }) => {
   return (
     <>
       <div className="w-full relative mb-2 border border-greySeven rounded">
-        <Link to={link} className="flex h-full w-full">
+        <a
+          href="https://medium.com/@blockterium/introducing-blocketrium-f3930cec2db"
+          target="_blank"
+          rel=""
+          className="flex h-full w-full"
+        >
           <div className="relative w-[50%]">
             <img src={image} className="h-full w-full object-cover" />
           </div>
@@ -20,7 +25,7 @@ const GuideCard = ({ image, link, duration, text }) => {
               {duration} <span></span>
             </p>
           </div>
-        </Link>
+        </a>
       </div>
     </>
   );

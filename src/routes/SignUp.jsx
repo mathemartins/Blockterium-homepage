@@ -118,8 +118,8 @@ export default function SignUp(props) {
   }
 
   return (
-    <div className="flex flex-row w-full  bg-black ">
-      <div className="hidden sm:block authpage relative text-grey w-[50%] py-6 px-6">
+    <div className="flex flex-row w-full bg-black h-screen overflow-auto ">
+      <div className="hidden sm:block authpage  text-grey w-[50%] h-  py-6 px-6">
         <Link to="/">
           <img src={Logo} alt="" className="w-[8rem] " />
         </Link>
@@ -135,7 +135,7 @@ export default function SignUp(props) {
         <img
           src={iphone}
           alt=""
-          className="absolute bottom-0 left-[20px] h-[20rem]"
+          className="fixed bottom-0 left-[-15rem] h-[15rem] w-[40rem]"
         />
       </div>
       <div className="flex flex-col justify-center w-full">

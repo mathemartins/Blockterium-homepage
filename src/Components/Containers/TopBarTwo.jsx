@@ -55,11 +55,11 @@ const TopBarTwo = () => {
                     <p className="text-greyFour text-sm font-light">{email}</p>
                   </div>
                   <Link
-                    to="/download"
+                    to="#"
                     className={
                       splitLocation[1] === "download"
-                        ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-base border-t-2 border-t-greyFive"
-                        : "py-5 px-3 text-base border-t-2 border-t-greyFive"
+                        ? "py-5 px-3 bg-gradedBlue bg-opacity-30 text-base border-t-2 border-t-greyFive text-greyFive"
+                        : "py-5 px-3 text-base border-t-2 border-t-greyFive text-greyFive"
                     }
                   >
                     Download pitch deck

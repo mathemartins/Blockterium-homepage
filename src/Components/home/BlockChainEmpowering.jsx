@@ -16,7 +16,7 @@ const BlockChainEmpowering = () => {
         infrastructure.
       </p>
       <Link to={"./sign-up"}>
-        <button className="bg-darkestGrey text-[13px] flex justify-center items-center mb-12 sm:mb-24 m-auto w-full py-2 md:py-1  xsm:w-[10rem]">
+        <button className="bg-darkestGrey text-[13px] flex justify-center items-center mb-12 sm:mb-24 m-auto w-full py-2 md:py-1  xsm:w-[10rem] lg:w-[12rem]">
           Start for free <HiOutlineArrowRight className="animatedIcon" />
         </button>
       </Link>

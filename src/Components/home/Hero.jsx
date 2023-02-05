@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="flex ss:flex-row flex-col text-[18px] md:text-[14px] lg:text-[16px] xl:text-[18px]">
             <Link
               to={"./sign-up"}
-              className="bg-blue xsm:hover:bg-white hover:text-black   flex items-center gap-2  justify-center py-2 md:py-1 w-full ss:w-[15rem] xsm:w-[10rem]"
+              className="bg-blue xsm:hover:bg-white hover:text-black   flex items-center gap-2  justify-center py-2 md:py-1 w-full ss:w-[15rem] xsm:w-[10rem] lg:w-[12rem]"
             >
               Start for free <HiOutlineArrowRight className="animatedIcon" />
             </Link>
@@ -34,7 +34,7 @@ const Hero = () => {
               spy={true}
               smooth={true}
               to="pricesection"
-              className="bg-white text-center text-black py-2 md:py-1  w-full ss:w-[15rem] xsm:w-[10rem] mt-3 ss:mt-0 ss:ml-3 cursor-pointer"
+              className="bg-white text-center text-black py-2 md:py-1  w-full ss:w-[15rem] xsm:w-[10rem] lg:w-[12rem] mt-3 ss:mt-0 ss:ml-3 cursor-pointer"
             >
               See Pricing
             </AnchorLink>
