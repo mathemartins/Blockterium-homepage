@@ -2,13 +2,13 @@ import React from "react";
 
 const TermsAndCondition = () => {
   return (
-    <div className="bg-darkestGrey w-full px-12 py-12">
+    <div className="  py-4 blackGradient w-full lg:py-[12rem] xsm:pb-[12rem] px-3 ss:px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem] ">
       <h2 className="text-center text-[20px] text-white font-bold mb-8">
         TERMS OF USE
       </h2>
       <div>
         <article>
-          <h2 className="text-[18px] text-white font-bold  bg-mainBlue  w-[20%] mb-1 text-center">
+          <h2 className="text-[18px] text-white font-bold  bg-mainBlue w-full sm:w-[30%] xsm:w-[20%] mb-1 sm:text-center pl-2 sm:pl-0">
             TERMS
           </h2>
 
@@ -31,7 +31,7 @@ const TermsAndCondition = () => {
         </article>
 
         <article className="my-6">
-          <h2 className="text-[18px] text-white font-bold  bg-mainBlue  w-[20%] mb-1 text-center">
+          <h2 className="text-[18px] text-white font-bold  bg-mainBlue w-full sm:w-[30%] xsm:w-[20%] mb-1 sm:text-center pl-2 sm:pl-0">
             USE OF LICENSE
           </h2>
 
@@ -56,7 +56,7 @@ const TermsAndCondition = () => {
         </article>
 
         <article className="my-6">
-          <h2 className="text-[18px] text-white font-bold  bg-mainBlue  w-[20%] mb-1 text-center">
+          <h2 className="text-[18px] text-white font-bold  bg-mainBlue w-full sm:w-[30%] xsm:w-[20%] mb-1 sm:text-center pl-2 sm:pl-0">
             NOTE:
           </h2>
 
@@ -71,7 +71,7 @@ const TermsAndCondition = () => {
         </article>
 
         <article className="my-6">
-          <h2 className="text-[18px] text-white font-bold  bg-mainBlue  w-[20%] mb-1 text-center">
+          <h2 className="text-[18px] text-white font-bold  bg-mainBlue w-full sm:w-[30%] xsm:w-[20%] mb-1 sm:text-center pl-2 sm:pl-0">
             DISCLAIMER
           </h2>
 
@@ -91,7 +91,7 @@ const TermsAndCondition = () => {
         </article>
 
         <article className="my-6">
-          <h2 className="text-[18px] text-white font-bold  bg-mainBlue  w-[20%] mb-1 text-center">
+          <h2 className="text-[18px] text-white font-bold  bg-mainBlue w-full sm:w-[30%] xsm:w-[20%] mb-1 sm:text-center pl-2 sm:pl-0">
             LIMITATIONS
           </h2>
 
@@ -109,7 +109,7 @@ const TermsAndCondition = () => {
         </article>
 
         <article className="my-6">
-          <h2 className="text-[18px] text-white font-bold  bg-mainBlue  w-[20%] mb-1 text-center">
+          <h2 className="text-[18px] text-white font-bold  bg-mainBlue w-full sm:w-[30%] xsm:w-[20%] mb-1 sm:text-center pl-2 sm:pl-0">
             ACCURACY OF MATERIALS
           </h2>
 
@@ -124,7 +124,7 @@ const TermsAndCondition = () => {
         </article>
 
         <article className="my-6">
-          <h2 className="text-[18px] text-white font-bold  bg-mainBlue  w-[20%] mb-1 text-center">
+          <h2 className="text-[18px] text-white font-bold  bg-mainBlue w-full sm:w-[30%] xsm:w-[20%] mb-1 sm:text-center pl-2 sm:pl-0">
             LINKS
           </h2>
 
@@ -138,7 +138,7 @@ const TermsAndCondition = () => {
         </article>
 
         <article className="my-6">
-          <h2 className="text-[18px] text-white font-bold  bg-mainBlue  w-[20%] mb-1 text-center">
+          <h2 className="text-[18px] text-white font-bold  bg-mainBlue w-full sm:w-[30%] xsm:w-[20%] mb-1 sm:text-center pl-2 sm:pl-0">
             MODIFICATIONS
           </h2>
 
@@ -151,7 +151,7 @@ const TermsAndCondition = () => {
         </article>
 
         <article className="my-6">
-          <h2 className="text-[18px] text-white font-bold  bg-mainBlue  w-[20%] mb-1 text-center">
+          <h2 className="text-[18px] text-white font-bold  bg-mainBlue w-full sm:w-[30%] xsm:w-[20%] mb-1 sm:text-center pl-2 sm:pl-0">
             GOVERNING LAW
           </h2>
 

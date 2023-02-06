@@ -10,6 +10,7 @@ import { Dropdown } from "primereact/dropdown";
 import axios from "../../../api/axios";
 import { Link } from "react-router-dom";
 import ReactLoading from "react-loading";
+import { MdNotInterested } from "react-icons/md";
 
 const SubscriptionIndex = () => {
   const GENERATE_API_URL = "/accounts/generate/api-key/";
@@ -39,10 +40,12 @@ const SubscriptionIndex = () => {
 
       const premiumUser = response?.data?.data?.is_premium;
       setIsLoading(false);
-
       setIsPremium(premiumUser);
     } catch (error) {
-      console.log(error);
+      // console.log(error.response.statusText);
+      setIsLoading(false);
+
+      // error.response.statusText === "Payment Required";
     }
   }
 
@@ -58,7 +61,7 @@ const SubscriptionIndex = () => {
 
       setBillingHistory(response.data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -89,7 +92,6 @@ const SubscriptionIndex = () => {
               className="absolute left-[50%] top-[50%]"
             />
           </div>
-          ;
         </div>
       </div>
     );
@@ -115,19 +117,27 @@ const SubscriptionIndex = () => {
                 <div
                   className={`text-sm text-mainWhite ${
                     isPremium ? `bg-mainGreen` : `bg-mainRed`
-                  }  flex items-center rounded-full px-4 py-1`}
+                  }   rounded-full px-4 py-1`}
                 >
-                  <img src={ConfirmIcon} className="mr-2" />
-                  {isPremium ? `Active` : `Not Active`}
+                  {isPremium ? (
+                    <div className="flex items-center">
+                      <img src={ConfirmIcon} className="mr-2" />
+                      <h2>Active</h2>
+                    </div>
+                  ) : (
+                    <div className="flex items-center">
+                      <MdNotInterested className="text-white font-bold mr-2" />
+                      <h2>Not Active</h2>
+                    </div>
+                  )}
                 </div>
               </div>
               <>
                 {isPremium && (
                   <div className="bg-mainWhite  my-5 border border-greySeven rounded-md  py-2  px-4 text-[14px]">
                     <div className=" py-1">
-                      <h2 className="font-semibold text-[16px]">Enterprise</h2>
+                      <h2 className="font-semibold text-[16px]">Premium</h2>
                       <h2 className="font-bold my-3 text-[16px]">
-                        5 days
                         {/* <span className="font-normal text-[14px]">/ month</span> */}
                       </h2>
                     </div>

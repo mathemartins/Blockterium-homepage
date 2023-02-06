@@ -3,6 +3,7 @@ import MobileTopBar from "../Containers/MobileTopBar";
 import SideBar from "../Containers/SideBar";
 import TopBar from "../Containers/TopBar";
 import DashboardLists from "./DashboardLists";
+import { Link } from "react-router-dom";
 
 const DashboardHome = () => {
   return (
@@ -19,9 +20,21 @@ const DashboardHome = () => {
       </div>
 
       <div className="text-center text-[14px] text-greyFour">
-        <p>© 2022 Blockterium Technology LLC</p>
+        <p>© 2023 Blockterium Technology LLC</p>
         <p className="text-mainBlue">
-          Terms of Use <span>Privacy Policy</span>
+          <Link
+            to={"/terms-conditions"}
+            className="cursor-pointer font-bold mr-1"
+          >
+            Terms of Use
+          </Link>
+
+          <Link
+            to={"/privacy-policy"}
+            className="cursor-pointer font-bold mr-1"
+          >
+            Privacy Policy
+          </Link>
         </p>
       </div>
     </div>

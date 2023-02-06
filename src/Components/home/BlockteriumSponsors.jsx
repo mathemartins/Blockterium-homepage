@@ -17,10 +17,11 @@ const BlockteriumSponsors = () => {
       </p>
 
       <div className="flex ss:flex-row flex-col mt-3 ss:gap-3 text-[20px] md:text-[14px] lg:text-[16px] xl:text-[18px] z-[2]">
-        <button className="bg-blue xsm:hover:bg-white hover:text-black  flex items-center gap-2  justify-center text-white w-[15rem] md:w-[10rem] py-2 md:py-1">
+        <button className="bg-blue xsm:hover:bg-white hover:text-black  flex items-center gap-2  justify-center text-white w-[15rem] md:w-[10rem] lg:w-[12rem] py-2 md:py-1">
           See case studies <HiOutlineArrowRight className="animatedIcon" />{" "}
         </button>
-        <button className="greyGradient text-white mt-4 ss:mt-0 py-2 md:py-1 w-[15rem] md:w-[10rem]">
+
+        <button className="greyGradient text-white mt-4 ss:mt-0 py-2 md:py-1 w-[15rem] md:w-[10rem] lg:w-[12rem]">
           Learn More
         </button>
       </div>

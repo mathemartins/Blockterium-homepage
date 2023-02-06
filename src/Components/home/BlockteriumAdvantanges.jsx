@@ -74,7 +74,7 @@ const BlockteriumAdvantages = () => {
 
       <Link
         to={"./sign-up"}
-        className="BlueGradient justify-center xsm:hover:bg-white my-6 text-white  items-center gap-1  sm:hidden flex py-2 md:py-1 w-full xsm:w-[10rem]"
+        className="BlueGradient justify-center xsm:hover:bg-white my-6 text-white  items-center gap-1  sm:hidden flex py-2 md:py-1 w-full xsm:w-[10rem] lg:w-[12rem]"
       >
         Start for free
         <HiOutlineArrowRight className="animatedIcon" />

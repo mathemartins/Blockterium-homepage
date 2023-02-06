@@ -27,7 +27,7 @@ const IntegrateWallet = () => {
               enterprises.
             </p>
             <Link to="/login">
-              <button className="bg-blue hover:bg-white hover:text-black  justify-center  mt-6 text-white flex items-center gap-1 mb-8 py-2 md:py-1 w-[15rem] xsm:w-[10rem]">
+              <button className="bg-blue hover:bg-white hover:text-black  justify-center  mt-6 text-white flex items-center gap-1 mb-8 py-2 md:py-1 w-[15rem] xsm:w-[10rem] lg:w-[12rem]">
                 Get Started
                 <HiOutlineArrowRight className="animatedIcon" />
               </button>
